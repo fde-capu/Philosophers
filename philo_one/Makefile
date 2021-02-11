@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/11 14:24:53 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/11 15:14:11 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ TIME_TO_EAT	=	3
 TIME_TO_NAP	=	4
 EAT_X_TIMES	=	5
 
-NAME		=	round_01_fight
+NAME		=	round_01_think
 CC			=	clang
 CCFLAGS		=	-Wall -Werror -Wextra -o0 -g
 SRCS		=	main.c argn.c ft_atoi.c ft_strtrim.c \
