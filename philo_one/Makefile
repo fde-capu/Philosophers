@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/11 15:14:11 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/11 16:19:12 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NUMB_PHILOS	=	1
 TIME_TO_DIE	=	2
 TIME_TO_EAT	=	3
 TIME_TO_NAP	=	4
-EAT_X_TIMES	=	5
+EAT_X_TIMES	=	-5
 
 NAME		=	round_01_think
 CC			=	clang
@@ -51,5 +51,5 @@ t:	re
 v:	re
 	$(VALGRIND) ./$(NAME) $(ARGS)
 
-vv:
+vv:	all
 	$(VALGRIND) ./$(NAME) $(ARGS)

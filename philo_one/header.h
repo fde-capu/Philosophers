@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/11 15:01:48 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/11 16:09:51 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "structs.h"
 # include <stdio.h>
 # include <stdlib.h>
+# include <pthread.h>
+# include <unistd.h>
 
 # define TRIM_SET	" \t\n\r\v\f"
 
@@ -31,5 +33,6 @@ int			ft_strchrinset(char *t, char const *sset);
 int			ft_chrsame(char a, char b);
 void		log_args(void);
 int			validate_args(void);
+void		quote(const char *qt, const char *nm);
 
 #endif

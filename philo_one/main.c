@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/11 15:12:10 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/11 17:17:14 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,34 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		printf("\n>>> Invelid arguments.\n>>> Think about it.\n\n");
+		printf("\n>>> Invalid arguments.\n");
+		quote("Not to know of what things one should demand demonstration, and of what one should not, argues of education.", "Aristotle");
 		return (-1);
 	}
+}
+
+void	quote(const char *qt, const char *nm)
+{
+	char	*h;
+	char	*s;
+
+	write(1, "\n \"\n    ", 8);
+	h = (char *)qt;
+	s = h;
+	while (*s)
+	{
+		h = s;
+		while (*s && s - h != 42)
+			s++;
+		while (*s && *s != ' ')
+			s++;
+		write(1, h, s - h + 1);
+		if (*s)
+			s++;
+		else
+			break ;
+			write(1, "\n    ", 5);
+	}
+	printf("                           \"\n");
+	printf("                                       - %s\n\n", nm);
 }
