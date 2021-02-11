@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/11 14:23:11 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/11 14:51:02 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	printf("\n"		":: Philosophers :: Philo One ::"	"\n"
+	printf("\n"		":: Philosophers :: Philo One ::"	"\n"	\
 					"::::: fde-capu ::::: 2102 :::::"	"\n\n");
 	g_argc = argc;
 	g_argv = argv;

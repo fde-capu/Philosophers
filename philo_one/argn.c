@@ -6,13 +6,13 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 12:45:10 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/11 14:24:59 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/11 14:49:39 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	argn(int arg)
+int		argn(int arg)
 {
 	return (ft_atoi(g_argv[arg]));
 }
