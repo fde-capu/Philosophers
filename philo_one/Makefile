@@ -6,9 +6,15 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/11 13:55:11 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/11 14:24:53 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+NUMB_PHILOS	=	1
+TIME_TO_DIE	=	2
+TIME_TO_EAT	=	3
+TIME_TO_NAP	=	4
+EAT_X_TIMES	=	5
 
 NAME		=	round_01_fight
 CC			=	clang
@@ -18,6 +24,8 @@ SRCS		=	main.c argn.c ft_atoi.c ft_strtrim.c \
 CCHEADS		=	header.h structs.h
 OBJS		=	$(SRCS:.c=.o)
 VALGRIND	=	valgrind --leak-check=full --show-leak-kinds=all
+ARGS		=	$(NUMB_PHILOS) $(TIME_TO_DIE) $(TIME_TO_EAT) $(TIME_TO_NAP) \
+	$(EAT_X_TIMES)
 
 name:	all
 
@@ -41,4 +49,7 @@ t:	re
 	-./$(NAME)
 
 v:	re
-	$(VALGRIND) ./$(NAME)
+	$(VALGRIND) ./$(NAME) $(ARGS)
+
+vv:
+	$(VALGRIND) ./$(NAME) $(ARGS)

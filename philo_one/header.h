@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/11 13:28:27 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/11 14:09:52 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int		ft_isdigit(int c);
 int		ft_chrinset(char r, char const *sset);
 int		ft_strchrinset(char *t, char const *sset);
 int		ft_chrsame(char a, char b);
+void	log_args(void);
 
 #endif
