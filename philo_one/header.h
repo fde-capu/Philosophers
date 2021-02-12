@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/11 16:09:51 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/11 18:11:25 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int			ft_chrsame(char a, char b);
 void		log_args(void);
 int			validate_args(void);
 void		quote(const char *qt, const char *nm);
+void		quotes(int qn);
 
 #endif

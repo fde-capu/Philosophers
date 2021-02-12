@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/11 16:19:12 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/11 18:08:44 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME		=	round_01_think
 CC			=	clang
 CCFLAGS		=	-Wall -Werror -Wextra -o0 -g
 SRCS		=	main.c argn.c ft_atoi.c ft_strtrim.c \
-	ft_isdigit.c ft_chrinset.c
+	ft_isdigit.c ft_chrinset.c quotes.c
 CCHEADS		=	header.h structs.h
 OBJS		=	$(SRCS:.c=.o)
 VALGRIND	=	valgrind --leak-check=full --show-leak-kinds=all
