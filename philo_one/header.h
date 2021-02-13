@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/13 17:54:12 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/13 18:15:56 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 # include <unistd.h>
 
 # define TRIM_SET	" \t\n\r\v\f"
+
+# define	DIE_COL "\x1B[031m"
+# define	EAT_COL "\x1B[032m"
+# define	NAP_COL "\x1B[036m"
+# define	NON_COL "\x1B[0m"
 
 int			argn(int arg);
 long long	ft_atoi(const char *str);
