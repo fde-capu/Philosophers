@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/11 18:11:25 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/13 17:54:12 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,17 @@ int			ft_chrinset(char r, char const *sset);
 int			ft_strchrinset(char *t, char const *sset);
 int			ft_chrsame(char a, char b);
 void		log_args(void);
-int			validate_args(void);
+int			validate_args(int argc, char **argv);
 void		quote(const char *qt, const char *nm);
 void		quotes(int qn);
+void		quotes_load_p1(int q);
+void		quotes_load_p2(int q);
+void		quotes_load_p3(int q);
+void		quotes_load_p4(int q);
+void		quotes_load_p5(int q);
+void		quotes_load_p6(int q);
+void		quotes_load_p7(int q);
+void		quotes_load_p8(int q);
+void		quotes_load_p9(int q);
 
 #endif

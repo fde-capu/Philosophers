@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 12:45:10 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/11 15:08:32 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/13 10:35:22 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,13 @@ void	log_args(void)
 	return ;
 }
 
-int		validate_args(void)
+int		validate_args(int argc, char **argv)
 {
 	int	a;
 
+	g_argc = argc;
+	g_argv = argv;
+	log_args();
 	a = 0;
 	while (++a && a <= 4)
 		if (argn(a) <= 0)
