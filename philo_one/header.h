@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/14 10:54:10 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/14 11:15:49 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <pthread.h>
 # include <unistd.h>
 # include <sys/time.h>
+# include <string.h>
 
 # define TRIM_SET	" \t\n\r\v\f"
 

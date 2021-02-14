@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/14 11:10:34 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/14 11:18:49 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	quote(const char *qt, const char *nm)
 	while (*s)
 	{
 		h = s;
-		while (*s && s - h != 42)
+		while (*s && s - h != 40)
 			s++;
 		while (*s && *s != ' ')
 			s++;
@@ -64,6 +64,8 @@ void	quote(const char *qt, const char *nm)
 	i = 51 - (s - h);
 	while (--i)
 		write(1, " ", 1);
-	write(1, "\"", 1);
-	printf("\n                                       - %s", nm);
+	write(1, "\"\n", 2);
+	while (i++ < 54 - (int)strlen(nm))
+		write(1, " ", 1);
+	printf("- %s", nm);
 }
