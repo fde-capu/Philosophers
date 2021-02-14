@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/13 12:37:38 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/13 23:56:14 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		main(int argc, char **argv)
 {
 	printf("\n"		"::: Philosophers :: Philo One :::"	"\n"	\
 					":::::: fde-capu ::::: 2102 ::::::"	"\n\n");
-	quotes(0);
+	quotes(20);
 	printf("\n\n");
 	if (validate_args(argc, argv))
 	{
@@ -34,8 +34,9 @@ void	quote(const char *qt, const char *nm)
 {
 	char	*h;
 	char	*s;
+	int		i;
 
-	write(1, "\n “\n\n      ", 11);
+	write(1, "\n \"     ", 7);
 	h = (char *)qt;
 	s = h;
 	while (*s)
@@ -45,13 +46,14 @@ void	quote(const char *qt, const char *nm)
 			s++;
 		while (*s && *s != ' ')
 			s++;
-		write(1, h, s - h + 1);
-		if (*s)
-			s++;
-		else
+		write(1, h, s - h);
+		if (!*s++)
 			break ;
 		write(1, "\n      ", 7);
 	}
-	printf("\n                                                           ”\n");
-	printf("\n                                           — %s\n\n", nm);
+	i = 50 - (s - h);
+	while (--i)
+		write(1, " ", 1);
+	write(1, "\"", 1);
+	printf("\n                                      - %s\n\n", nm);
 }
