@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/14 11:15:49 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/14 11:20:34 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ void		quotes_load_p7(int q);
 void		quotes_load_p8(int q);
 void		quotes_load_p9(int q);
 int			random_int(int min, int max);
+void		str_right(int len, const char *str);
 
 #endif
