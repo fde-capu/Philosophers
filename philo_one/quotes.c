@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 10:28:39 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/13 23:19:43 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/13 23:58:16 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ graces, sleep.", "Aldous Huxley");
 		quote("Sleep is the best meditation.", "Dalai Lama");
 	if (q == 17)
 		quote("Think in the morning. Act in the noon. Eat in the evening. \
-		Sleep in the night.", "William Blake");
+Sleep in the night.", "William Blake");
 	if (q == 18)
 		quote("Never memorize something that you can look up.", "Albert \
 Einstein");
