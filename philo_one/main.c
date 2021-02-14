@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/14 11:06:13 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/14 11:10:34 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,5 @@ void	quote(const char *qt, const char *nm)
 	while (--i)
 		write(1, " ", 1);
 	write(1, "\"", 1);
-	printf("\n                                       - %s\n\n", nm);
+	printf("\n                                       - %s", nm);
 }
