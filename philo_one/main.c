@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/13 23:59:33 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/14 11:06:13 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		main(int argc, char **argv)
 {
 	printf("\n"		"::: Philosophers :: Philo One :::"	"\n"	\
 					":::::: fde-capu ::::: 2102 ::::::"	"\n\n");
-	quotes(20);
+	quotes(random_int(0, 51));
 	printf("\n\n");
 	if (validate_args(argc, argv))
 	{
@@ -28,6 +28,16 @@ int		main(int argc, char **argv)
 		quotes(1);
 		return (-1);
 	}
+}
+
+int		random_int(int min, int max)
+{
+	long			r;
+	struct timeval	current_time;
+
+	r = gettimeofday(&current_time, 0);
+	r = (current_time.tv_usec % (max - min + 1)) + min;
+	return (r);
 }
 
 void	quote(const char *qt, const char *nm)

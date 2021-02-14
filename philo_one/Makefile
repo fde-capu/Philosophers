@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/13 17:55:30 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/14 11:07:44 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,11 +44,12 @@ clean:
 
 re:		fclean all
 
-t:	re
+t:	all
 	-./$(NAME) $(ARGS)
 
-vv:	re
-	$(VALGRIND) ./$(NAME) $(ARGS)
+tt:	re t
+
+vv:	re v
 
 v:	all
 	$(VALGRIND) ./$(NAME) $(ARGS)

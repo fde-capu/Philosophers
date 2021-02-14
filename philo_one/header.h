@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/13 22:55:26 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/14 10:54:10 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <pthread.h>
 # include <unistd.h>
+# include <sys/time.h>
 
 # define TRIM_SET	" \t\n\r\v\f"
 
@@ -49,5 +50,6 @@ void		quotes_load_p6(int q);
 void		quotes_load_p7(int q);
 void		quotes_load_p8(int q);
 void		quotes_load_p9(int q);
+int			random_int(int min, int max);
 
 #endif
