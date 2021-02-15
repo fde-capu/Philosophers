@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 10:28:39 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/13 23:58:16 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/15 11:11:06 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,13 @@ void		quotes(int q)
 void		quotes_load_p1(int q)
 {
 	if (q == 0)
-		quote("Zero", "zero");
+		quote("It is the obvious which is so difficult to see most of the \
+time. People say 'It's as plain as the nose on your face.' But how \
+much of the nose on your face can you see, unless someone holds a \
+mirror up to you?", "Isaac Asimov");
 	if (q == 1)
-		quote("One", "one");
+		quote("Not to know of what things one should demand demonstration, \
+and of what one should not, argues of education.", "Aristotle");
 	if (q == 2)
 		quote("I do not think there is any thrill that can go through the \
 human heart like that felt by the inventor as he sees some \
