@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/16 10:52:18 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/16 12:44:46 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ EAT_X_TIMES	=	5
 NAME		=	round_01_think
 CC			=	clang
 CCFLAGS		=	-Wall -Werror -Wextra -o0 -g
+EXEFLAGS	=	-pthread
 SRCS		=	main.c argn.c ft_atoi.c ft_strtrim.c \
 	ft_isdigit.c ft_chrinset.c quotes.c quotes2.c \
 	helpers1.c philo.c philo2.c game.c
@@ -31,7 +32,7 @@ ARGS		=	$(NUMB_PHILOS) $(TIME_TO_DIE) $(TIME_TO_EAT) \
 name:	all
 
 all:	$(NAME)
-	$(CC) $(CCFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CCFLAGS) $(EXEFLAGS) $(OBJS) -o $(NAME)
 
 $(NAME):	$(OBJS)
 

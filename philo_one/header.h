@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 11:00:39 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 12:46:18 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,7 @@ void		philo_destroy(t_philo *p);
 const char	*fork_string(int *fork);
 void		game_start(void);
 void		game_intro(void);
+void		game_outro(void);
+void		*round_play(void *arg);
 
 #endif
