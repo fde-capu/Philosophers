@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 09:11:10 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 10:54:58 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ int		main(int argc, char **argv)
 	if (validate_args(argc, argv))
 	{
 		philo_init_all();
+		printf("Initial state:\n");
 		philo_log_all();
+		game_start();
 		philo_destroy_all(g_philo_one);
 		NL
 		return (0);
