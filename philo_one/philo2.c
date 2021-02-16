@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:24:30 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 10:25:45 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 10:32:31 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,22 @@ void	philo_link_r(void)
 	t_philo	*p;
 
 	g_philo_one->r = get_philo(g_philo_limit);
+	g_philo_one->fork_r = g_philo_one->r->fork_l;
 	p = g_philo_one->l;
 	while (1)
 	{
 		p->r = get_philo(p->id - 1);
+		p->fork_r = p->r->fork_l;
 		p = p->l;
 		if (p->id == 1)
 			break ;
 	}
+	return ;
+}
+
+void	philo_destroy(t_philo *p)
+{
+	free(p->fork_l);
+	free(p);
 	return ;
 }

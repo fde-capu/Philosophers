@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 10:18:17 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 10:28:42 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ void		philo_log_all(void);
 const char	*state_string(int state_code);
 t_philo		*get_philo(int id);
 void		philo_link_r(void);
+void		philo_destroy(t_philo *p);
 
 #endif
