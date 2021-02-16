@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 10:28:42 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 10:46:34 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@
 # define NON_COL "\x1B[0m"
 
 # define NL	printf("\n");
+
+# define STATE_NAP	0
+# define STATE_DIE	1
+# define STATE_EAT	2
+# define ON_TABLE	1
+# define ON_HAND	0
 
 int			argn(int arg);
 long long	ft_atoi(const char *str);
@@ -65,5 +71,6 @@ const char	*state_string(int state_code);
 t_philo		*get_philo(int id);
 void		philo_link_r(void);
 void		philo_destroy(t_philo *p);
+const char	*fork_string(int *fork);
 
 #endif

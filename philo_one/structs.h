@@ -6,16 +6,12 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 12:46:44 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 10:15:47 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 10:41:48 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
-
-# define STATE_NAP	0
-# define STATE_DIE	1
-# define STATE_EAT	2
 
 typedef struct		s_philo
 {

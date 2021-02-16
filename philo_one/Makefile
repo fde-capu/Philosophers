@@ -6,11 +6,11 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/16 10:34:48 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/16 10:40:27 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NUMB_PHILOS	=	7
+NUMB_PHILOS	=	5
 TIME_TO_DIE	=	2
 TIME_TO_EAT	=	3
 TIME_TO_NAP	=	4
