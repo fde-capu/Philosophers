@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 12:45:10 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/13 18:15:32 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 09:08:48 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@ void	log_args(void)
 	printf("Time to " DIE_COL "die" NON_COL ":\t\t\t%d\n", argn(2));
 	printf("Time to " EAT_COL "eat" NON_COL ":\t\t\t%d\n", argn(3));
 	printf("Time to " NAP_COL "nap" NON_COL ":\t\t\t%d\n", argn(4));
-	printf("\n");
+	NL
 	printf("Game ends when ");
 	if (argn(5))
 		printf("every philosopher has eaten %d times.\n", argn(5));
 	else
 		printf("a philoshper starves to death. x_x\n");
+	NL
 	return ;
 }
 
@@ -45,5 +46,10 @@ int		validate_args(int argc, char **argv)
 			return (0);
 	if (argn(a) < 0)
 		return (0);
+	g_philo_last = argn(1);
+	g_time_to_die = argn(2);
+	g_time_to_eat = argn(3);
+	g_time_to_nap = argn(4);
+	g_end_game = argn(5);
 	return (1);
 }

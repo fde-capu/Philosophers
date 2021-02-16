@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/14 11:22:36 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 09:11:10 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ int		main(int argc, char **argv)
 	printf("\n\n");
 	if (validate_args(argc, argv))
 	{
+		philo_init_all();
+		philo_log_all();
+		philo_destroy_all(g_philo_one);
+		NL
 		return (0);
 	}
 	else
@@ -66,15 +70,4 @@ void	quote(const char *qt, const char *nm)
 		write(1, " ", 1);
 	write(1, "\"\n", 2);
 	str_right(55, nm);
-}
-
-void	str_right(int len, const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (i++ < len - (int)strlen(str))
-		write(1, " ", 1);
-	printf("%s", str);
-	return ;
 }

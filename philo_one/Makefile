@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/14 11:07:44 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/16 08:58:44 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,13 @@ NAME		=	round_01_think
 CC			=	clang
 CCFLAGS		=	-Wall -Werror -Wextra -o0 -g
 SRCS		=	main.c argn.c ft_atoi.c ft_strtrim.c \
-	ft_isdigit.c ft_chrinset.c quotes.c quotes2.c
+	ft_isdigit.c ft_chrinset.c quotes.c quotes2.c \
+	helpers1.c philo.c
 CCHEADS		=	header.h structs.h
 OBJS		=	$(SRCS:.c=.o)
 VALGRIND	=	valgrind --leak-check=full --show-leak-kinds=all
-ARGS		=	$(NUMB_PHILOS) $(TIME_TO_DIE) $(TIME_TO_EAT) $(TIME_TO_NAP) $(EAT_X_TIMES)
+ARGS		=	$(NUMB_PHILOS) $(TIME_TO_DIE) $(TIME_TO_EAT) \
+				$(TIME_TO_NAP) $(EAT_X_TIMES)
 
 name:	all
 

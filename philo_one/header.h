@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/14 11:20:34 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 09:09:15 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 # define EAT_COL "\x1B[032m"
 # define NAP_COL "\x1B[036m"
 # define NON_COL "\x1B[0m"
+
+# define NL	printf("\n");
 
 int			argn(int arg);
 long long	ft_atoi(const char *str);
@@ -53,5 +55,13 @@ void		quotes_load_p8(int q);
 void		quotes_load_p9(int q);
 int			random_int(int min, int max);
 void		str_right(int len, const char *str);
+void		nxt_state(t_philo *p);
+void		philo_destroy_all(t_philo *p);
+void		philo_init_all(void);
+t_philo		*philo_init_chain(int id);
+void		philo_log(int id);
+void		philo_log_all(void);
+const char	*state_string(int state_code);
+t_philo		*get_philo(int id);
 
 #endif
