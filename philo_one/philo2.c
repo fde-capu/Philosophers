@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:24:30 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 10:32:31 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 10:33:34 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,10 @@ void	philo_init_all(void)
 t_philo	*get_philo(int id)
 {
 	t_philo	*p;
-	int		deb = 1;
 
 	p = g_philo_one;
 	while (p->id < id)
-	{
 		p = p->l;
-		if (deb++ > 6)
-			return (p);
-	}
 	return (p);
 }
 
