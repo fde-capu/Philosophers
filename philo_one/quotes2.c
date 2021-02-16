@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 23:02:13 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/13 23:21:44 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 14:40:29 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,8 @@ it's frightful - if I exist, it is because I am horrified at existing. \
 I am the one who pulls myself from the nothingness to which I \
 aspire.", "Jean-Paul Sartre");
 	if (q == 43)
-		quote("Like all dreamers I confuse disenchantment with truth.", "Jean \
-Paul Sarte");
+		quote("Like all dreamers I confuse disenchantment with truth.", "Jean-\
+Paul Sartre");
 	if (q == 44)
 		quote("I am going to outlive myself. Eat, sleep, sleep, eat. Exist \
 slowly, softly, like these trees, like a puddle of water, like the red \

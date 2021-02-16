@@ -6,14 +6,14 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/16 12:44:46 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/16 14:58:05 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NUMB_PHILOS	=	5
-TIME_TO_DIE	=	2
-TIME_TO_EAT	=	3
-TIME_TO_NAP	=	4
+TIME_TO_DIE	=	200
+TIME_TO_EAT	=	350
+TIME_TO_NAP	=	500
 EAT_X_TIMES	=	5
 
 NAME		=	round_01_think
@@ -22,7 +22,7 @@ CCFLAGS		=	-Wall -Werror -Wextra -o0 -g
 EXEFLAGS	=	-pthread
 SRCS		=	main.c argn.c ft_atoi.c ft_strtrim.c \
 	ft_isdigit.c ft_chrinset.c quotes.c quotes2.c \
-	helpers1.c philo.c philo2.c game.c
+	helpers1.c philo.c philo2.c game.c action.c
 CCHEADS		=	header.h structs.h
 OBJS		=	$(SRCS:.c=.o)
 VALGRIND	=	valgrind --leak-check=full --show-leak-kinds=all

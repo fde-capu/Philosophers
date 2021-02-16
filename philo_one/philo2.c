@@ -6,11 +6,23 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:24:30 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 10:33:34 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 16:27:03 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+t_philo	*philo_init(int id)
+{
+	t_philo	*p;
+	
+	p = calloc(1, sizeof(t_philo));
+	p->id = id;
+	p->state = STATE_OUT;
+	p->fork_l = malloc(sizeof(int));
+	*p->fork_l = ON_TABLE;
+	return (p);
+}
 
 void	philo_init_all(void)
 {
@@ -47,9 +59,14 @@ void	philo_link_r(void)
 	return ;
 }
 
-void	philo_destroy(t_philo *p)
-{
-	free(p->fork_l);
-	free(p);
+void	philo_print_age(t_philo *p)
+ {
+	struct timeval	now;
+
+	if (gettimeofday(&now, NULL))
+		exit (-1);
+	printf("%010d", \
+		micro_to_mili((now.tv_sec * 1000000 + now.tv_usec) - \
+		(p->timestamp.tv_sec * 1000000 + p->timestamp.tv_usec)));
 	return ;
-}
+ }

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 10:54:58 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 16:18:25 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int		main(int argc, char **argv)
 		philo_init_all();
 		printf("Initial state:\n");
 		philo_log_all();
+		g_a_m_e_o_v_e_r = 0;
 		game_start();
 		philo_destroy_all(g_philo_one);
 		NL
@@ -41,7 +42,8 @@ int		random_int(int min, int max)
 	long			r;
 	struct timeval	current_time;
 
-	r = gettimeofday(&current_time, 0);
+	if (gettimeofday(&current_time, 0))
+		exit (-1);
 	r = (current_time.tv_usec % (max - min + 1)) + min;
 	return (r);
 }
