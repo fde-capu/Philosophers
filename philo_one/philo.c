@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 07:39:53 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 09:08:08 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 10:04:18 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,9 @@ t_philo	*philo_init_chain(int id)
 {
 	t_philo	*p;
 
+	p = philo_init(id);
 	if (id == 1)
-		p = get_philo(id);
-	else
-		p = philo_init(id);
+		g_philo_one = p;
 	if (id == g_philo_last)
 	{
 		p->l = g_philo_one;
@@ -54,8 +53,7 @@ t_philo	*philo_init_chain(int id)
 
 void	philo_init_all(void)
 {
-	g_philo_one = philo_init(1);
-	g_philo_one->l = philo_init_chain(1);
+	philo_init_chain(1);
 	return ;
 }
 
@@ -79,10 +77,15 @@ void	philo_log(int id)
 t_philo	*get_philo(int id)
 {
 	t_philo	*p;
+	int		deb = 1;
 
 	p = g_philo_one;
 	while (p->id < id)
+	{
 		p = p->l;
+		if (deb++ > 6)
+			return (p);
+	}
 	return (p);
 }
 
