@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 07:39:53 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 10:04:18 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 10:23:08 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_philo	*philo_init_chain(int id)
 	p = philo_init(id);
 	if (id == 1)
 		g_philo_one = p;
-	if (id == g_philo_last)
+	if (id == g_philo_limit)
 	{
 		p->l = g_philo_one;
 		return (p);
@@ -54,6 +54,7 @@ t_philo	*philo_init_chain(int id)
 void	philo_init_all(void)
 {
 	philo_init_chain(1);
+	philo_link_r();
 	return ;
 }
 
@@ -62,7 +63,7 @@ void	philo_log_all(void)
 	int	id;
 
 	id = 0;
-	while (++id <= g_philo_last)
+	while (++id <= g_philo_limit)
 		philo_log(id);
 	return ;
 }
@@ -89,3 +90,18 @@ t_philo	*get_philo(int id)
 	return (p);
 }
 
+void	philo_link_r(void)
+{
+	t_philo	*p;
+
+	g_philo_one->r = get_philo(g_philo_limit);
+	p = g_philo_one->l;
+	while (1)
+	{
+		p->r = get_philo(p->id - 1);
+		p = p->l;
+		if (p->id == 1)
+			break ;
+	}
+	return ;
+}

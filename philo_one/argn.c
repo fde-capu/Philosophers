@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 12:45:10 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 09:08:48 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 10:15:50 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		validate_args(int argc, char **argv)
 			return (0);
 	if (argn(a) < 0)
 		return (0);
-	g_philo_last = argn(1);
+	g_philo_limit = argn(1);
 	g_time_to_die = argn(2);
 	g_time_to_eat = argn(3);
 	g_time_to_nap = argn(4);

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 12:46:44 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 10:11:04 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 10:15:47 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct		s_philo
 
 int					g_argc;
 char				**g_argv;
-int					g_philo_last;
+int					g_philo_limit;
 int					g_time_to_die;
 int					g_time_to_eat;
 int					g_time_to_nap;
