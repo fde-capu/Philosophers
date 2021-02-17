@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:24:30 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 16:27:03 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 17:22:49 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,12 @@ void	philo_print_age(t_philo *p)
 
 	if (gettimeofday(&now, NULL))
 		exit (-1);
-	printf("%010d", \
-		micro_to_mili((now.tv_sec * 1000000 + now.tv_usec) - \
-		(p->timestamp.tv_sec * 1000000 + p->timestamp.tv_usec)));
+	printf("%010d", ms_age(p->timestamp));
 	return ;
  }
+
+ unsigned int	philo_age_last_change(t_philo *p)
+ {
+	return (ms_age(p->last_change));
+ }
+

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:51:45 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 15:56:07 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 17:28:59 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,21 @@
 
 void	philosopher_turn(t_philo *p)
 {
-	if (p->state == STATE_EAT)
-		action_eat(p);
-	if (p->state == STATE_NAP)
-		action_nap(p);
-	if (p->state == STATE_THINK)
-		action_think(p);
-	nxt_state(p);
-	philo_log_direct(p);
+	if (nxt_state(p)) {
+		if (gettimeofday(&p->last_change, 0))
+			exit (-1);
+		if (p->state == STATE_EAT)
+			action_eat(p);
+		if (p->state == STATE_NAP)
+			action_nap(p);
+		if (p->state == STATE_THINK)
+			action_think(p);
+		philo_log_direct(p);
+	}
 	return ;
 }
 
-void	*round_play(void *arg)
+void	*init_play(void *arg)
 {
 	t_philo	*p;
 
@@ -50,16 +53,16 @@ int deb = 4;
 		id = 0;
 		while (++id <= g_philo_limit)
 		{
-			if(pthread_create(&(tid[id]), NULL, \
-				&round_play, get_philo(id)) != 0)
+			if (pthread_create(&(tid[id]), NULL, \
+				&init_play, get_philo(id)) != 0)
 				exit(-1);
-		}
-		id = 0;
-		while (++id <= g_philo_limit)
-		{
 			pthread_join(tid[id], NULL);
 		}
-		if (!--deb) {g_a_m_e_o_v_e_r = 1;}
+//		id = 0;
+//		while (++id <= g_philo_limit)
+//		{
+//		}
+if (!--deb) {g_a_m_e_o_v_e_r = 1;}
 	}
 	pthread_mutex_destroy(&g_lock);
 	game_outro();

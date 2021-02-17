@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 16:26:37 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 17:22:06 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define STATE_EAT		2
 # define ON_TABLE		1
 # define ON_HAND		0
+# define TICK_MS		3
 
 int				argn(int arg);
 long long		ft_atoi(const char *str);
@@ -64,7 +65,7 @@ void			quotes_load_p8(int q);
 void			quotes_load_p9(int q);
 int				random_int(int min, int max);
 void			str_right(int len, const char *str);
-void			nxt_state(t_philo *p);
+int				nxt_state(t_philo *p);
 void			philo_destroy_all(t_philo *p);
 void			philo_init_all(void);
 t_philo			*philo_init_chain(int id);
@@ -79,7 +80,7 @@ const char		*fork_string(int *fork);
 void			game_start(void);
 void			game_intro(void);
 void			game_outro(void);
-void			*round_play(void *arg);
+void			*init_play(void *arg);
 t_philo			*philo_init(int id);
 unsigned int	mili_to_micro(unsigned long mili);
 void			philosopher_turn(t_philo *p);
@@ -88,5 +89,9 @@ void			action_think(t_philo *p);
 void			action_nap(t_philo *p);
 void			philo_print_age(t_philo *p);
 unsigned int	micro_to_mili(long int micro);
+int				raise_forks(t_philo *p);
+int				lower_forks(t_philo *p);
+unsigned int	philo_age_last_change(t_philo *p);
+unsigned int	ms_age(struct timeval cron);
 
 #endif

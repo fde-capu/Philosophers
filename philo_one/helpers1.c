@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 07:34:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 16:26:23 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/16 17:22:30 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,32 +21,6 @@ void	str_right(int len, const char *str)
 		write(1, " ", 1);
 	printf("%s", str);
 	return ;
-}
-
-void	nxt_state(t_philo *p)
-{
-	if (p->state == STATE_THINK)
-	{
-		p->state = STATE_EAT;
-		return ;
-	}
-	if (p->state == STATE_EAT)
-	{
-		p->state = STATE_NAP;
-		return ;
-	}
-	if (p->state == STATE_NAP)
-	{
-		p->state = STATE_THINK;
-		return ;
-	}
-	if (p->state == STATE_OUT)
-	{
-		p->state = STATE_THINK;
-		if (gettimeofday(&p->timestamp, 0))
-			exit (-1);
-		return ;
-	}
 }
 
 const char	*state_string(int state_code)
@@ -77,4 +51,14 @@ unsigned int	mili_to_micro(unsigned long mili)
 unsigned int	micro_to_mili(long int micro)
 {
 	return (micro / 1000);
+}
+
+unsigned int	ms_age(struct timeval cron)
+{
+	struct timeval	now;
+
+	if (gettimeofday(&now, NULL))
+		exit (-1);
+	return(micro_to_mili((now.tv_sec * 1000000 + now.tv_usec) - \
+		(cron.tv_sec * 1000000 + cron.tv_usec)));
 }
