@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:51:45 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/18 09:48:05 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/18 16:43:02 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,26 @@ void	*init_play(void *arg)
 {
 	t_philo	*p;
 
-//	pthread_mutex_lock(&g_lock);
-	p = (t_philo *)arg;
-	while (1) {
-		nxt_state(p);
+	while (!g_a_m_e_o_v_e_r) {
+		pthread_mutex_lock(&g_lock);
+		p = (t_philo *)arg;
 		if (p->state == STATE_EAT)
 			action_eat(p);
 		if (p->state == STATE_NAP)
 			action_nap(p);
 		if (p->state == STATE_THINK)
 			action_think(p);
-		philo_log_direct(p);
-		usleep(TICK_MICRO_S);
 		if (am_i_dead(p))
-			return (NULL);
+			g_a_m_e_o_v_e_r = 1;
+		pthread_mutex_unlock(&g_lock);
+		usleep(TICK_MICRO_S);
 	}
-//	pthread_mutex_unlock(&g_lock);
-	return (NULL);
+	return (0);
 }
 
 int		am_i_dead(t_philo *p)
 {
-	if (ms_age(p->last_meal) > g_time_to_eat)
+	if (ms_age(p->last_meal) > g_time_to_die)
 	{
 		change_state(p, STATE_DEAD);
 		return (1);
@@ -45,25 +43,48 @@ int		am_i_dead(t_philo *p)
 	return (0);
 }
 
+void	take_seat_all(void)
+{
+	int			id;
+	t_philo		*p;
+
+	id = 0;
+	while (++id <= g_philo_limit)
+	{
+		p = get_philo(id);
+		philo_take_seat(p);
+	}
+	return ;
+}
+
 void	game_start(void)
 {
-	int				id;
-	pthread_t		tid[g_philo_limit + 1];
+	int			id;
+	pthread_t	tid[g_philo_limit + 1];
+	t_philo		*p;
 
 	game_intro();
-//	if (pthread_mutex_init(&g_lock, NULL) != 0)
-//		exit(-1);
-	id = 1; // 0
-//	while (++id <= g_philo_limit)
-//	{
-		if (pthread_create(&(tid[id]), NULL, \
-			&init_play, get_philo(id)) != 0)
+	take_seat_all();
+	if (pthread_mutex_init(&g_lock, 0) != 0)
+		exit(-1);
+	id = 0;
+	while (++id <= g_philo_limit)
+	{
+		p = get_philo(id);
+		if (pthread_create(&(tid[id]), 0, \
+			&init_play, p) != 0)
 			exit(-1);
-		pthread_join(tid[id], NULL);
-//	}
-//	pthread_mutex_destroy(&g_lock);
+	}
+	while (!g_a_m_e_o_v_e_r)
+		usleep(TICK_MICRO_S);
+	id = 0;
+	while (++id <= g_philo_limit)
+	{
+		pthread_join(tid[id], 0);
+	}
+	pthread_mutex_destroy(&g_lock);
 	printf("\nResult:\n");
-	philo_log(id);
+	philo_log_all();
 	game_outro();
 	return ;
 }

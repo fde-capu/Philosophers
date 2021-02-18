@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 07:39:53 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 16:23:33 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/18 16:33:23 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	philo_log_direct(t_philo *p)
 	philo_print_age(p);
 	printf("\t%d\t", p->id);
 	printf("%s\t", state_string(p->state));
-	printf("fork: ( %s | %s )\n", fork_string(p->fork_l), fork_string(p->fork_r));
+	printf("forks: ( %s | %s )\n", fork_string(p->fork_l, p), fork_string(p->fork_r, p));
 	return ;
 }
 

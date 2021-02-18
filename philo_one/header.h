@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/18 10:50:54 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/18 16:40:23 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,10 @@
 # define STATE_NAP		0
 # define STATE_THINK	1
 # define STATE_EAT		2
+
 # define ON_TABLE		1
 # define ON_HAND		0
-# define TICK_MICRO_S	3000
+# define TICK_MICRO_S	500
 
 int				argn(int arg);
 long long		ft_atoi(const char *str);
@@ -68,7 +69,7 @@ void			quotes_load_p8(int q);
 void			quotes_load_p9(int q);
 int				random_int(int min, int max);
 void			str_right(int len, const char *str);
-int				nxt_state(t_philo *p);
+int				philo_take_seat(t_philo *p);
 void			philo_destroy_all(t_philo *p);
 void			philo_init_all(void);
 t_philo			*philo_init_chain(int id);
@@ -79,7 +80,7 @@ const char		*state_string(int state_code);
 t_philo			*get_philo(int id);
 void			philo_link_r(void);
 void			philo_destroy(t_philo *p);
-const char		*fork_string(int *fork);
+const char		*fork_string(int *fork, t_philo *p);
 void			game_start(void);
 void			game_intro(void);
 void			game_outro(void);
@@ -102,6 +103,5 @@ void			change_state(t_philo *p, int state);
 int				forks_available(t_philo *p);
 int				am_i_dead(t_philo *p);
 int				strategy_one_should_i_think_further(t_philo *p);
-
 
 #endif

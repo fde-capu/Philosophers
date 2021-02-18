@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 14:57:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/18 10:46:14 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/18 16:25:51 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	action_eat(t_philo *p)
 {
 	if (!enough_eat(p))
 		return ;
+	p->meals++;
 	lower_forks(p);
 	change_state(p, STATE_NAP);
 	action_nap(p);

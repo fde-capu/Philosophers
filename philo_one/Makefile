@@ -6,15 +6,15 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/18 09:27:31 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/18 16:26:07 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NUMB_PHILOS	=	5
-TIME_TO_DIE	=	200
-TIME_TO_EAT	=	350
+NUMB_PHILOS	=	3
+TIME_TO_DIE	=	910
+TIME_TO_EAT	=	400
 TIME_TO_NAP	=	500
-EAT_X_TIMES	=	5
+EAT_X_TIMES	=	0
 
 NAME		=	round_01_think
 CC			=	clang
@@ -26,7 +26,8 @@ SRCS		=	main.c argn.c ft_atoi.c ft_strtrim.c \
 	strategy.c forks.c
 CCHEADS		=	header.h structs.h
 OBJS		=	$(SRCS:.c=.o)
-VALGRIND	=	valgrind --leak-check=full --show-leak-kinds=all
+VALGRIND	=	valgrind --leak-check=full --show-leak-kinds=all \
+				--track-origins=yes
 ARGS		=	$(NUMB_PHILOS) $(TIME_TO_DIE) $(TIME_TO_EAT) \
 				$(TIME_TO_NAP) $(EAT_X_TIMES)
 

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 12:46:44 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/18 10:41:52 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/18 16:25:09 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct		s_philo
 	struct timeval	last_meal;
 	int				*fork_l;
 	int				*fork_r;
+	int				meals;
 	struct s_philo	*l;
 	struct s_philo	*r;
 }					t_philo;
