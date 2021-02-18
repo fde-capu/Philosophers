@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 17:22:06 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/18 10:50:54 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 
 # include "structs.h"
 
+# define STRATEGY	strategy_one_should_i_think_further(p)
+
 # define TRIM_SET	" \t\n\r\v\f"
 
 # define DIE_COL "\x1B[031m"
@@ -32,13 +34,14 @@
 
 # define NL	printf("\n");
 
+# define STATE_DEAD		-2
 # define STATE_OUT		-1
 # define STATE_NAP		0
 # define STATE_THINK	1
 # define STATE_EAT		2
 # define ON_TABLE		1
 # define ON_HAND		0
-# define TICK_MS		3
+# define TICK_MICRO_S	3000
 
 int				argn(int arg);
 long long		ft_atoi(const char *str);
@@ -83,15 +86,22 @@ void			game_outro(void);
 void			*init_play(void *arg);
 t_philo			*philo_init(int id);
 unsigned int	mili_to_micro(unsigned long mili);
-void			philosopher_turn(t_philo *p);
 void			action_eat(t_philo *p);
 void			action_think(t_philo *p);
 void			action_nap(t_philo *p);
 void			philo_print_age(t_philo *p);
 unsigned int	micro_to_mili(long int micro);
-int				raise_forks(t_philo *p);
-int				lower_forks(t_philo *p);
+void			raise_forks(t_philo *p);
+void			lower_forks(t_philo *p);
 unsigned int	philo_age_last_change(t_philo *p);
 unsigned int	ms_age(struct timeval cron);
+int				enough_nap(t_philo *p);
+int				enough_eat(t_philo *p);
+int				strategy_one_should_i_think_further(t_philo *p);
+void			change_state(t_philo *p, int state);
+int				forks_available(t_philo *p);
+int				am_i_dead(t_philo *p);
+int				strategy_one_should_i_think_further(t_philo *p);
+
 
 #endif

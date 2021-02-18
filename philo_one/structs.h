@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 12:46:44 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 17:23:33 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/18 10:41:52 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ typedef struct		s_philo
 {
 	int				id;
 	int				state;
-	struct timeval	timestamp;
+	struct timeval	birth;
 	struct timeval	last_change;
+	struct timeval	last_meal;
 	int				*fork_l;
 	int				*fork_r;
 	struct s_philo	*l;

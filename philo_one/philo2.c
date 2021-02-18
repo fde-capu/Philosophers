@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:24:30 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 17:22:49 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/17 09:07:47 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	philo_print_age(t_philo *p)
 
 	if (gettimeofday(&now, NULL))
 		exit (-1);
-	printf("%010d", ms_age(p->timestamp));
+	printf("%010d", ms_age(p->birth));
 	return ;
  }
 

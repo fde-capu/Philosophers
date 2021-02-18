@@ -1,41 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   action.c                                           :+:      :+:    :+:   */
+/*   strategy.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/16 14:57:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/18 10:46:14 by fde-capu         ###   ########.fr       */
+/*   Created: 2021/02/17 09:11:46 by fde-capu          #+#    #+#             */
+/*   Updated: 2021/02/18 09:29:20 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	action_think(t_philo *p)
+int	strategy_one_should_i_think_further(t_philo *p)
 {
-	if (STRATEGY)
-		return ;
-	raise_forks(p);
-	change_state(p, STATE_EAT);
-	action_eat(p);
-	return ;
-}
-
-void	action_eat(t_philo *p)
-{
-	if (!enough_eat(p))
-		return ;
-	lower_forks(p);
-	change_state(p, STATE_NAP);
-	action_nap(p);
-	return ;
-}
-
-void	action_nap(t_philo *p)
-{
-	if (!enough_nap(p))
-		return ;
-	change_state(p, STATE_THINK);
-	return ;
+	if (forks_available(p))
+		return (0);
+	return (1);
 }
