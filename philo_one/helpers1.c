@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 07:34:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/18 16:35:20 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/18 16:48:56 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ const char	*state_string(int state_code)
 		return (OUT_COL "out     " NON_COL);
 	if (state_code == STATE_DEAD)
 		return (OUT_COL "dead!   " NON_COL);
+	if (state_code == STATE_STUFFED)
+		return (OUT_COL "stuffed!" NON_COL);
 	return (0);
 }
 

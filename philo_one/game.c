@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:51:45 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/18 16:43:02 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/18 16:55:15 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	*init_play(void *arg)
 			action_nap(p);
 		if (p->state == STATE_THINK)
 			action_think(p);
-		if (am_i_dead(p))
+		if (!g_end_game && am_i_dead(p))
 			g_a_m_e_o_v_e_r = 1;
 		pthread_mutex_unlock(&g_lock);
 		usleep(TICK_MICRO_S);
@@ -38,6 +38,16 @@ int		am_i_dead(t_philo *p)
 	if (ms_age(p->last_meal) > g_time_to_die)
 	{
 		change_state(p, STATE_DEAD);
+		return (1);
+	}
+	return (0);
+}
+
+int		am_i_stuffed(t_philo *p)
+{
+	if (p->meals >= g_end_game)
+	{
+		change_state(p, STATE_STUFFED);
 		return (1);
 	}
 	return (0);
@@ -83,8 +93,6 @@ void	game_start(void)
 		pthread_join(tid[id], 0);
 	}
 	pthread_mutex_destroy(&g_lock);
-	printf("\nResult:\n");
-	philo_log_all();
 	game_outro();
 	return ;
 }

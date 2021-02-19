@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/18 16:40:23 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/18 16:48:39 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 
 # define NL	printf("\n");
 
+# define STATE_STUFFED	-3
 # define STATE_DEAD		-2
 # define STATE_OUT		-1
 # define STATE_NAP		0
@@ -102,6 +103,7 @@ int				strategy_one_should_i_think_further(t_philo *p);
 void			change_state(t_philo *p, int state);
 int				forks_available(t_philo *p);
 int				am_i_dead(t_philo *p);
+int				am_i_stuffed(t_philo *p);
 int				strategy_one_should_i_think_further(t_philo *p);
 
 #endif
