@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 23:02:13 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/16 14:40:29 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/19 11:57:55 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ all undiscovered before me.", "Isaac Newton");
 	if (q == 35)
 		quote("It doesn't make sense to hire smart people and then tell them \
 what to do. We hire smart people so they can tell us what to \
-do.", "Steve jobs");
+do.", "Steve Jobs");
 	if (q == 36)
 		quote("Time you enjoy wasting is not wasted time.", "Marthe \
 Troly-Curtin");

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 07:34:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/19 11:52:33 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/19 19:28:36 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,13 @@ const char		*state_string(int state_code)
 	return (0);
 }
 
-const char		*fork_string(int *fork, t_philo *p)
+const char		*fork_string(t_philo *p, int lr)
 {
-	if (*fork == ON_TABLE)
-		return ("table");
-	if (p->state == STATE_EAT)
-		return ("hand ");
+	int	left_right;
+
+	left_right = lr == 0 ? p->fork_l_bol : p->fork_r_bol;
+	if (left_right)
+		return ("====E");
 	return ("     ");
 }
 

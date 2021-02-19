@@ -6,11 +6,11 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/19 11:48:34 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/19 19:30:47 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NUMB_PHILOS	=	30
+NUMB_PHILOS	=	5
 TIME_TO_DIE	=	910
 TIME_TO_EAT	=	1400
 TIME_TO_NAP	=	1500
@@ -25,7 +25,7 @@ SRCS		=	main.c argn.c ft_atoi.c ft_strtrim.c \
 	helpers1.c philo.c philo2.c game.c action.c game2.c \
 	strategy.c forks.c philo_logs.c helpers2.c \
 	semaphore.c fun.c
-CCHEADS		=	header.h structs.h
+CCHEADS		=	header.h structs.h fun.h
 OBJS		=	$(SRCS:.c=.o)
 VALGRIND	=	valgrind --leak-check=full \
 				--show-leak-kinds=all \
