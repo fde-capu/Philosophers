@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/19 08:02:24 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/19 08:15:27 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ NMCCFLAGS	=	-pthread
 SRCS		=	main.c argn.c ft_atoi.c ft_strtrim.c \
 	ft_isdigit.c ft_chrinset.c quotes.c quotes2.c \
 	helpers1.c philo.c philo2.c game.c action.c game2.c \
-	strategy.c forks.c
+	strategy.c forks.c philo_logs.c helpers2.c
 CCHEADS		=	header.h structs.h
 OBJS		=	$(SRCS:.c=.o)
 VALGRIND	=	valgrind --leak-check=full \

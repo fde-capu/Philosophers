@@ -6,16 +6,16 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:24:30 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/18 15:44:39 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/19 08:14:25 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-t_philo	*philo_init(int id)
+t_philo			*philo_init(int id)
 {
 	t_philo	*p;
-	
+
 	p = calloc(1, sizeof(t_philo));
 	p->id = id;
 	p->state = STATE_OUT;
@@ -24,14 +24,14 @@ t_philo	*philo_init(int id)
 	return (p);
 }
 
-void	philo_init_all(void)
+void			philo_init_all(void)
 {
 	philo_init_chain(1);
 	philo_link_r();
 	return ;
 }
 
-t_philo	*get_philo(int id)
+t_philo			*get_philo(int id)
 {
 	t_philo	*p;
 
@@ -41,7 +41,7 @@ t_philo	*get_philo(int id)
 	return (p);
 }
 
-void	philo_link_r(void)
+void			philo_link_r(void)
 {
 	t_philo	*p;
 
@@ -59,14 +59,7 @@ void	philo_link_r(void)
 	return ;
 }
 
-void	philo_print_age(t_philo *p)
- {
-	//printf("ID>>%d\n", p->id);
-	printf("%010d", ms_age(p->birth));
-	return ;
- }
-
- unsigned int	philo_age_last_change(t_philo *p)
- {
+unsigned int	philo_age_last_change(t_philo *p)
+{
 	return (ms_age(p->last_change));
- }
+}

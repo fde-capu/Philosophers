@@ -6,13 +6,13 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 07:34:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/18 16:48:56 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/19 08:17:39 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	str_right(int len, const char *str)
+void			str_right(int len, const char *str)
 {
 	int	i;
 
@@ -23,7 +23,7 @@ void	str_right(int len, const char *str)
 	return ;
 }
 
-const char	*state_string(int state_code)
+const char		*state_string(int state_code)
 {
 	if (state_code == STATE_NAP)
 		return (NAP_COL "sleeping" NON_COL);
@@ -40,7 +40,7 @@ const char	*state_string(int state_code)
 	return (0);
 }
 
-const char	*fork_string(int *fork, t_philo *p)
+const char		*fork_string(int *fork, t_philo *p)
 {
 	if (*fork == ON_TABLE)
 		return ("table");
@@ -49,22 +49,12 @@ const char	*fork_string(int *fork, t_philo *p)
 	return ("used ");
 }
 
-unsigned int	mili_to_micro(unsigned long mili)
-{
-	return (mili * 1000);
-}
-
-unsigned int	micro_to_mili(long int micro)
-{
-	return (micro / 1000);
-}
-
 unsigned int	ms_age(struct timeval cron)
 {
 	struct timeval	now;
 
 	if (gettimeofday(&now, 0))
-		exit (-1);
-	return(micro_to_mili((now.tv_sec * 1000000 + now.tv_usec) - \
+		exit(-1);
+	return (micro_to_mili((now.tv_sec * 1000000 + now.tv_usec) - \
 		(cron.tv_sec * 1000000 + cron.tv_usec)));
 }

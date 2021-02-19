@@ -1,47 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   action.c                                           :+:      :+:    :+:   */
+/*   philo_logs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/16 14:57:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/19 08:09:50 by fde-capu         ###   ########.fr       */
+/*   Created: 2021/02/19 08:11:08 by fde-capu          #+#    #+#             */
+/*   Updated: 2021/02/19 08:12:52 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	action_think(t_philo *p)
+void	philo_print_age(t_philo *p)
 {
-	if (STRATEGY(p))
-		return ;
-	raise_forks(p);
-	change_state(p, STATE_EAT);
-	action_eat(p);
+	printf("%010d", ms_age(p->birth));
 	return ;
 }
 
-void	action_eat(t_philo *p)
+void	philo_log_all(void)
 {
-	if (!enough_eat(p))
-		return ;
-	p->meals++;
-	if (g_end_game && am_i_stuffed(p))
-	{
-		g_a_m_e_o_v_e_r = 1;
-		return ;
-	}
-	lower_forks(p);
-	change_state(p, STATE_NAP);
-	action_nap(p);
+	int	id;
+
+	id = 0;
+	while (++id <= g_philo_limit)
+		philo_log(id);
 	return ;
 }
 
-void	action_nap(t_philo *p)
+void	philo_log(int id)
 {
-	if (!enough_nap(p))
-		return ;
-	change_state(p, STATE_THINK);
+	t_philo	*p;
+
+	p = get_philo(id);
+	philo_log_direct(p);
+	return ;
+}
+
+void	philo_log_direct(t_philo *p)
+{
+	philo_print_age(p);
+	printf("\t%d\t", p->id);
+	printf("%s\t", state_string(p->state));
+	printf("forks: ( %s | %s )\n", \
+		fork_string(p->fork_l, p), fork_string(p->fork_r, p));
 	return ;
 }

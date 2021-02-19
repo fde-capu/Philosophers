@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/18 16:48:39 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/19 08:09:09 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 # include "structs.h"
 
-# define STRATEGY	strategy_one_should_i_think_further(p)
+# define STRATEGY	strategy_one_should_i_think_further
 
 # define TRIM_SET	" \t\n\r\v\f"
 
@@ -31,8 +31,6 @@
 # define NAP_COL "\x1B[036m"
 # define OUT_COL "\x1B[035m"
 # define NON_COL "\x1B[0m"
-
-# define NL	printf("\n");
 
 # define STATE_STUFFED	-3
 # define STATE_DEAD		-2

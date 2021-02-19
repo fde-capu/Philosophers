@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:51:45 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/18 16:55:15 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/19 08:19:20 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	*init_play(void *arg)
 {
 	t_philo	*p;
 
-	while (!g_a_m_e_o_v_e_r) {
+	while (!g_a_m_e_o_v_e_r)
+	{
 		pthread_mutex_lock(&g_lock);
 		p = (t_philo *)arg;
 		if (p->state == STATE_EAT)
@@ -29,26 +30,6 @@ void	*init_play(void *arg)
 			g_a_m_e_o_v_e_r = 1;
 		pthread_mutex_unlock(&g_lock);
 		usleep(TICK_MICRO_S);
-	}
-	return (0);
-}
-
-int		am_i_dead(t_philo *p)
-{
-	if (ms_age(p->last_meal) > g_time_to_die)
-	{
-		change_state(p, STATE_DEAD);
-		return (1);
-	}
-	return (0);
-}
-
-int		am_i_stuffed(t_philo *p)
-{
-	if (p->meals >= g_end_game)
-	{
-		change_state(p, STATE_STUFFED);
-		return (1);
 	}
 	return (0);
 }
@@ -89,9 +70,7 @@ void	game_start(void)
 		usleep(TICK_MICRO_S);
 	id = 0;
 	while (++id <= g_philo_limit)
-	{
 		pthread_join(tid[id], 0);
-	}
 	pthread_mutex_destroy(&g_lock);
 	game_outro();
 	return ;
@@ -100,14 +79,14 @@ void	game_start(void)
 void	game_intro(void)
 {
 	printf("\nGame starts: 3 ");
-	//fflush(stdout);
-	//sleep(1);
-	//printf("\b\b2 ");
-	//fflush(stdout);
-	//sleep(1);
+	fflush(stdout);
+	sleep(1);
+	printf("\b\b2 ");
+	fflush(stdout);
+	sleep(1);
 	printf("\b\b1 ");
 	fflush(stdout);
-	//sleep(1);
+	sleep(1);
 	printf("\b\bnow!\n\n");
 	fflush(stdout);
 	return ;
@@ -117,6 +96,6 @@ void	game_outro(void)
 {
 	printf("\nGAME OVER\n\n");
 	fflush(stdout);
-//	sleep(1);
+	sleep(1);
 	return ;
 }
