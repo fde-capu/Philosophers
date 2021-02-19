@@ -6,11 +6,22 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 07:34:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/19 08:17:39 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/19 11:52:33 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+int		random_int(int min, int max)
+{
+	long			r;
+	struct timeval	current_time;
+
+	if (gettimeofday(&current_time, 0))
+		exit(-1);
+	r = (current_time.tv_usec % (max - min + 1)) + min;
+	return (r);
+}
 
 void			str_right(int len, const char *str)
 {
@@ -46,7 +57,7 @@ const char		*fork_string(int *fork, t_philo *p)
 		return ("table");
 	if (p->state == STATE_EAT)
 		return ("hand ");
-	return ("used ");
+	return ("     ");
 }
 
 unsigned int	ms_age(struct timeval cron)

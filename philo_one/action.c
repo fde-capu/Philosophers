@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 14:57:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/19 08:09:50 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/19 08:37:15 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	action_think(t_philo *p)
 {
-	if (STRATEGY(p))
+	if (strategy_catch(STRATEGY, p))
 		return ;
 	raise_forks(p);
 	change_state(p, STATE_EAT);

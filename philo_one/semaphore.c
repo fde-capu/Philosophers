@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   forks.c                                            :+:      :+:    :+:   */
+/*   semaphore.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/18 09:27:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/19 08:20:22 by fde-capu         ###   ########.fr       */
+/*   Created: 2021/02/19 09:28:45 by fde-capu          #+#    #+#             */
+/*   Updated: 2021/02/19 11:35:54 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	raise_forks(t_philo *p)
+void	init_semaphore(void)
 {
-	*p->fork_l = ON_HAND;
-	*p->fork_r = ON_HAND;
+	if (!(g_middle_forks = sem_open("forks", O_CREAT, 0777, g_philo_limit)))
+		exit(-1);
 	return ;
 }
 
-void	lower_forks(t_philo *p)
+void	destroy_semaphore(void)
 {
-	*p->fork_l = ON_TABLE;
-	*p->fork_r = ON_TABLE;
+	if (sem_close(g_middle_forks) != 0)
+		exit(-1);
 	return ;
-}
-
-int		forks_available(t_philo *p)
-{
-	if (*p->fork_l == ON_TABLE \
-	&& *p->fork_r == ON_TABLE)
-		return (1);
-	return (0);
 }

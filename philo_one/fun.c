@@ -1,52 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fun.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/19 08:14:51 by fde-capu         ###   ########.fr       */
+/*   Created: 2021/02/19 11:10:43 by fde-capu          #+#    #+#             */
+/*   Updated: 2021/02/19 11:36:22 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
-int		main(int argc, char **argv)
-{
-	printf("\n"		"::: Philosophers :: Philo One :::"	"\n"	\
-					":::::: fde-capu ::::: 2102 ::::::"	"\n\n");
-	quotes(random_int(0, 51));
-	printf("\n\n");
-	if (validate_args(argc, argv))
-	{
-		philo_init_all();
-		printf("Initial state:\n");
-		philo_log_all();
-		g_a_m_e_o_v_e_r = 0;
-		game_start();
-		philo_destroy_all(g_philo_one);
-		printf("\n");
-		return (0);
-	}
-	else
-	{
-		printf("\n>>> Invalid arguments.\n");
-		quotes(1);
-		return (-1);
-	}
-}
-
-int		random_int(int min, int max)
-{
-	long			r;
-	struct timeval	current_time;
-
-	if (gettimeofday(&current_time, 0))
-		exit(-1);
-	r = (current_time.tv_usec % (max - min + 1)) + min;
-	return (r);
-}
 
 void	quote(const char *qt, const char *nm)
 {

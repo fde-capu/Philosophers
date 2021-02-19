@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/19 08:14:51 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/19 11:50:11 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,16 @@ int		main(int argc, char **argv)
 	if (validate_args(argc, argv))
 	{
 		philo_init_all();
+		if (STRATEGY == 2)
+			init_semaphore();
+		strategy_log();
 		printf("Initial state:\n");
-		philo_log_all();
+		//philo_log_all();
 		g_a_m_e_o_v_e_r = 0;
 		game_start();
 		philo_destroy_all(g_philo_one);
+		if (STRATEGY == 2)
+			destroy_semaphore();
 		printf("\n");
 		return (0);
 	}
@@ -35,43 +40,4 @@ int		main(int argc, char **argv)
 		quotes(1);
 		return (-1);
 	}
-}
-
-int		random_int(int min, int max)
-{
-	long			r;
-	struct timeval	current_time;
-
-	if (gettimeofday(&current_time, 0))
-		exit(-1);
-	r = (current_time.tv_usec % (max - min + 1)) + min;
-	return (r);
-}
-
-void	quote(const char *qt, const char *nm)
-{
-	char	*h;
-	char	*s;
-	int		i;
-
-	write(1, "\n \"     ", 7);
-	h = (char *)qt;
-	s = h;
-	while (*s)
-	{
-		h = s;
-		while (*s && s - h != 40)
-			s++;
-		while (*s && *s != ' ')
-			s++;
-		write(1, h, s - h);
-		if (!*s++)
-			break ;
-		write(1, "\n      ", 7);
-	}
-	i = 51 - (s - h);
-	while (--i)
-		write(1, " ", 1);
-	write(1, "\"\n", 2);
-	str_right(55, nm);
 }

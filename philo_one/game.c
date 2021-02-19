@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:51:45 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/19 08:19:20 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/19 08:40:24 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ void	game_start(void)
 
 void	game_intro(void)
 {
+	if (!COUNT_DOWN)
+		return ;
 	printf("\nGame starts: 3 ");
 	fflush(stdout);
 	sleep(1);

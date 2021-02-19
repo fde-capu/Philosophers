@@ -6,12 +6,17 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/19 08:09:09 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/19 11:48:03 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
+
+# define STRATEGY		1
+# define SHARED_FORKS	1
+# define MIDDLE_FORKS	2
+# define COUNT_DOWN		0
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -19,10 +24,10 @@
 # include <unistd.h>
 # include <sys/time.h>
 # include <string.h>
+# include <semaphore.h>
+# include <fcntl.h>
 
 # include "structs.h"
-
-# define STRATEGY	strategy_one_should_i_think_further
 
 # define TRIM_SET	" \t\n\r\v\f"
 
@@ -43,6 +48,10 @@
 # define ON_HAND		0
 # define TICK_MICRO_S	500
 
+int				forks_available_on_middle(t_philo *p);
+int				strategy_catch(int strategy_type, t_philo *p);
+int				strategy_one_should_i_think_further(t_philo *p);
+int				strategy_two_should_i_think_further_forks_on_middle(t_philo *p);
 int				argn(int arg);
 long long		ft_atoi(const char *str);
 int				main(int argc, char **argv);
@@ -97,11 +106,13 @@ unsigned int	philo_age_last_change(t_philo *p);
 unsigned int	ms_age(struct timeval cron);
 int				enough_nap(t_philo *p);
 int				enough_eat(t_philo *p);
-int				strategy_one_should_i_think_further(t_philo *p);
 void			change_state(t_philo *p, int state);
 int				forks_available(t_philo *p);
 int				am_i_dead(t_philo *p);
 int				am_i_stuffed(t_philo *p);
 int				strategy_one_should_i_think_further(t_philo *p);
+void			destroy_semaphore(void);
+void			init_semaphore(void);
+void			strategy_log();
 
 #endif

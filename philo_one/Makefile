@@ -6,14 +6,14 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/19 08:15:27 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/19 11:48:34 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NUMB_PHILOS	=	3
+NUMB_PHILOS	=	30
 TIME_TO_DIE	=	910
-TIME_TO_EAT	=	400
-TIME_TO_NAP	=	500
+TIME_TO_EAT	=	1400
+TIME_TO_NAP	=	1500
 EAT_X_TIMES	=	0
 
 NAME		=	philo_one
@@ -23,7 +23,8 @@ NMCCFLAGS	=	-pthread
 SRCS		=	main.c argn.c ft_atoi.c ft_strtrim.c \
 	ft_isdigit.c ft_chrinset.c quotes.c quotes2.c \
 	helpers1.c philo.c philo2.c game.c action.c game2.c \
-	strategy.c forks.c philo_logs.c helpers2.c
+	strategy.c forks.c philo_logs.c helpers2.c \
+	semaphore.c fun.c
 CCHEADS		=	header.h structs.h
 OBJS		=	$(SRCS:.c=.o)
 VALGRIND	=	valgrind --leak-check=full \
