@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 09:27:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/20 11:19:03 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/20 19:13:10 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,20 @@ void	raise_forks(t_philo *p)
 {
 	if (STRATEGY == SHARED_FORKS)
 	{
+		if (VERBOSE)
+			printf("%d locks L %p\n", p->id, p->fork_l);
 		pthread_mutex_lock(p->fork_l);
 		p->fork_l_bol = 1;
 		philo_log_direct(p);
-//		printf("\n%d took left fork.\n", p->id);
+		if (VERBOSE)
+			printf("%d took left fork.\n", p->id);
+		if (VERBOSE)
+			printf("%d locks R %p\n", p->id, p->fork_r);
 		pthread_mutex_lock(p->fork_r);
 		p->fork_r_bol = 1;
 		philo_log_direct(p);
-//		printf("\n%d took right fork.\n", p->id);
+		if (VERBOSE)
+			printf("%d took right fork.\n", p->id);
 	}
 	if (STRATEGY == CENTER_FORKS)
 	{
@@ -39,14 +45,20 @@ void	lower_forks(t_philo *p)
 {
 	if (STRATEGY == 1)
 	{
+		if (VERBOSE)
+			printf("%d unlocks L %p\n", p->id, p->fork_r);
 		pthread_mutex_unlock(p->fork_l);
 		p->fork_l_bol = 0;
 		philo_log_direct(p);
-//		printf("\n%d drop left fork.\n", p->id);
+		if (VERBOSE)
+			printf("%d drop left fork.\n", p->id);
+		if (VERBOSE)
+			printf("%d unlocks R %p\n", p->id, p->fork_r);
 		pthread_mutex_unlock(p->fork_r);
 		p->fork_r_bol = 0;
 		philo_log_direct(p);
-//		printf("\n%d drop right fork.\n", p->id);
+		if (VERBOSE)
+			printf("%d drop right fork.\n", p->id);
 	}
 	if (STRATEGY == 2)
 	{

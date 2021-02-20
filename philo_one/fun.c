@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 11:10:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/20 11:52:05 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/20 19:29:51 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	philosophers_intro(void)
 	printf("\n"		"::: Philosophers :: Philo One :::"	"\n"	\
 					":::::: fde-capu ::::: 2102 ::::::"	"\n");
 	strategy_log();
-	quotes(random_int(0, 51));
+	quotes(random_int(0, QUOTES_AMOUNT));
 	printf("\n");
 	return ;
 }

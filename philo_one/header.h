@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/20 11:44:51 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/20 19:29:19 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # define SHARED_FORKS	1
 # define CENTER_FORKS	2
 # define COUNT_DOWN		1
+# define VERBOSE		1
+# define QUOTES_AMOUNT	53
 
 # include <stdio.h>
 # include <stdlib.h>

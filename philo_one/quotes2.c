@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 23:02:13 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/19 11:57:55 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/20 19:46:01 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ at dusk.", "Jean-Paul Sartre");
 Sartre");
 	if (q == 42)
 		quote("My thought is me: that's why I can't stop. I exist because I \
-think… and I can't stop myself from thinking. At this very moment - \
+think... and I can't stop myself from thinking. At this very moment - \
 it's frightful - if I exist, it is because I am horrified at existing. \
 I am the one who pulls myself from the nothingness to which I \
 aspire.", "Jean-Paul Sartre");
@@ -135,5 +135,11 @@ get a meatball.", "Sharon Creech");
 		quote("We cannot, of course, disprove God, just as we can't disprove \
 Thor, fairies, leprechauns and the Flying Spaghetti Monster.", \
 "Richard Dawkins");
+	if (q == 52)
+		quotes("I can't understand why people are frightened of new ideas. \
+I'm frightened of the old ones.", "John Cage");
 	return ;
+	if (q == 53)
+		quotes("Set the gearshift for the high gear of your soul. You've got \
+to run like an antelope out of control.", "Tom Marshall");
 }
