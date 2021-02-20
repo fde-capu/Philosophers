@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 11:10:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/20 19:29:51 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/20 20:04:01 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	quote(const char *qt, const char *nm)
 		while (*s && *s != ' ')
 			s++;
 		spell(h, s - h);
-//		write(1, h, s - h);
 		if (!*s++)
 			break ;
 		write(1, "\n      ", 7);
@@ -38,6 +37,12 @@ void	quote(const char *qt, const char *nm)
 	while (--i)
 		write(1, " ", 1);
 	write(1, "\"\n", 2);
+	quote_signature(nm);
+	return ;
+}
+
+void	quote_signature(const char *nm)
+{
 	usleep(500000);
 	str_right(55, nm);
 	printf("\n");
@@ -62,26 +67,10 @@ void	game_countdown(void)
 	return ;
 }
 
-void	spell(const char *str, int c)
-{
-	const char	*h;
-
-	h = str;
-	if (!c)
-		c = INT_MAX;
-	while ((*h) && (h - str <= c))
-	{
-		write(1, h, 1);
-		usleep(ANIM_MCS);
-		h++;
-	}
-	return ;
-}
-
 void	game_outro(void)
 {
 	printf("\n");
-	usleep(ANIM_MCS * 5);
+	usleep(175000);
 	spell("GAME OVER ", 0);
 	usleep(ANIM_MCS);
 	printf("\n");
@@ -90,8 +79,8 @@ void	game_outro(void)
 
 void	philosophers_intro(void)
 {
-	printf("\n"		"::: Philosophers :: Philo One :::"	"\n"	\
-					":::::: fde-capu ::::: 2102 ::::::"	"\n");
+	printf("\n"		"::: Philosophers :: Philo One :::\n");
+	printf(":::::: fde-capu ::::: 2102 ::::::"	"\n");
 	strategy_log();
 	quotes(random_int(0, QUOTES_AMOUNT));
 	printf("\n");

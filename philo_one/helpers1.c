@@ -6,13 +6,13 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 07:34:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/20 11:40:03 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/20 19:52:52 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int		random_int(int min, int max)
+int				random_int(int min, int max)
 {
 	long			r;
 	struct timeval	current_time;

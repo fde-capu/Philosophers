@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/20 11:26:52 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/20 19:52:36 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,8 @@ void	*init_play(void *arg)
 {
 	t_philo	*p;
 
-	//		pthread_mutex_lock(&g_lock);
 	p = (t_philo *)arg;
 	action_think(p);
-	//		pthread_mutex_unlock(&g_lock);
-	//		usleep(TICK_MICRO_S);
 	return (0);
 }
 
@@ -56,8 +53,6 @@ void	game_start(void)
 
 	game_countdown();
 	take_seat_all();
-//	if (pthread_mutex_init(&g_lock, 0) != 0)
-//		exit(-1);
 	id = 0;
 	while (++id <= g_philo_limit)
 	{
@@ -73,13 +68,11 @@ void	game_start(void)
 	id = 0;
 	while (++id <= g_philo_limit)
 		pthread_cancel(philo_thread[id]);
-//		pthread_join(philo_thread[id], 0);
-//	pthread_mutex_destroy(&g_lock);
 	game_outro();
 	return ;
 }
 
-void			*radar(void *arg)
+void	*radar(void *arg)
 {
 	(void)arg;
 	while (!g_a_m_e_o_v_e_r)

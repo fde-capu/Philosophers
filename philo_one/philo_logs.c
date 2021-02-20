@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 08:11:08 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/19 14:03:52 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/20 19:48:57 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	philo_log_direct(t_philo *p)
 	return ;
 }
 
-void	strategy_log()
+void	strategy_log(void)
 {
 	if (STRATEGY == SHARED_FORKS)
 		printf("Strategy: PHILO_ONE Shared forks in between.");

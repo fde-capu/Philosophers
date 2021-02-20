@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 23:02:13 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/20 19:46:01 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/20 19:57:38 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,9 @@ knowledge faster than society gathers wisdom.", "Isaac Asimov");
 	if (q == 39)
 		quote("No amount of experimentation can ever prove me right; a single \
 experiment can prove me wrong.", "Albert Einstein");
+	if (q == 52)
+		quote("Set the gearshift for the high gear of your soul. You've got \
+to run like an antelope out of control.", "Tom Marshall");
 	return ;
 }
 
@@ -135,11 +138,8 @@ get a meatball.", "Sharon Creech");
 		quote("We cannot, of course, disprove God, just as we can't disprove \
 Thor, fairies, leprechauns and the Flying Spaghetti Monster.", \
 "Richard Dawkins");
-	if (q == 52)
-		quotes("I can't understand why people are frightened of new ideas. \
+	if (q == 53)
+		quote("I can't understand why people are frightened of new ideas. \
 I'm frightened of the old ones.", "John Cage");
 	return ;
-	if (q == 53)
-		quotes("Set the gearshift for the high gear of your soul. You've got \
-to run like an antelope out of control.", "Tom Marshall");
 }

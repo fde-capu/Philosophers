@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/20 19:29:19 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/20 20:01:12 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@
 # define TICK_MICRO_S	10
 # define ANIM_MCS		35000
 
+void			game_outro(void);
+void			quote_signature(const char *nm);
 void			spell(const char *str, int c);
 void			take_seat_all(void);
 int				nap_or_die(t_philo *p);
@@ -103,7 +105,7 @@ int				am_i_dead(t_philo *p);
 int				am_i_stuffed(t_philo *p);
 void			destroy_semaphore(void);
 void			init_semaphore(void);
-void			strategy_log();
+void			strategy_log(void);
 void			*radar(void *arg);
 
 #endif
