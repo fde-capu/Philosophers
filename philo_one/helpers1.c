@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 07:34:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/19 19:28:36 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/20 11:40:03 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void			str_right(int len, const char *str)
 	i = 0;
 	while (i++ < len - (int)strlen(str))
 		write(1, " ", 1);
-	printf("%s", str);
+	spell(str, 0);
 	return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/19 19:13:07 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/20 11:26:52 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,9 @@ void	game_start(void)
 		&radar, 0) != 0)
 		exit(-1);
 	pthread_join(philo_thread[0], 0);
-//	id = 0;
-//	while (++id <= g_philo_limit)
+	id = 0;
+	while (++id <= g_philo_limit)
+		pthread_cancel(philo_thread[id]);
 //		pthread_join(philo_thread[id], 0);
 //	pthread_mutex_destroy(&g_lock);
 	game_outro();

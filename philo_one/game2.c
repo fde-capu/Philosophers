@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 16:54:55 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/19 16:01:39 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/20 11:22:56 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	change_state(t_philo *p, int state)
 {
-	if (state == p->state)
+	if ((state == p->state) || (g_a_m_e_o_v_e_r))
 		return ;
 	p->state = state;
 	if (gettimeofday(&p->last_change, 0))

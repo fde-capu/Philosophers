@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/19 19:17:33 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/20 11:44:51 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define STRATEGY		1
 # define SHARED_FORKS	1
 # define CENTER_FORKS	2
-# define COUNT_DOWN		0
+# define COUNT_DOWN		1
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -26,6 +26,7 @@
 # include <string.h>
 # include <semaphore.h>
 # include <fcntl.h>
+# include <limits.h>
 
 # include "structs.h"
 # include "fun.h"
@@ -45,8 +46,10 @@
 # define STATE_THINK	1
 # define STATE_EAT		2
 
-# define TICK_MICRO_S	1000
+# define TICK_MICRO_S	10
+# define ANIM_MCS		35000
 
+void			spell(const char *str, int c);
 void			take_seat_all(void);
 int				nap_or_die(t_philo *p);
 int				eat_or_die(t_philo *p);

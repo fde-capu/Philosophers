@@ -6,14 +6,14 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/19 19:30:47 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/20 11:22:31 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NUMB_PHILOS	=	5
-TIME_TO_DIE	=	910
-TIME_TO_EAT	=	1400
-TIME_TO_NAP	=	1500
+NUMB_PHILOS	=	3
+TIME_TO_DIE	=	200
+TIME_TO_EAT	=	140
+TIME_TO_NAP	=	150
 EAT_X_TIMES	=	0
 
 NAME		=	philo_one
