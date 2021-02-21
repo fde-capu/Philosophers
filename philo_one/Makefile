@@ -6,15 +6,15 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/21 16:11:08 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/21 16:51:46 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NUMB_PHILOS	=	5
-TIME_TO_DIE	=	2000
+NUMB_PHILOS	=	3
+TIME_TO_DIE	=	300
 TIME_TO_EAT	=	140
 TIME_TO_NAP	=	150
-EAT_X_TIMES	=	2
+EAT_X_TIMES	=	3
 
 NAME		=	philo_one
 CC			=	clang

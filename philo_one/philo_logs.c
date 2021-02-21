@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 08:11:08 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/20 19:48:57 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/21 16:41:39 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	philo_log_direct(t_philo *p)
 	int	sem_val;
 
 	pthread_mutex_lock(&g_lock_print);
+	if (g_a_m_e_o_v_e_r)
+		return ;
 	philo_print_age(p);
 	printf("\t%d\t", p->id);
 	printf("%s ", state_string(p->state));

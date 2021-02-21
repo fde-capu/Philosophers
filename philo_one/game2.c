@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 16:54:55 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/20 11:22:56 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/21 16:39:12 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		enough_nap(t_philo *p)
 
 int		enough_eat(t_philo *p)
 {
-	if (ms_age(p->last_change) < g_time_to_eat)
+	if (ms_age(p->last_meal) < g_time_to_eat)
 		return (0);
 	return (1);
 }

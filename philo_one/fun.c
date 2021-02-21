@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 11:10:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/20 20:04:01 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/21 16:21:16 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	game_outro(void)
 {
 	printf("\n");
 	usleep(175000);
-	spell("GAME OVER ", 0);
+	spell("======== GAME OVER =======", 0);
 	usleep(ANIM_MCS);
 	printf("\n");
 	return ;
