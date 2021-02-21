@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 09:27:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/20 19:13:10 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/21 16:17:09 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	raise_forks(t_philo *p)
 		if (VERBOSE)
 			printf("%d locks L %p\n", p->id, p->fork_l);
 		pthread_mutex_lock(p->fork_l);
+		if (g_a_m_e_o_v_e_r)
+			return ;
 		p->fork_l_bol = 1;
 		philo_log_direct(p);
 		if (VERBOSE)
@@ -26,6 +28,8 @@ void	raise_forks(t_philo *p)
 		if (VERBOSE)
 			printf("%d locks R %p\n", p->id, p->fork_r);
 		pthread_mutex_lock(p->fork_r);
+		if (g_a_m_e_o_v_e_r)
+			return ;
 		p->fork_r_bol = 1;
 		philo_log_direct(p);
 		if (VERBOSE)
@@ -48,6 +52,8 @@ void	lower_forks(t_philo *p)
 		if (VERBOSE)
 			printf("%d unlocks L %p\n", p->id, p->fork_r);
 		pthread_mutex_unlock(p->fork_l);
+		if (g_a_m_e_o_v_e_r)
+			return ;
 		p->fork_l_bol = 0;
 		philo_log_direct(p);
 		if (VERBOSE)
@@ -55,6 +61,8 @@ void	lower_forks(t_philo *p)
 		if (VERBOSE)
 			printf("%d unlocks R %p\n", p->id, p->fork_r);
 		pthread_mutex_unlock(p->fork_r);
+		if (g_a_m_e_o_v_e_r)
+			return ;
 		p->fork_r_bol = 0;
 		philo_log_direct(p);
 		if (VERBOSE)

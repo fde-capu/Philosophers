@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/20 20:01:12 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/21 16:11:54 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # define STRATEGY		1
 # define SHARED_FORKS	1
 # define CENTER_FORKS	2
-# define COUNT_DOWN		1
-# define VERBOSE		1
+# define COUNT_DOWN		0
+# define VERBOSE		0
 # define QUOTES_AMOUNT	53
 
 # include <stdio.h>
