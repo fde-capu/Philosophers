@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 09:27:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/21 16:50:51 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/22 09:56:08 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	raise_forks(t_philo *p)
 {
-	if (STRATEGY == SHARED_FORKS)
+	if (STRATEGY == STRATEGY_SHARED_FORKS)
 	{
-		usleep(random_int(1, 50));
+		usleep(random_int(0, p->id * 3));
 		if (VERBOSE)
 			printf("%d locks L %p\n", p->id, p->fork_l);
 		pthread_mutex_lock(p->fork_l);
@@ -38,19 +38,23 @@ void	raise_forks(t_philo *p)
 		if (VERBOSE)
 			printf("%d took right fork.\n", p->id);
 	}
-	if (STRATEGY == CENTER_FORKS)
+	if (STRATEGY == STRATEGY_CENTER_FORKS)
 	{
-//		pthread_mutex_unlock(&g_lock);
 		if (sem_wait(g_center_forks) != 0)
 			exit(-1);
-//		pthread_mutex_lock(&g_lock);
+		if (VERBOSE)
+			printf("%d took one fork.\n", p->id);
+		if (sem_wait(g_center_forks) != 0)
+			exit(-1);
+		if (VERBOSE)
+			printf("%d took another fork.\n", p->id);
 	}
 	return ;
 }
 
 void	lower_forks(t_philo *p)
 {
-	if (STRATEGY == 1)
+	if (STRATEGY == STRATEGY_SHARED_FORKS)
 	{
 		if (VERBOSE)
 			printf("%d unlocks L %p\n", p->id, p->fork_r);
@@ -69,9 +73,14 @@ void	lower_forks(t_philo *p)
 		if (VERBOSE)
 			printf("%d drop right fork.\n", p->id);
 	}
-	if (STRATEGY == 2)
+	if (STRATEGY == STRATEGY_CENTER_FORKS)
 	{
 		sem_post(g_center_forks);
+		if (VERBOSE)
+			printf("%d drops a fork.\n", p->id);
+		sem_post(g_center_forks);
+		if (VERBOSE)
+			printf("%d drops another fork.\n", p->id);
 	}
 	return ;
 }

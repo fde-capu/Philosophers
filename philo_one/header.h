@@ -6,19 +6,19 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/21 16:44:23 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/22 09:57:55 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
 
-# define STRATEGY		1
-# define SHARED_FORKS	1
-# define CENTER_FORKS	2
-# define COUNT_DOWN		0
-# define VERBOSE		0
-# define QUOTES_AMOUNT	53
+# define STRATEGY				2
+# define STRATEGY_SHARED_FORKS	1
+# define STRATEGY_CENTER_FORKS	2
+# define COUNT_DOWN				0
+# define VERBOSE				0
+# define QUOTES_AMOUNT			53
 
 # include <stdio.h>
 # include <stdlib.h>

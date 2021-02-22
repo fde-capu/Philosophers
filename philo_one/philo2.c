@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:24:30 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/19 16:51:30 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/22 09:37:44 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_philo			*philo_init(int id)
 	p->id = id;
 	p->state = STATE_OUT;
 	p->fork_l = malloc(sizeof(pthread_mutex_t));
-	if (STRATEGY == SHARED_FORKS)
+	if (STRATEGY == STRATEGY_SHARED_FORKS)
 	{
 		if (pthread_mutex_init(p->fork_l, 0) != 0)
 			exit(-1);

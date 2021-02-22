@@ -6,15 +6,15 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/21 16:51:46 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/22 09:57:28 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NUMB_PHILOS	=	3
+NUMB_PHILOS	=	4
 TIME_TO_DIE	=	300
 TIME_TO_EAT	=	140
 TIME_TO_NAP	=	150
-EAT_X_TIMES	=	3
+EAT_X_TIMES	=	0
 
 NAME		=	philo_one
 CC			=	clang
@@ -22,8 +22,8 @@ CCFLAGS		=	-Wall -Werror -Wextra -o0 -g
 NMCCFLAGS	=	-pthread
 SRCS		=	main.c argn.c ft_atoi.c ft_strtrim.c \
 	ft_isdigit.c ft_chrinset.c quotes.c quotes2.c \
-	helpers1.c philo.c philo2.c game.c action.c game2.c \
-	strategy.c forks.c philo_logs.c helpers2.c \
+	helpers1.c philo.c philo2.c game.c action.c \
+	game2.c strategy.c forks.c philo_logs.c helpers2.c \
 	semaphore.c fun.c questions.c
 CCHEADS		=	header.h structs.h fun.h
 OBJS		=	$(SRCS:.c=.o)

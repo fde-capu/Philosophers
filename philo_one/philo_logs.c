@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 08:11:08 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/21 16:41:39 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/22 09:52:15 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ void	philo_log_direct(t_philo *p)
 	philo_print_age(p);
 	printf("\t%d\t", p->id);
 	printf("%s ", state_string(p->state));
-	if (STRATEGY == 1)
+	if (STRATEGY == STRATEGY_SHARED_FORKS)
 		printf("( %s | %s )\n", \
 		fork_string(p, 0), \
 		fork_string(p, 1));
-	if (STRATEGY == 2)
+	if (STRATEGY == STRATEGY_CENTER_FORKS)
 	{
 		sem_getvalue(g_center_forks, &sem_val);
 		printf("Forks on table: (%d)\n", sem_val);
@@ -62,9 +62,9 @@ void	philo_log_direct(t_philo *p)
 
 void	strategy_log(void)
 {
-	if (STRATEGY == SHARED_FORKS)
+	if (STRATEGY == STRATEGY_SHARED_FORKS)
 		printf("Strategy: PHILO_ONE Shared forks in between.");
-	if (STRATEGY == CENTER_FORKS)
+	if (STRATEGY == STRATEGY_CENTER_FORKS)
 		printf("Strategy: PHILO_TWO Forks at center of table. (Semaphores.)");
 	printf("\n");
 	return ;
