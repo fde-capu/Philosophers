@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 09:28:45 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/22 09:50:13 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/22 13:18:56 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ void	init_semaphore(void)
 
 void	destroy_semaphore(void)
 {
-	if (sem_close(g_center_forks) != 0)
-		exit(-1);
-	if (sem_unlink("/forks") !=0)
-		exit(-1);
+	sem_close(g_center_forks);
+	sem_unlink("/forks");
 	return ;
 }

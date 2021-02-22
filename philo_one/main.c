@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/21 16:31:51 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/22 13:17:54 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int		main(int argc, char **argv)
 		game_start();
 		philo_destroy_all(g_philo_one);
 		strategy_destroy();
-		printf("\n");
 		return (0);
 	}
 	else
@@ -45,30 +44,71 @@ int		main(int argc, char **argv)
 	}
 }
 
+void	set_gameover(int foo)
+{
+	(void)foo;
+	g_a_m_e_o_v_e_r = 1;
+	return ;
+}
+
 void	game_start(void)
 {
 	int			id;
 	pthread_t	philo_thread[g_philo_limit + 1];
 	t_philo		*p;
+	pid_t		pid;
+
+	struct sigaction	action;
+	memset(&action, 0, sizeof(struct sigaction));
+	action.sa_handler = set_gameover;
+	sigaction(SIGTERM, &action, NULL);
 
 	game_countdown();
 	take_seat_all();
 	id = 0;
-	while (++id <= g_philo_limit)
+	if (STRATEGY != STRATEGY_PROCESSES)
 	{
-		p = get_philo(id);
-		if (pthread_create(&(philo_thread[id]), 0, \
-			&init_play, p) != 0)
+		while (++id <= g_philo_limit)
+		{
+			p = get_philo(id);
+			if (pthread_create(&(philo_thread[id]), 0, \
+						&init_play, p) != 0)
+				exit(-1);
+		}
+		if (pthread_create(&(philo_thread[0]), 0, \
+					&radar, 0) != 0)
 			exit(-1);
+		pthread_join(philo_thread[0], 0);
+		id = 0;
+		while (++id <= g_philo_limit)
+			pthread_cancel(philo_thread[id]);
+		game_outro();
 	}
-	if (pthread_create(&(philo_thread[0]), 0, \
-		&radar, 0) != 0)
-		exit(-1);
-	pthread_join(philo_thread[0], 0);
-	id = 0;
-	while (++id <= g_philo_limit)
-		pthread_cancel(philo_thread[id]);
-	game_outro();
+	else
+	{
+		while (++id <= g_philo_limit)
+		{
+			pid = fork();
+			if (pid < 0)
+				exit(-1);
+			if (pid == 0)
+				break ;
+		}
+		if (pid == 0)
+		{
+			p = get_philo(id);
+			action_think(p);
+			philo_destroy_all(g_philo_one);
+			strategy_destroy();
+			exit (0);
+		}
+		else
+		{
+			pid = waitpid (0, NULL, 0);
+			kill (0, SIGTERM);
+			game_outro();
+		}
+	}
 	return ;
 }
 

@@ -6,16 +6,17 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/22 09:57:55 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/22 13:09:03 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
 
-# define STRATEGY				2
+# define STRATEGY				3
 # define STRATEGY_SHARED_FORKS	1
 # define STRATEGY_CENTER_FORKS	2
+# define STRATEGY_PROCESSES		3
 # define COUNT_DOWN				0
 # define VERBOSE				0
 # define QUOTES_AMOUNT			53
@@ -29,6 +30,9 @@
 # include <semaphore.h>
 # include <fcntl.h>
 # include <limits.h>
+# include <sys/types.h>
+# include <sys/wait.h>
+# include <signal.h>
 
 # include "structs.h"
 # include "fun.h"
@@ -48,7 +52,7 @@
 # define STATE_THINK	1
 # define STATE_EAT		2
 
-# define TICK_MICRO_S	10
+# define TICK_MICRO_S	10000
 # define ANIM_MCS		35000
 
 void			game_outro(void);
@@ -107,5 +111,6 @@ void			destroy_semaphore(void);
 void			init_semaphore(void);
 void			strategy_log(void);
 void			*radar(void *arg);
+void			set_gameover(int foo);
 
 #endif

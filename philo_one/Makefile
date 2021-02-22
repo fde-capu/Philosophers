@@ -6,15 +6,15 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/22 09:57:28 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/22 13:14:56 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NUMB_PHILOS	=	4
+NUMB_PHILOS	=	3
 TIME_TO_DIE	=	300
-TIME_TO_EAT	=	140
-TIME_TO_NAP	=	150
-EAT_X_TIMES	=	0
+TIME_TO_EAT	=	100
+TIME_TO_NAP	=	200
+EAT_X_TIMES	=	2
 
 NAME		=	philo_one
 CC			=	clang
@@ -59,4 +59,4 @@ tt:	re t
 vv:	re v
 
 v:	all
-	$(VALGRIND) ./$(NAME) $(ARGS)
+	-$(VALGRIND) ./$(NAME) $(ARGS)

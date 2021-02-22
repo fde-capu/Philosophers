@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 16:54:55 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/21 16:39:12 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/22 13:14:22 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ void	change_state(t_philo *p, int state)
 	if (state == STATE_EAT)
 		if (gettimeofday(&p->last_meal, 0))
 			exit(-1);
+	if (g_a_m_e_o_v_e_r)
+		return ;
 	philo_log_direct(p);
+	if (state == STATE_DEAD)
+		kill (0, SIGTERM);
 	return ;
 }
 

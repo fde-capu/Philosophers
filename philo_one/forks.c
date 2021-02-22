@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 09:27:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/22 09:56:08 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/22 10:10:05 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	raise_forks(t_philo *p)
 		if (VERBOSE)
 			printf("%d took right fork.\n", p->id);
 	}
-	if (STRATEGY == STRATEGY_CENTER_FORKS)
+	if ((STRATEGY == STRATEGY_CENTER_FORKS) \
+	|| (STRATEGY == STRATEGY_PROCESSES))
 	{
 		if (sem_wait(g_center_forks) != 0)
 			exit(-1);
@@ -73,7 +74,8 @@ void	lower_forks(t_philo *p)
 		if (VERBOSE)
 			printf("%d drop right fork.\n", p->id);
 	}
-	if (STRATEGY == STRATEGY_CENTER_FORKS)
+	if ((STRATEGY == STRATEGY_CENTER_FORKS) \
+	|| (STRATEGY == STRATEGY_PROCESSES))
 	{
 		sem_post(g_center_forks);
 		if (VERBOSE)
