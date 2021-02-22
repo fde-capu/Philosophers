@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 19:50:58 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/22 09:35:15 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/22 15:22:23 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int		eat_or_die(t_philo *p)
 {
+	if (g_a_m_e_o_v_e_r)
+		return (1);
 	while (!(am_i_dead(p)))
 	{
 		usleep(TICK_MICRO_S);
@@ -25,6 +27,8 @@ int		eat_or_die(t_philo *p)
 
 int		nap_or_die(t_philo *p)
 {
+	if (g_a_m_e_o_v_e_r)
+		return (1);
 	while (!(am_i_dead(p)))
 	{
 		usleep(TICK_MICRO_S);
@@ -36,6 +40,8 @@ int		nap_or_die(t_philo *p)
 
 int		am_i_dead(t_philo *p)
 {
+	if (g_a_m_e_o_v_e_r)
+		return (1);
 	if (ms_age(p->last_meal) > g_time_to_die)
 	{
 		change_state(p, STATE_DEAD);
@@ -47,7 +53,9 @@ int		am_i_dead(t_philo *p)
 
 int		am_i_stuffed(t_philo *p)
 {
-	if (g_end_game && (p->meals >= g_end_game))
+	if (g_a_m_e_o_v_e_r)
+		return (1);
+	if ((g_end_game) && (p->meals >= g_end_game))
 	{
 		change_state(p, STATE_STUFFED);
 		g_a_m_e_o_v_e_r = 1;

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 07:39:53 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/20 19:51:31 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/22 15:46:42 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	philo_destroy_all(t_philo *p)
 	}
 	philo_destroy_all(p->l);
 	philo_destroy(p);
+	g_philo_one = 0;
 	return ;
 }
 
@@ -41,6 +42,8 @@ t_philo	*philo_init_chain(int id)
 void	philo_destroy(t_philo *p)
 {
 	free(p->fork_l);
+	p->fork_l = 0;
 	free(p);
+	p = 0;
 	return ;
 }

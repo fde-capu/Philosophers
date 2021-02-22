@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 14:57:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/22 13:50:18 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/22 15:30:16 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int		action_eat(t_philo *p)
 	if (eat_or_die(p))
 		return (-1);
 	p->meals++;
-	if (am_i_stuffed(p))
-		return (-2);
 	lower_forks(p);
+	if (am_i_stuffed(p))
+		return (-1);
 	return (action_nap(p));
 }
 

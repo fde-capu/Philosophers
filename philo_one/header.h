@@ -6,14 +6,14 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/22 13:50:40 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/22 15:52:19 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
 
-# define STRATEGY				3
+# define STRATEGY				1
 # define STRATEGY_SHARED_FORKS	1
 # define STRATEGY_CENTER_FORKS	2
 # define STRATEGY_PROCESSES		3
@@ -52,7 +52,7 @@
 # define STATE_THINK	1
 # define STATE_EAT		2
 
-# define TICK_MICRO_S	10000
+# define TICK_MICRO_S	10
 # define ANIM_MCS		35000
 
 void			game_outro(void);

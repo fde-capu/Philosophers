@@ -6,12 +6,12 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/22 13:14:56 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/22 15:52:53 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NUMB_PHILOS	=	3
-TIME_TO_DIE	=	300
+TIME_TO_DIE	=	290
 TIME_TO_EAT	=	100
 TIME_TO_NAP	=	200
 EAT_X_TIMES	=	2
@@ -29,7 +29,8 @@ CCHEADS		=	header.h structs.h fun.h
 OBJS		=	$(SRCS:.c=.o)
 VALGRIND	=	valgrind --leak-check=full \
 				--show-leak-kinds=all \
-				--track-origins=yes
+				--track-origins=yes \
+				--show-reachable=yes
 ARGS		=	$(NUMB_PHILOS) $(TIME_TO_DIE) $(TIME_TO_EAT) \
 				$(TIME_TO_NAP) $(EAT_X_TIMES)
 

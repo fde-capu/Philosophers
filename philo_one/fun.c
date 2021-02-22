@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 11:10:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/21 16:21:16 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/22 14:11:43 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,10 @@ void	game_outro(void)
 {
 	printf("\n");
 	usleep(175000);
-	spell("======== GAME OVER =======", 0);
+	if (COUNT_DOWN)
+		spell("======== GAME OVER =======", 0);
+	else
+		printf("======== GAME OVER =======");
 	usleep(ANIM_MCS);
 	printf("\n");
 	return ;
@@ -79,10 +82,11 @@ void	game_outro(void)
 
 void	philosophers_intro(void)
 {
-	printf("\n"		"::: Philosophers :: Philo One :::\n");
+	printf("\n"		"::: Philosophers ::::::::::::::::\n");
 	printf(":::::: fde-capu ::::: 2102 ::::::"	"\n");
 	strategy_log();
-	quotes(random_int(0, QUOTES_AMOUNT));
+	if (COUNT_DOWN)
+		quotes(random_int(0, QUOTES_AMOUNT));
 	printf("\n");
 	return ;
 }
