@@ -6,14 +6,14 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/22 15:54:08 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/22 15:55:20 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
 
-# define STRATEGY				2
+# define STRATEGY				3
 # define STRATEGY_SHARED_FORKS	1
 # define STRATEGY_CENTER_FORKS	2
 # define STRATEGY_PROCESSES		3
