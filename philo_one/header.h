@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/22 13:09:03 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/22 13:50:40 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ void			philo_link_r(void);
 void			philo_destroy(t_philo *p);
 const char		*fork_string(t_philo *p, int lr);
 void			game_start(void);
+void			game_start_process(void);
+void			game_start_thread(void);
 void			*init_play(void *arg);
 t_philo			*philo_init(int id);
 unsigned int	mili_to_micro(unsigned long mili);
@@ -99,7 +101,10 @@ int				action_nap(t_philo *p);
 void			philo_print_age(t_philo *p);
 unsigned int	micro_to_mili(long int micro);
 void			raise_forks(t_philo *p);
+void			raise_forks_shared(t_philo *p);
 void			lower_forks(t_philo *p);
+void			lower_forks_shared(t_philo *p);
+void			lower_forks_center(t_philo *p);
 unsigned int	philo_age_last_change(t_philo *p);
 unsigned int	ms_age(struct timeval cron);
 int				enough_nap(t_philo *p);

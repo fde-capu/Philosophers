@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 08:11:08 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/22 12:15:26 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/22 13:35:48 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,12 @@ void	philo_log_direct(t_philo *p)
 void	strategy_log(void)
 {
 	if (STRATEGY == STRATEGY_SHARED_FORKS)
-		printf("Strategy: PHILO_ONE Shared forks in between.");
+		printf("Strategy: PHILO_ONE\nShared forks in between.");
 	if (STRATEGY == STRATEGY_CENTER_FORKS)
-		printf("Strategy: PHILO_TWO Forks at center of table. (Semaphores.)");
+		printf("Strategy: PHILO_TWO\nForks at center of table. Semaphores.");
 	if (STRATEGY == STRATEGY_PROCESSES)
-		printf("Strategy: PHILO_THREE Forks at center of table. (Semaphores.) Each Philosopher is a process.");
+		printf("Strategy: PHILO_THREE\n \
+Forks at center of table. Semaphores. Each Philosopher is a process.");
 	printf("\n");
 	return ;
 }
