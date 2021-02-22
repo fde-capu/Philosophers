@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/22 15:59:13 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/22 16:04:20 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ TIME_TO_EAT	=	100
 TIME_TO_NAP	=	200
 EAT_X_TIMES	=	2
 
-NAME		=	philo_one
+NAME		=	$(shell basename "$(PWD)")
 CC			=	clang
 CCFLAGS		=	-Wall -Werror -Wextra -o0 -g
 NMCCFLAGS	=	-pthread
