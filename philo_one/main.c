@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/22 15:53:40 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/22 15:59:54 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,10 @@ void	game_start_thread(void)
 	while (++id <= g_philo_limit)
 	{
 		p = get_philo(id);
-		if (pthread_create(&(philo_thread[id]), 0, \
-					&init_play, p) != 0)
+		if (pthread_create(&(philo_thread[id]), 0, &init_play, p) != 0)
 			exit(-1);
 	}
-	if (pthread_create(&(philo_thread[0]), 0, \
-				&radar, 0) != 0)
+	if (pthread_create(&(philo_thread[0]), 0, &radar, 0) != 0)
 		exit(-1);
 	pthread_join(philo_thread[0], 0);
 	id = 0;
@@ -96,10 +94,7 @@ void	game_start_thread(void)
 	{
 		p = get_philo(id);
 		if (STRATEGY == STRATEGY_SHARED_FORKS)
-		{
-			pthread_mutex_unlock(p->fork_l);
-			pthread_mutex_unlock(p->fork_r);
-		}
+			lower_forks(p);
 		pthread_join(philo_thread[id], 0);
 	}
 	game_outro();
