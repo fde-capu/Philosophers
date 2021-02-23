@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/23 14:16:00 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/23 14:32:23 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,6 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <fcntl.h>
-/*
-# include <sys/types.h>
-# include <sys/wait.h>
-# include <signal.h>
-*/
 # include <string.h>
 # include <unistd.h>
 

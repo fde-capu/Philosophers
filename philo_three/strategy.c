@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 09:11:46 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/23 14:00:12 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/23 14:33:20 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_philo			*philo_init(int id)
 	return (p);
 }
 
-void	strategy_init(void)
+void			strategy_init(void)
 {
 	struct sigaction	action;
 
@@ -34,7 +34,7 @@ void	strategy_init(void)
 	return ;
 }
 
-void	strategy_destroy(void)
+void			strategy_destroy(void)
 {
 	destroy_semaphore();
 	return ;

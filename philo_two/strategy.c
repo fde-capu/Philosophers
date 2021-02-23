@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 09:11:46 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/23 13:12:59 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/23 14:32:49 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ t_philo			*philo_init(int id)
 	return (p);
 }
 
-void	strategy_init(void)
+void			strategy_init(void)
 {
 	sem_unlink("/forks");
 	init_semaphore();
 	return ;
 }
 
-void	strategy_destroy(void)
+void			strategy_destroy(void)
 {
 	destroy_semaphore();
 	return ;
