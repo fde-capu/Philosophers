@@ -6,14 +6,12 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/22 16:30:56 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/23 14:14:51 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
-
-# define VERBOSE				0
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -30,7 +28,6 @@
 
 # include "structs.h"
 # include "fun.h"
-# include "strategy.h"
 
 # define TRIM_SET	" \t\n\r\v\f"
 
@@ -50,9 +47,6 @@
 # define TICK_MICRO_S	10
 # define ANIM_MCS		35000
 
-# define STRATEGY_SHARED_FORKS	1
-# define STRATEGY_CENTER_FORKS	2
-# define STRATEGY_PROCESSES		3
 # define QUOTES_AMOUNT			53
 # define COUNT_DOWN				1
 
@@ -90,11 +84,8 @@ const char		*state_string(int state_code);
 t_philo			*get_philo(int id);
 void			philo_link_r(void);
 void			philo_destroy(t_philo *p);
-const char		*fork_string(t_philo *p, int lr);
 void			game_start(void);
 void			game_start_process(void);
-void			game_start_thread(void);
-void			*init_play(void *arg);
 t_philo			*philo_init(int id);
 unsigned int	mili_to_micro(unsigned long mili);
 int				action_eat(t_philo *p);
@@ -103,10 +94,7 @@ int				action_nap(t_philo *p);
 void			philo_print_age(t_philo *p);
 unsigned int	micro_to_mili(long int micro);
 void			raise_forks(t_philo *p);
-void			raise_forks_shared(t_philo *p);
 void			lower_forks(t_philo *p);
-void			lower_forks_shared(t_philo *p);
-void			lower_forks_center(t_philo *p);
 unsigned int	philo_age_last_change(t_philo *p);
 unsigned int	ms_age(struct timeval cron);
 int				enough_nap(t_philo *p);
@@ -117,7 +105,6 @@ int				am_i_stuffed(t_philo *p);
 void			destroy_semaphore(void);
 void			init_semaphore(void);
 void			strategy_log(void);
-void			*radar(void *arg);
 void			set_gameover(int foo);
 
 #endif

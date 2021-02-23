@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 16:54:55 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/22 14:01:30 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/23 13:11:11 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	change_state(t_philo *p, int state)
 	if (g_a_m_e_o_v_e_r)
 		return ;
 	philo_log_direct(p);
-	if ((state == STATE_DEAD) && (STRATEGY == STRATEGY_PROCESSES))
-		kill(0, SIGTERM);
 	return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 12:46:44 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/22 15:02:41 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/23 13:58:45 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,7 @@ typedef struct		s_philo
 	struct timeval	birth;
 	struct timeval	last_change;
 	struct timeval	last_meal;
-	pthread_mutex_t	*fork_l;
-	pthread_mutex_t	*fork_r;
-	int				fork_l_bol;
-	int				fork_r_bol;
 	int				meals;
-	pthread_t		death;
 	struct s_philo	*l;
 	struct s_philo	*r;
 }					t_philo;

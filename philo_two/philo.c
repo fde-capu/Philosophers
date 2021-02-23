@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 07:39:53 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/22 15:46:42 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/23 13:09:10 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ t_philo	*philo_init_chain(int id)
 
 void	philo_destroy(t_philo *p)
 {
-	free(p->fork_l);
-	p->fork_l = 0;
 	free(p);
 	p = 0;
 	return ;

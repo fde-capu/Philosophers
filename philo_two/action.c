@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 14:57:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/22 15:30:16 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/23 14:15:51 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,4 @@ void	*radar(void *arg)
 	while (!g_a_m_e_o_v_e_r)
 		usleep(TICK_MICRO_S);
 	return (0);
-}
-
-void	set_gameover(int foo)
-{
-	(void)foo;
-	g_a_m_e_o_v_e_r = 1;
-	return ;
 }

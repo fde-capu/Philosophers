@@ -6,27 +6,11 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:24:30 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/22 09:37:44 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/23 11:37:09 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
-t_philo			*philo_init(int id)
-{
-	t_philo	*p;
-
-	p = calloc(1, sizeof(t_philo));
-	p->id = id;
-	p->state = STATE_OUT;
-	p->fork_l = malloc(sizeof(pthread_mutex_t));
-	if (STRATEGY == STRATEGY_SHARED_FORKS)
-	{
-		if (pthread_mutex_init(p->fork_l, 0) != 0)
-			exit(-1);
-	}
-	return (p);
-}
 
 void			philo_init_all(void)
 {
