@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/23 13:34:38 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/24 14:42:49 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,27 @@
 # define OUT_COL "\x1B[035m"
 # define NON_COL "\x1B[0m"
 
-# define STATE_STUFFED	-3
 # define STATE_DEAD		-2
 # define STATE_OUT		-1
 # define STATE_NAP		0
 # define STATE_THINK	1
 # define STATE_EAT		2
 
-# define TICK_MICRO_S	10
+# define TICK_MICRO_S	200
 # define ANIM_MCS		35000
 
 # define QUOTES_AMOUNT			53
-# define COUNT_DOWN				1
+# define COUNT_DOWN				0
 
+int				are_we_dead(void);
+void			*radar(void *arg);
+void			raise_left_fork(t_philo *p);
+void			raise_right_fork(t_philo *p);
+int				are_we_stuffed(void);
+int				game_mode_eat(void);
+int				game_mode_death(void);
+int				is_game_over(void);
+void			set_game_over(void);
 void			fork_log(const char *pfstr, t_philo *p);
 void			game_outro(void);
 void			quote_signature(const char *nm);
@@ -90,14 +98,11 @@ void			philo_print_age(t_philo *p);
 unsigned int	micro_to_mili(long int micro);
 void			raise_forks(t_philo *p);
 void			lower_forks(t_philo *p);
-unsigned int	philo_age_last_change(t_philo *p);
 unsigned int	ms_age(struct timeval cron);
 int				enough_nap(t_philo *p);
 int				enough_eat(t_philo *p);
 void			change_state(t_philo *p, int state);
 int				am_i_dead(t_philo *p);
-int				am_i_stuffed(t_philo *p);
 void			strategy_log(void);
-void			*radar(void *arg);
 
 #endif

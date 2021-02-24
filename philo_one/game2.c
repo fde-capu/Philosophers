@@ -6,27 +6,11 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 16:54:55 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/23 11:45:58 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/24 09:02:29 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
-void	change_state(t_philo *p, int state)
-{
-	if ((state == p->state) || (g_a_m_e_o_v_e_r))
-		return ;
-	p->state = state;
-	if (gettimeofday(&p->last_change, 0))
-		exit(-1);
-	if (state == STATE_EAT)
-		if (gettimeofday(&p->last_meal, 0))
-			exit(-1);
-	if (g_a_m_e_o_v_e_r)
-		return ;
-	philo_log_direct(p);
-	return ;
-}
 
 int		enough_nap(t_philo *p)
 {

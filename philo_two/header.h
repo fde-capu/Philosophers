@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/23 14:32:23 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/23 17:55:43 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ void			philo_print_age(t_philo *p);
 unsigned int	micro_to_mili(long int micro);
 void			raise_forks(t_philo *p);
 void			lower_forks(t_philo *p);
-unsigned int	philo_age_last_change(t_philo *p);
 unsigned int	ms_age(struct timeval cron);
 int				enough_nap(t_philo *p);
 int				enough_eat(t_philo *p);

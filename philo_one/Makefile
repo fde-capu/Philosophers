@@ -6,15 +6,15 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/02/23 11:57:26 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/02/24 11:29:29 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NUMB_PHILOS	=	3
-TIME_TO_DIE	=	2900
-TIME_TO_EAT	=	100
+NUMB_PHILOS	=	5
+TIME_TO_DIE	=	21800
+TIME_TO_EAT	=	200
 TIME_TO_NAP	=	200
-EAT_X_TIMES	=	2
+EAT_X_TIMES	=	7
 
 NAME		=	$(shell basename "$(PWD)")
 CC			=	clang

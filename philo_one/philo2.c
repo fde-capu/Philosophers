@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:24:30 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/23 11:37:09 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/23 17:55:10 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,4 @@ void			philo_link_r(void)
 			break ;
 	}
 	return ;
-}
-
-unsigned int	philo_age_last_change(t_philo *p)
-{
-	return (ms_age(p->last_change));
 }
