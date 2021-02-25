@@ -83,6 +83,18 @@ of a philosopher.
 
 ---
 
+#### Notes:
+
+- Whenever no one dies and the program is `Ctrl+C` `SIGINT`
+interrupted, there should be leaks from the abruption.
+
+- Since `kill` is used on `philo_three`, to properly `free` the
+allocated memory, `sigaction` is nedded.
+
+- When inspecting with Valgrind, take care to notice that dus to the
+slowness caused by the memory inspection, some synchronous events
+appear asynchronous.
+
 #### Usage:
 
 `philo_one number_of_philosophers time_to_diea time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]`

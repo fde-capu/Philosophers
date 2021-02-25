@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/25 12:52:04 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/25 16:20:40 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@
 # define QUOTES_AMOUNT			53
 # define COUNT_DOWN				0
 
-void			set_gameover(int foo);
+void			game_over_event(int foo);
 int				stuff_me(t_philo *p);
 int				are_we_dead(void);
 int				game_mode_death(void);
@@ -99,7 +99,6 @@ const char		*state_string(int state_code);
 t_philo			*get_philo(int id);
 void			philo_link_r(void);
 void			philo_destroy(t_philo *p);
-void			game_start(void);
 void			game_start_process(void);
 t_philo			*philo_init(int id);
 unsigned int	mili_to_micro(unsigned long mili);

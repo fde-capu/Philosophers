@@ -6,13 +6,13 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 09:11:46 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/25 13:41:24 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/25 18:49:37 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	change_state(t_philo *p, int state)
+void			change_state(t_philo *p, int state)
 {
 	if ((state == p->state) || (g_a_m_e_o_v_e_r))
 		return ;
@@ -40,7 +40,7 @@ t_philo			*philo_init(int id)
 	return (p);
 }
 
-void	set_gameover(int foo)
+void			game_over_event(int foo)
 {
 	(void)foo;
 	g_a_m_e_o_v_e_r = 1;
@@ -61,14 +61,13 @@ void			strategy_init(void)
 	if (!(g_someone_is_dead = sem_open("/alive", O_CREAT, 0777, 0)))
 		exit(-1);
 	memset(&action, 0, sizeof(struct sigaction));
-	action.sa_handler = set_gameover;
+	action.sa_handler = game_over_event;
 	sigaction(SIGINT, &action, NULL);
 	return ;
 }
 
 void			strategy_destroy(void)
 {
-	sem_post(g_someone_is_dead);
 	sem_close(g_center_forks);
 	sem_unlink("/forks");
 	sem_close(g_stuffed_guys);

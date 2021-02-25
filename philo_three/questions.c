@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 19:50:58 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/25 12:29:44 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/25 18:49:50 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int		am_i_dead(t_philo *p)
 
 int		stuff_me(t_philo *p)
 {
+	p->meals++;
 	if (p->meals != g_end_game)
 		return (0);
 	p->stuffed = 1;

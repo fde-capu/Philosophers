@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 11:10:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/25 12:35:25 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/25 17:36:48 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ void	game_countdown(void)
 
 void	game_outro(void)
 {
-	printf("%010d ", ms_age(get_philo(1)->birth));
 	usleep(175000);
 	if (COUNT_DOWN)
 		spell("======== GAME OVER =======", 0);

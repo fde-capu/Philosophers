@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 12:46:44 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/25 11:52:54 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/25 17:15:23 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ int				g_a_m_e_o_v_e_r;
 sem_t			*g_center_forks;
 sem_t			*g_stuffed_guys;
 sem_t			*g_someone_is_dead;
+pthread_mutex_t	g_lock_ending;
 
 #endif
