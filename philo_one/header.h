@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/24 14:42:49 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/24 16:50:39 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@
 
 # define TRIM_SET	" \t\n\r\v\f"
 
+# define OUT_STRING "is standing"
+# define NAP_STRING "is sleeping"
+# define THINK_STRING "is thinking"
+# define EAT_STRING "is eating"
+# define DEAD_STRING "died"
+# define FORK_STRING_L "has taken the left fork"
+# define FORK_STRING_R "has taken the right fork"
+
 # define DIE_COL "\x1B[031m"
 # define EAT_COL "\x1B[032m"
 # define NAP_COL "\x1B[036m"
@@ -42,7 +50,7 @@
 # define ANIM_MCS		35000
 
 # define QUOTES_AMOUNT			53
-# define COUNT_DOWN				0
+# define COUNT_DOWN				1
 
 int				are_we_dead(void);
 void			*radar(void *arg);
@@ -85,7 +93,6 @@ const char		*state_string(int state_code);
 t_philo			*get_philo(int id);
 void			philo_link_r(void);
 void			philo_destroy(t_philo *p);
-const char		*fork_string(t_philo *p, int lr);
 void			game_start(void);
 void			game_start_thread(void);
 void			*init_play(void *arg);

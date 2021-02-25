@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 09:27:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/24 14:45:39 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/24 15:59:14 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	raise_left_fork(t_philo *p)
 		return ;
 	}
 	p->fork_l_bol = 1;
-	fork_log("%d has taken the fork on the left.\n", p);
+	fork_log("%d" FORK_STRING_L ".\n", p);
 	return ;
 }
 
@@ -36,7 +36,7 @@ void	raise_right_fork(t_philo *p)
 		return ;
 	}
 	p->fork_r_bol = 1;
-	fork_log("%d has taken the fork on the right.\n", p);
+	fork_log("%d" FORK_STRING_R ".\n", p);
 	return ;
 }
 

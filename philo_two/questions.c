@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 19:50:58 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/22 15:22:23 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/24 16:03:51 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,52 +14,58 @@
 
 int		eat_or_die(t_philo *p)
 {
-	if (g_a_m_e_o_v_e_r)
-		return (1);
-	while (!(am_i_dead(p)))
+	while (!(is_game_over()) && !(am_i_dead(p)))
 	{
-		usleep(TICK_MICRO_S);
 		if (enough_eat(p))
 			return (0);
 	}
+	lower_forks(p);
 	return (1);
 }
 
 int		nap_or_die(t_philo *p)
 {
-	if (g_a_m_e_o_v_e_r)
-		return (1);
-	while (!(am_i_dead(p)))
+	while (!(is_game_over()) && !(am_i_dead(p)))
 	{
-		usleep(TICK_MICRO_S);
 		if (enough_nap(p))
 			return (0);
 	}
 	return (1);
 }
 
+int		are_we_dead(void)
+{
+	int	id;
+
+	id = 0;
+	while (++id <= g_philo_limit)
+		if (am_i_dead(get_philo(id)))
+			return (1);
+	return (0);
+}
+
 int		am_i_dead(t_philo *p)
 {
-	if (g_a_m_e_o_v_e_r)
-		return (1);
-	if (ms_age(p->last_meal) > g_time_to_die)
+	if (is_game_over())
+		return (2);
+	if (ms_age(p->last_meal) >= g_time_to_die)
 	{
+		lower_forks(p);
 		change_state(p, STATE_DEAD);
-		g_a_m_e_o_v_e_r = 1;
+		set_game_over();
 		return (1);
 	}
 	return (0);
 }
 
-int		am_i_stuffed(t_philo *p)
+int		are_we_stuffed(void)
 {
-	if (g_a_m_e_o_v_e_r)
-		return (1);
-	if ((g_end_game) && (p->meals >= g_end_game))
-	{
-		change_state(p, STATE_STUFFED);
-		g_a_m_e_o_v_e_r = 1;
-		return (1);
-	}
-	return (0);
+	int		id;
+
+	id = 0;
+	while (++id <= g_philo_limit)
+		if (get_philo(id)->meals < g_end_game)
+			return (0);
+	set_game_over();
+	return (1);
 }

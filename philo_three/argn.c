@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 12:45:10 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/19 08:06:49 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/24 16:37:31 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int		validate_args(int argc, char **argv)
 
 	g_argc = argc;
 	g_argv = argv;
-	log_args();
 	a = 0;
 	while (++a && a <= 4)
 		if (argn(a) <= 0)
@@ -53,5 +52,6 @@ int		validate_args(int argc, char **argv)
 	g_time_to_eat = argn(3);
 	g_time_to_nap = argn(4);
 	g_end_game = argn(5);
+	log_args();
 	return (1);
 }

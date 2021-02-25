@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:51:45 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/22 16:31:54 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/24 16:39:40 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,28 @@ int		philo_take_seat(t_philo *p)
 void	fork_log(const char *pfstr, t_philo *p)
 {
 	pthread_mutex_lock(&g_lock_print);
+	if (is_game_over())
+	{
+		pthread_mutex_unlock(&g_lock_print);
+		return ;
+	}
 	philo_print_age(p);
 	printf("\t");
 	printf(pfstr, p->id);
 	pthread_mutex_unlock(&g_lock_print);
+	return ;
+}
+
+int				is_game_over(void)
+{
+	int	ret;
+
+	ret = g_a_m_e_o_v_e_r;
+	return (ret);
+}
+
+void			set_game_over(void)
+{
+	g_a_m_e_o_v_e_r = 1;
 	return ;
 }

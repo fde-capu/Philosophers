@@ -1,59 +1,89 @@
-### Philosophers
-@ 42 São Paulo
+# Philosophers
+### @ 42 São Paulo
 
 • A number of philosophers is sitting at a round table doing one of three things:
 eating, thinking or sleeping.
+
 • While eating, they are not thinking or sleeping, while sleeping, they are not eating
 or thinking and of course, while thinking, they are not eating or sleeping.
+
 • The philosophers sit at a circular table with a large bowl of spaghetti in the center.
+
 • There are some forks on the table.
+
 • As spaghetti is difficult to serve and eat with a single fork, it is assumed that a
 philosopher must eat with two forks, one for each hand.
+
 • The philosophers must never be starving.
+
 • Every philosopher needs to eat.
+
 • Philosophers don’t speak with each other.
+
 • Philosophers don’t know when another philosopher is about to die.
+
 • Each time a philosopher has finished eating, he will drop his forks and start sleeping.
+
 • When a philosopher is done sleeping, he will start thinking.
+
 • The simulation stops when a philosopher dies.
+
 Each program should have the same options:
+
 `number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]`
 ◦ `number_of_philosophers`: is the number of philosophers and also the number
 of forks
+
 ◦ `time_to_die`: is in milliseconds, if a philosopher doesn’t start eating `time_to_die`
 milliseconds after starting his last meal or the beginning of the simulation, it
 dies
+
 ◦ `time_to_eat`: is in milliseconds and is the time it takes for a philosopher to
 eat. During that time he will need to keep the two forks.
+
 ◦ `time_to_sleep`: is in milliseconds and is the time the philosopher will spend
 sleeping.
+
 ◦ `number_of_times_each_philosopher_must_eat`: argument is optional, if all
 philosophers eat at least `number_of_times_each_philosopher_must_eat` the
 simulation will stop. If not specified, the simulation will stop only at the death
 of a philosopher.
+
 ---
 
-Evaluation steps:
+#### Defense:
 
 ## `philo_one`
 
 - main.c: one thread per philosopher.
 - forks.c: mutex locks. (Obs.: bol used only for print.)
-- `grep -rnC 3 g_lock_print`.
+- `grep -rnC 3 g_lock_print`. No scrambled view.
 - I have set `time_to_die == 0` as invalid argument.
   `g_a_m_e_o_v_e_r` is a global that whenever set to `1` it will never
   be reset. This is no reason for mutexing it.
   Using `philo_one 2 300 100 200` will show that when a philosopher
-  eats and dies at the same time, it istead will only die.
-  Side note: starving death may also occur while the philosopher is eating:
+  eats and dies at the same time, it will instead only die.
+  Side note: starving death may also occur while the philosopher
+  is eating (seen this happen ocasionally with `philo_one 4 100 300 200`):
   strict interpretation of `time_to_die`. I find this odd, starving 
-  should count when it finishes the meal.
+  should start counting when it finishes the meal.
 
+## `philo_two`
 
+- main.c: one thread per philosopher.
+- strategy.c and forks.c: semaphores.
+- `grep -rnC 4 g_lock_print`. No scrambled view.
+- `time_to_die` issue: same as `philo_one`.
+
+## `philo_three`
+
+- main.c: one fork for each id; note `exit (0)` inside `if (pid == 0)`: main process waits for any termination.
+- strategy.c and forks.c: semaphores.
+- `grep -rnC 4 g_lock_print`. No scrambled view.
 
 ---
 
-Usage:
+#### Usage:
 
 `philo_one number_of_philosophers time_to_diea time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]`
 (same for `philo_two` and `philo_three`)

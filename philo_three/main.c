@@ -6,34 +6,11 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/23 14:12:51 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/25 13:38:21 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
-int		main(int argc, char **argv)
-{
-	if (validate_args(argc, argv))
-	{
-		philosophers_intro();
-		philo_init_all();
-		strategy_init();
-		printf("Initial state:\n");
-		philo_log_all();
-		g_a_m_e_o_v_e_r = 0;
-		game_start();
-		philo_destroy_all(g_philo_one);
-		strategy_destroy();
-		return (0);
-	}
-	else
-	{
-		quotes(1);
-		printf("\n>>> Invalid arguments.\n");
-		return (-1);
-	}
-}
 
 void	game_start_process(void)
 {
@@ -58,9 +35,13 @@ void	game_start_process(void)
 		strategy_destroy();
 		exit(0);
 	}
-	pid = waitpid(0, NULL, 0);
-	kill(0, SIGTERM);
-	game_outro();
+	id = 0;
+	pid = fork();
+	if (pid == 0)
+		while (++id <= g_philo_limit)
+			sem_wait(g_stuffed_guys);
+	else
+		sem_wait(g_someone_is_dead);
 	return ;
 }
 
@@ -70,4 +51,28 @@ void	game_start(void)
 	take_seat_all();
 	game_start_process();
 	return ;
+}
+
+int		main(int argc, char **argv)
+{
+	g_a_m_e_o_v_e_r = 0;
+	if (validate_args(argc, argv))
+	{
+		philosophers_intro();
+		philo_init_all();
+		strategy_init();
+		printf("Initial state:\n");
+		philo_log_all();
+		game_start();
+		game_outro();
+		philo_destroy_all(g_philo_one);
+		strategy_destroy();
+		return (0);
+	}
+	else
+	{
+		quotes(1);
+		printf("\n>>> Invalid arguments.\n");
+		return (-1);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/23 17:56:27 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/25 12:52:04 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@
 
 # define TRIM_SET	" \t\n\r\v\f"
 
+# define OUT_STRING "is standing"
+# define NAP_STRING "is sleeping"
+# define THINK_STRING "is thinking"
+# define EAT_STRING "is eating"
+# define DEAD_STRING "died"
+# define FORK_STRING_A "has taken a fork"
+# define FORK_STRING_B "has taken another fork"
+
 # define DIE_COL "\x1B[031m"
 # define EAT_COL "\x1B[032m"
 # define NAP_COL "\x1B[036m"
@@ -48,8 +56,15 @@
 # define ANIM_MCS		35000
 
 # define QUOTES_AMOUNT			53
-# define COUNT_DOWN				1
+# define COUNT_DOWN				0
 
+void			set_gameover(int foo);
+int				stuff_me(t_philo *p);
+int				are_we_dead(void);
+int				game_mode_death(void);
+int				game_mode_eat(void);
+void			set_game_over(void);
+int				is_game_over(void);
 void			fork_log(const char *pfstr, t_philo *p);
 void			game_outro(void);
 void			quote_signature(const char *nm);
@@ -100,10 +115,6 @@ int				enough_nap(t_philo *p);
 int				enough_eat(t_philo *p);
 void			change_state(t_philo *p, int state);
 int				am_i_dead(t_philo *p);
-int				am_i_stuffed(t_philo *p);
-void			destroy_semaphore(void);
-void			init_semaphore(void);
 void			strategy_log(void);
-void			set_gameover(int foo);
 
 #endif

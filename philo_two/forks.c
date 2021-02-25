@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 09:27:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/23 13:22:35 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/24 16:00:55 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,20 @@ void	raise_forks(t_philo *p)
 {
 	if (sem_wait(g_center_forks) != 0)
 		exit(-1);
-	fork_log("%d has taken a fork.\n", p);
+	if (is_game_over())
+	{
+		sem_post(g_center_forks);
+		return ;
+	}
+	fork_log("%d" FORK_STRING_A ".\n", p);
 	if (sem_wait(g_center_forks) != 0)
 		exit(-1);
-	fork_log("%d has taken another fork.\n", p);
+	if (is_game_over())
+	{
+		sem_post(g_center_forks);
+		return ;
+	}
+	fork_log("%d" FORK_STRING_B ".\n", p);
 	return ;
 }
 
