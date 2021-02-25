@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 09:11:46 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/25 13:38:31 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/25 13:41:24 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	set_gameover(int foo)
 
 void			strategy_init(void)
 {
+	struct sigaction	action;
+
 	sem_unlink("/forks");
 	if (!(g_center_forks = sem_open("/forks", O_CREAT, 0777, g_philo_limit)))
 		exit(-1);
@@ -58,6 +60,9 @@ void			strategy_init(void)
 	sem_unlink("/alive");
 	if (!(g_someone_is_dead = sem_open("/alive", O_CREAT, 0777, 0)))
 		exit(-1);
+	memset(&action, 0, sizeof(struct sigaction));
+	action.sa_handler = set_gameover;
+	sigaction(SIGINT, &action, NULL);
 	return ;
 }
 

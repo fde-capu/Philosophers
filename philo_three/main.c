@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/25 13:38:21 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/25 13:40:45 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	game_start_process(void)
 			sem_wait(g_stuffed_guys);
 	else
 		sem_wait(g_someone_is_dead);
+	kill(0, SIGINT);
 	return ;
 }
 
