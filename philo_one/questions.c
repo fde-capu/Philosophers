@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 19:50:58 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/24 14:46:16 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/26 15:44:12 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		am_i_dead(t_philo *p)
 {
 	if (is_game_over())
 		return (2);
-	if (ms_age(p->last_meal) >= g_time_to_die)
+	if (ms_age(p->last_meal) >= g_time_to_die + 10)
 	{
 		lower_forks(p);
 		change_state(p, STATE_DEAD);
