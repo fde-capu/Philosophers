@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 09:27:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 15:47:37 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/26 15:50:08 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	*raise_left_fork(void *arg)
 		pthread_mutex_destroy(p->fork_l);
 		return (0);
 	}
-	fork_log("%010d %d " FORK_STRING_L "\n", p);
 	return (0);
 }
 
@@ -40,7 +39,6 @@ void	*raise_right_fork(void *arg)
 		pthread_mutex_destroy(p->fork_r);
 		return (0);
 	}
-	fork_log("%010d %d " FORK_STRING_R "\n", p);
 	return (0);
 }
 
@@ -53,7 +51,9 @@ void	raise_forks(t_philo *p)
 	if (pthread_create(&(ambidestry[1]), 0, &raise_right_fork, p) != 0)
 		exit(-1);
 	pthread_join(ambidestry[0], 0);
+	fork_log("%010d %d " FORK_STRING_L "\n", p);
 	pthread_join(ambidestry[1], 0);
+	fork_log("%010d %d " FORK_STRING_R "\n", p);
 	return ;
 }
 
