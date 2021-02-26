@@ -6,17 +6,11 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 08:11:08 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 14:57:52 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/26 15:01:49 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
-void	philo_print_age(t_philo *p)
-{
-	printf("%010d", ms_age(p->birth));
-	return ;
-}
 
 void	philo_log_all(void)
 {
