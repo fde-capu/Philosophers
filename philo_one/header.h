@@ -25,8 +25,8 @@
 # include "fun.h"
 
 # define STRAT_DESC	"PHILO_ONE\nShared forks in between."
-# define EVEN_ODD_DELAY 5000
-# define EPSILON 5
+# define EVEN_ODD_DELAY 50000
+# define EPSILON 9
 
 # define TRIM_SET	" \t\n\r\v\f"
 

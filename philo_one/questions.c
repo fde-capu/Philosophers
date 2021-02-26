@@ -48,7 +48,7 @@ int		am_i_dead(t_philo *p)
 {
 	if (is_game_over())
 		return (2);
-	if (ms_age(p->last_meal) >= g_time_to_die + EPSILON)
+	if (ms_age(p->last_meal) >= (g_time_to_die + EPSILON))
 	{
 		change_state(p, STATE_DEAD);
 		set_game_over();

@@ -43,6 +43,9 @@ void	*radar(void *arg)
 {
 	(void)arg;
 	while (!(are_we_dead()))
-		usleep(EPSILON * 1000);
+	{
+		usleep(1000);
+		fflush(stdout);
+	}
 	return (0);
 }
