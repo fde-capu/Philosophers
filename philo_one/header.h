@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/24 16:50:39 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/26 11:40:14 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,18 @@
 # include "structs.h"
 # include "fun.h"
 
+# define STRAT_DESC	"PHILO_ONE\nShared forks in between."
+# define EVEN_ODD_DELAY 5000
+
 # define TRIM_SET	" \t\n\r\v\f"
 
-# define OUT_STRING "is standing"
-# define NAP_STRING "is sleeping"
-# define THINK_STRING "is thinking"
-# define EAT_STRING "is eating"
-# define DEAD_STRING "died"
-# define FORK_STRING_L "has taken the left fork"
-# define FORK_STRING_R "has taken the right fork"
+# define OUT_STRING "is standing."
+# define NAP_STRING "is sleeping."
+# define THINK_STRING "is thinking."
+# define EAT_STRING "is eating."
+# define DEAD_STRING "died."
+# define FORK_STRING_L "has taken the left fork."
+# define FORK_STRING_R "has taken the right fork."
 
 # define DIE_COL "\x1B[031m"
 # define EAT_COL "\x1B[032m"
@@ -50,12 +53,12 @@
 # define ANIM_MCS		35000
 
 # define QUOTES_AMOUNT			53
-# define COUNT_DOWN				1
+# define COUNT_DOWN				0
 
 int				are_we_dead(void);
 void			*radar(void *arg);
-void			raise_left_fork(t_philo *p);
-void			raise_right_fork(t_philo *p);
+void			*raise_left_fork(void *arg);
+void			*raise_right_fork(void *arg);
 int				are_we_stuffed(void);
 int				game_mode_eat(void);
 int				game_mode_death(void);
@@ -93,7 +96,6 @@ const char		*state_string(int state_code);
 t_philo			*get_philo(int id);
 void			philo_link_r(void);
 void			philo_destroy(t_philo *p);
-void			game_start(void);
 void			game_start_thread(void);
 void			*init_play(void *arg);
 t_philo			*philo_init(int id);

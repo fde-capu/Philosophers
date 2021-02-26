@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 08:11:08 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/24 15:50:56 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/26 09:24:53 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,18 @@ void	philo_log_direct(t_philo *p)
 	}
 	philo_print_age(p);
 	printf(" %d ", p->id);
-	printf("%s\n", state_string(p->state));
+	printf("%s", state_string(p->state));
+	if (p->state != STATE_NAP)
+		printf("\n");
+	else
+		printf(" Meals: %d.\n", p->meals);
 	pthread_mutex_unlock(&g_lock_print);
 	return ;
 }
 
 void	strategy_log(void)
 {
-	printf("Strategy: PHILO_THREE\n \
-Forks at center of table. Semaphores. Each Philosopher is a process.");
+	printf(STRAT_DESC);
 	printf("\n");
 	return ;
 }

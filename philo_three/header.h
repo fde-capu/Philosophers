@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/25 16:20:40 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/26 09:30:40 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,17 @@
 # include "structs.h"
 # include "fun.h"
 
+# define STRAT_DESC "PHILO_THREE\n, center forks, philosophers as processes."
+
 # define TRIM_SET	" \t\n\r\v\f"
 
-# define OUT_STRING "is standing"
-# define NAP_STRING "is sleeping"
-# define THINK_STRING "is thinking"
-# define EAT_STRING "is eating"
-# define DEAD_STRING "died"
-# define FORK_STRING_A "has taken a fork"
-# define FORK_STRING_B "has taken another fork"
+# define OUT_STRING "is standing."
+# define NAP_STRING "is sleeping."
+# define THINK_STRING "is thinking."
+# define EAT_STRING "is eating."
+# define DEAD_STRING "died."
+# define FORK_STRING_A "has taken a fork."
+# define FORK_STRING_B "has taken another fork."
 
 # define DIE_COL "\x1B[031m"
 # define EAT_COL "\x1B[032m"

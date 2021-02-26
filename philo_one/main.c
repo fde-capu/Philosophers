@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/24 15:43:29 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/26 11:38:07 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,22 @@ void	game_start_thread(void)
 	int			id;
 	pthread_t	philo_thread[g_philo_limit + 1];
 	t_philo		*p;
+	int			once;
 
-	id = 0;
-	while (++id <= g_philo_limit)
+	once = 1;
+	id = 1;
+	while (id <= g_philo_limit)
 	{
 		p = get_philo(id);
 		if (pthread_create(&(philo_thread[id]), 0, &init_play, p) != 0)
 			exit(-1);
+		id += 2;
+		if ((id > g_philo_limit) && (once))
+		{
+			once = 0;
+			usleep(EVEN_ODD_DELAY);
+			id = 2;
+		}
 	}
 	if (pthread_create(&(philo_thread[0]), 0, &radar, 0) != 0)
 		exit(-1);
@@ -40,15 +49,6 @@ void	game_start_thread(void)
 	id = 0;
 	while (++id <= g_philo_limit)
 		pthread_join(philo_thread[id], 0);
-	game_outro();
-	return ;
-}
-
-void	game_start(void)
-{
-	game_countdown();
-	take_seat_all();
-	game_start_thread();
 	return ;
 }
 
@@ -61,8 +61,13 @@ int		main(int argc, char **argv)
 		philo_init_all();
 		printf("Initial state:\n");
 		philo_log_all();
-		game_start();
+		game_countdown();
+		take_seat_all();
+		game_start_thread();
+		printf("%010d ", ms_age(g_philo_one->birth));
+		fflush(stdout);
 		philo_destroy_all(g_philo_one);
+		game_outro();
 		return (0);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/24 16:53:58 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/26 11:52:23 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,17 @@
 # include "structs.h"
 # include "fun.h"
 
+# define STRAT_DESC "PHILO_TWO\nForks at center of table as semaphores."
+
 # define TRIM_SET	" \t\n\r\v\f"
 
-# define OUT_STRING "is standing"
-# define NAP_STRING "is sleeping"
-# define THINK_STRING "is thinking"
-# define EAT_STRING "is eating"
-# define DEAD_STRING "died"
-# define FORK_STRING_A "has taken a fork"
-# define FORK_STRING_B "has taken another fork"
+# define OUT_STRING "is standing."
+# define NAP_STRING "is sleeping."
+# define THINK_STRING "is thinking."
+# define EAT_STRING "is eating."
+# define DEAD_STRING "died."
+# define FORK_STRING_A "has taken a fork."
+# define FORK_STRING_B "has taken another fork."
 
 # define DIE_COL "\x1B[031m"
 # define EAT_COL "\x1B[032m"
@@ -93,7 +95,6 @@ const char		*state_string(int state_code);
 t_philo			*get_philo(int id);
 void			philo_link_r(void);
 void			philo_destroy(t_philo *p);
-void			game_start(void);
 void			game_start_thread(void);
 void			*init_play(void *arg);
 t_philo			*philo_init(int id);

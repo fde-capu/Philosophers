@@ -53,33 +53,71 @@ of a philosopher.
 
 #### Defense:
 
+Note:
+At left of philosopher *N* sits philosopher *N + 1*. At right is philosopher *N - 1*.
+*N + 1*'s right fork is *N*'s left fork; *N*'s right fork is *N - 1*'s left, in
+clockwise order:
+_(...) PN+1 N+1RF=NLF PN NRF=N-1LF PN-1 (...)_
+
 ## `philo_one`
 
-- main.c: one thread per philosopher.
-- forks.c: mutex locks. (Obs.: bol used only for print.)
-- `grep -rnC 3 g_lock_print`. No scrambled view.
+- `main.c`: one thread per philosopher.
+- `forks.c`: mutex locks. (Obs.: `bol` used only for print.)
+- `grep -rnC 5 g_lock_print`. Every time something logs.
 - I have set `time_to_die == 0` as invalid argument.
-  `g_a_m_e_o_v_e_r` is a global that whenever set to `1` it will never
-  be reset. This is no reason for mutexing it.
+  `g_a_m_e_o_v_e_r` is a global that whenever set to `1`, the thread
+  `free`s itself and exit gracefully. This variable will never
+  be reset to zero. Therefore, there is no reason for mutexing it.
   Using `philo_one 2 300 100 200` will show that when a philosopher
   eats and dies at the same time, it will instead only die.
   Side note: starving death may also occur while the philosopher
-  is eating (seen this happen ocasionally with `philo_one 4 100 300 200`):
+  is eating (seen this happen occasionally with `philo_one 4 100 300 200`):
   strict interpretation of `time_to_die`. I find this odd, starving 
-  should start counting when it finishes the meal.
+  should start counting only when someone finishes the meal.
+- `philo_one 5 800 200 200` ok with leaks (see notes below).
+- `philo_one 5 800 200 200 7` ok.
+- `philo_one 4 410 200 200`. To say "no one should die" is not possible, 
+  since depending on CPU state luck, a philosopher may take two forks 
+  simultanously and the events below may happen.
+  To prevent this expections, all even id philosophers start 
+  `EVEN_ODD_DELAY` microseconds late.
+
+```
+	0000000000 1 is thinking.
+	0000000000 3 is thinking.
+	0000000000 2 is thinking.
+	0000000000 4 is thinking.
+	0000000000 1 has taken the left fork.
+	0000000000 3 has taken the left fork.
+	0000000000 1 has taken the right fork.
+	0000000000 1 is eating.
+	0000000000 2 has taken the left fork.
+	0000000200 1 is sleeping. Meals: 1.
+	0000000200 4 has taken the left fork.
+	0000000200 2 has taken the right fork.
+	0000000200 2 is eating.
+	0000000400 1 is thinking.
+	0000000400 2 is sleeping. Meals: 1.
+	0000000400 1 has taken the left fork.
+	0000000400 3 has taken the right fork.
+	0000000400 3 is eating.
+	0000000410 4 died.
+```
+
+
 
 ## `philo_two`
 
-- main.c: one thread per philosopher.
-- strategy.c and forks.c: semaphores.
-- `grep -rnC 4 g_lock_print`. No scrambled view.
+- `main.c`: one thread per philosopher.
+- `strategy.c` and `forks.c`: semaphores.
+- `grep -rnC 5 g_lock_print`. No scrambled view.
 - `time_to_die` issue: same as `philo_one`.
 
 ## `philo_three`
 
-- main.c: one fork for each id; note `exit (0)` inside `if (pid == 0)`: main process waits for any termination.
-- strategy.c and forks.c: semaphores.
-- `grep -rnC 4 g_lock_print`. No scrambled view.
+- `main.c`: one fork for each id; note `exit (0)` inside `if (pid == 0)`: main process waits for any termination.
+- `strategy.c` and `forks.c`: semaphores.
+- `grep -rnC 5 g_lock_print`. No scrambled view.
 
 ---
 
@@ -89,11 +127,14 @@ of a philosopher.
 interrupted, there should be leaks from the abruption.
 
 - Since `kill` is used on `philo_three`, to properly `free` the
-allocated memory, `sigaction` is nedded.
+allocated memory, `sigaction` was implemented to avoid leaks
+(`<signal.h>` is included).
 
-- When inspecting with Valgrind, take care to notice that dus to the
+- When inspecting with Valgrind, notice that due to the
 slowness caused by the memory inspection, some synchronous events
-appear asynchronous.
+appear asynchronous, and even people may die during the delay
+(when normally would not). For these cases, try testing wieh
+extra `time_to_die`.
 
 #### Usage:
 
@@ -104,4 +145,4 @@ appear asynchronous.
 
 Copyright (c) fde-capu
 
-This is a study and should not be copied without understandment of the code. There is no practical use for this software. None permission for doing anything is authorized.
+This is a study and should not be copied without understanding of the code. There is no practical use for this software. None permission for doing anything is authorized.

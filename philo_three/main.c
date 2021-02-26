@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/25 18:51:55 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/26 09:42:34 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,10 @@ void	game_start_process(void)
 		strategy_destroy();
 		exit(0);
 	}
-
 	if (pthread_create(&(two_endings[0]), 0, &wait_til_someone_dies, 0))
 		exit(-1);
 	if (pthread_create(&(two_endings[1]), 0, &wait_til_all_stuffed, 0))
 		exit(-1);
-
 	pthread_join(two_endings[0], 0);
 	pthread_join(two_endings[1], 0);
 	kill(0, SIGINT);
@@ -86,6 +84,7 @@ int		main(int argc, char **argv)
 		take_seat_all();
 		game_start_process();
 		printf("%010d ", ms_age(g_philo_one->birth));
+		fflush(stdout);
 		philo_destroy_all(g_philo_one);
 		strategy_destroy();
 		game_outro();
