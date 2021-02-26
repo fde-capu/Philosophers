@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 09:27:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 13:58:06 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/26 14:03:53 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ void	fork_log(const char *pfstr, t_philo *p)
 		pthread_mutex_unlock(&g_lock_print);
 		return ;
 	}
-	//printf(strcat("%010d ", pfstr), ms_age(p->birth), p->id);
 	printf("%010d ", ms_age(p->birth));
 	printf(pfstr, p->id);
 	pthread_mutex_unlock(&g_lock_print);
