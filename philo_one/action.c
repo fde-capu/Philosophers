@@ -43,7 +43,7 @@ void	*radar(void *arg)
 {
 	(void)arg;
 	while (!(are_we_dead()))
-		usleep(1000);
+		usleep(TICK);
 	return (0);
 }
 

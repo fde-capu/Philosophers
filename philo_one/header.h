@@ -26,7 +26,8 @@
 
 # define STRAT_DESC	"PHILO_ONE\nShared forks in between."
 # define EVEN_ODD_DELAY 50000
-# define EPSILON 9
+# define EPSILON 10
+# define TICK	20
 
 # define TRIM_SET	" \t\n\r\v\f"
 

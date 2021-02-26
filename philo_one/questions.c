@@ -18,7 +18,7 @@ int		eat_or_die(t_philo *p)
 	{
 		if (enough_eat(p))
 			return (0);
-		usleep(1000);
+		usleep(TICK);
 	}
 	lower_forks(p);
 	return (1);
@@ -30,20 +30,23 @@ int		nap_or_die(t_philo *p)
 	{
 		if (enough_nap(p))
 			return (0);
-		usleep(1000);
+		usleep(TICK);
 	}
 	return (1);
 }
 
 int		am_i_dead(t_philo *p)
 {
+	unsigned int	age;
+
 	if (is_game_over())
 		return (2);
-	if (ms_age(p->last_meal) >= (g_time_to_die + EPSILON))
+	age = ms_age(p->last_meal);
+	if (age >= g_time_to_die + EPSILON)
 	{
+		lower_forks(p);
 		change_state(p, STATE_DEAD);
 		set_game_over();
-		lower_forks(p);
 		return (1);
 	}
 	return (0);

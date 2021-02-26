@@ -39,7 +39,7 @@ void	game_start_thread(void)
 		if ((id > g_philo_limit) && (once))
 		{
 			once = 0;
-			usleep(1000);
+			usleep(EVEN_ODD_DELAY);
 			id = 2;
 		}
 	}
