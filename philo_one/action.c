@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 14:57:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 14:05:20 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/26 14:09:33 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ void	*radar(void *arg)
 {
 	(void)arg;
 	while (!(are_we_dead()))
-		usleep(1000);
+		usleep(200);
 	return (0);
 }
