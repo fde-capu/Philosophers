@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 09:30:40 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/26 13:51:53 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@
 # define STATE_THINK	1
 # define STATE_EAT		2
 
-# define TICK_MICRO_S	10
 # define ANIM_MCS		35000
 
 # define QUOTES_AMOUNT			53
@@ -107,7 +106,7 @@ unsigned int	mili_to_micro(unsigned long mili);
 int				action_eat(t_philo *p);
 int				action_think(t_philo *p);
 int				action_nap(t_philo *p);
-void			philo_print_age(t_philo *p);
+const char		philo_get_age(t_philo *p);
 unsigned int	micro_to_mili(long int micro);
 void			raise_forks(t_philo *p);
 void			lower_forks(t_philo *p);
