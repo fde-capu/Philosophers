@@ -54,7 +54,9 @@ void	game_start_thread(void)
 
 int		main(int argc, char **argv)
 {
-	setvbuf(stdout, 0, _IOFBF, 200 * 3 * 60);
+	char	buf[200 * 3 * 60];
+
+	setbuf(stdout, buf);
 	g_a_m_e_o_v_e_r = 0;
 	if (validate_args(argc, argv))
 	{

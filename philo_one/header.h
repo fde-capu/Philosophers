@@ -25,9 +25,9 @@
 # include "fun.h"
 
 # define STRAT_DESC	"PHILO_ONE\nShared forks in between."
-# define EVEN_ODD_DELAY 50000
-# define EPSILON 10
-# define TICK	20
+# define EVEN_ODD_DELAY 10000
+# define EPSILON 0
+# define TICK	1000
 
 # define TRIM_SET	" \t\n\r\v\f"
 
@@ -56,14 +56,12 @@
 # define QUOTES_AMOUNT			53
 # define COUNT_DOWN				0
 
-int				are_we_dead(void);
 void			*radar(void *arg);
 void			*raise_left_fork(void *arg);
 void			*raise_right_fork(void *arg);
 int				are_we_stuffed(void);
 int				game_mode_eat(void);
 int				game_mode_death(void);
-int				is_game_over(void);
 void			set_game_over(void);
 void			fork_log(const char *pfstr, t_philo *p);
 void			game_outro(void);
@@ -108,8 +106,6 @@ unsigned int	micro_to_mili(long int micro);
 void			raise_forks(t_philo *p);
 void			lower_forks(t_philo *p);
 unsigned int	ms_age(struct timeval cron);
-int				enough_nap(t_philo *p);
-int				enough_eat(t_philo *p);
 void			change_state(t_philo *p, int state);
 int				am_i_dead(t_philo *p);
 void			strategy_log(void);

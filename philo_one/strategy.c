@@ -25,14 +25,6 @@ t_philo			*philo_init(int id)
 	return (p);
 }
 
-int				is_game_over(void)
-{
-	int	ret;
-
-	ret = g_a_m_e_o_v_e_r;
-	return (ret);
-}
-
 void			set_game_over(void)
 {
 	g_a_m_e_o_v_e_r = 1;

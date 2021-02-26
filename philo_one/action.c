@@ -42,21 +42,10 @@ int		action_nap(t_philo *p)
 void	*radar(void *arg)
 {
 	(void)arg;
-	while (!(are_we_dead()))
+	while (!g_a_m_e_o_v_e_r)
 	{
-		usleep(TICK);
+		usleep(1000);
 		fflush(stdout);
 	}
-	return (0);
-}
-
-int		are_we_dead(void)
-{
-	int	id;
-
-	id = 0;
-	while (++id <= g_philo_limit)
-		if (am_i_dead(get_philo(id)))
-			return (1);
 	return (0);
 }
