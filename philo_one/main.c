@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 11:38:07 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/26 17:24:49 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	game_start_thread(void)
 		if ((id > g_philo_limit) && (once))
 		{
 			once = 0;
-			usleep(g_time_to_eat * 1000 / 2);
+			usleep(1000);
 			id = 2;
 		}
 	}

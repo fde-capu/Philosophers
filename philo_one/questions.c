@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 19:50:58 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 15:57:34 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/02/26 17:29:41 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		eat_or_die(t_philo *p)
 	{
 		if (enough_eat(p))
 			return (0);
+		usleep(1000);
 	}
 	lower_forks(p);
 	return (1);
@@ -29,19 +30,9 @@ int		nap_or_die(t_philo *p)
 	{
 		if (enough_nap(p))
 			return (0);
+		usleep(1000);
 	}
 	return (1);
-}
-
-int		are_we_dead(void)
-{
-	int	id;
-
-	id = 0;
-	while (++id <= g_philo_limit)
-		if (am_i_dead(get_philo(id)))
-			return (1);
-	return (0);
 }
 
 int		am_i_dead(t_philo *p)
