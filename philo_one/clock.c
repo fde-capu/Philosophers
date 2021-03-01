@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 09:13:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/01 13:58:16 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 18:53:23 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	*fn_clock(void *arg)
 	(void)arg;
 	while (!g_a_m_e_o_v_e_r)
 	{
-		usleep(1000);
+		usleep(TICK);
 		g_clock++;
 	}
 	return (0);
