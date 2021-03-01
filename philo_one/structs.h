@@ -17,9 +17,9 @@ typedef struct		s_philo
 {
 	int				id;
 	int				state;
-	struct timeval	birth;
-	struct timeval	last_change;
-	struct timeval	last_meal;
+	int				birth;
+	int				last_change;
+	int				last_meal;
 	pthread_mutex_t	*fork_l;
 	pthread_mutex_t	*fork_r;
 	int				meals;
@@ -38,6 +38,7 @@ t_philo				*g_philo_one;
 pthread_mutex_t		g_lock_print;
 pthread_mutex_t		g_lock_game_over;
 int					g_a_m_e_o_v_e_r;
-struct timeval		g_clock;
+int					g_clock;
+struct timeval		g_init_time;
 
 #endif

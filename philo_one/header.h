@@ -107,7 +107,7 @@ int				action_nap(t_philo *p);
 unsigned int	micro_to_mili(long int micro);
 void			raise_forks(t_philo *p);
 void			lower_forks(t_philo *p);
-unsigned int	ms_age(struct timeval cron);
+unsigned int	ms_age(int cron);
 void			change_state(t_philo *p, int state);
 int				am_i_dead(t_philo *p);
 void			strategy_log(void);

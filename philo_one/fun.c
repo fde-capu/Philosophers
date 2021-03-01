@@ -87,5 +87,6 @@ void	philosophers_intro(void)
 	if (COUNT_DOWN)
 		quotes(random_int(0, QUOTES_AMOUNT));
 	printf("\n");
+	usleep(TICK * 10);
 	return ;
 }

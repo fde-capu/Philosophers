@@ -12,6 +12,18 @@
 
 #include "header.h"
 
+void	change_state(t_philo *p, int state)
+{
+	if (state == p->state)
+		return ;
+	p->state = state;
+	p->last_change = g_clock;
+	if (state == STATE_EAT)
+		p->last_meal = g_clock;
+	philo_log_direct(p);
+	return ;
+}
+
 t_philo			*philo_init(int id)
 {
 	t_philo	*p;
@@ -28,19 +40,5 @@ t_philo			*philo_init(int id)
 void			set_game_over(void)
 {
 	g_a_m_e_o_v_e_r = 1;
-	return ;
-}
-
-void	change_state(t_philo *p, int state)
-{
-	if (state == p->state)
-		return ;
-	p->state = state;
-	if (gettimeofday(&p->last_change, 0))
-		exit(-1);
-	if (state == STATE_EAT)
-		if (gettimeofday(&p->last_meal, 0))
-			exit(-1);
-	philo_log_direct(p);
 	return ;
 }

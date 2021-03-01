@@ -54,20 +54,20 @@ void	game_start_thread(void)
 
 int		main(int argc, char **argv)
 {
-	char	buf[200 * 3 * 60];
+//	char	buf[200 * 3 * 60];
 
-	setbuf(stdin, buf);
+//	setbuf(stdout, buf);
 //	setvbuf(stdout, 0, _IOFBF, 200 * 3 * 60);
 	g_a_m_e_o_v_e_r = 0;
 	if (validate_args(argc, argv))
 	{
 		philosophers_intro();
+		clock_init();
 		philo_init_all();
 		printf("Initial state:\n");
 		philo_log_all();
 		game_countdown();
 		take_seat_all();
-		clock_init();
 		game_start_thread();
 		printf("%010d ", ms_age(g_philo_one->birth));
 		fflush(stdout);

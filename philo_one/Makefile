@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NUMB_PHILOS	=	4
-TIME_TO_DIE	=	310
+TIME_TO_DIE	=	410
 TIME_TO_EAT	=	200
 TIME_TO_NAP	=	200
 EAT_X_TIMES	=	0

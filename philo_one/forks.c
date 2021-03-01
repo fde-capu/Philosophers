@@ -17,7 +17,7 @@ void	*raise_left_fork(void *arg)
 	t_philo		*p;
 
 	p = (t_philo *)arg;
-	fork_log("%010d %d " "wants left fork." "\n", p);
+	//fork_log("%010d %d " "wants left fork." "\n", p);
 	pthread_mutex_lock(p->fork_l);
 	if (g_a_m_e_o_v_e_r)
 	{
@@ -34,7 +34,7 @@ void	*raise_right_fork(void *arg)
 	t_philo		*p;
 
 	p = (t_philo *)arg;
-	fork_log("%010d %d " "wants right fork." "\n", p);
+	//fork_log("%010d %d " "wants right fork." "\n", p);
 	pthread_mutex_lock(p->fork_r);
 	if (g_a_m_e_o_v_e_r)
 	{
@@ -63,19 +63,22 @@ void	lower_forks(t_philo *p)
 {
 	pthread_mutex_unlock(p->fork_l);
 	pthread_mutex_unlock(p->fork_r);
-	fork_log("%010d %d " "dropped forks." "\n", p);
+	//fork_log("%010d %d " "dropped forks." "\n", p);
 	return ;
 }
 
 void	fork_log(const char *pfstr, t_philo *p)
 {
+	int	age;
+
+	age = ms_age(p->birth);
 	pthread_mutex_lock(&g_lock_print);
 	if (g_a_m_e_o_v_e_r)
 	{
 		pthread_mutex_unlock(&g_lock_print);
 		return ;
 	}
-	printf(pfstr, ms_age(p->birth), p->id);
+	printf(pfstr, age, p->id);
 	pthread_mutex_unlock(&g_lock_print);
 	return ;
 }

@@ -49,9 +49,7 @@ const char		*state_string(int state_code)
 	return (0);
 }
 
-unsigned int	ms_age(struct timeval cron)
+unsigned int	ms_age(int cron)
 {
-	return (micro_to_mili((g_clock.tv_sec * 1000000 + \
-		g_clock.tv_usec) - \
-		(cron.tv_sec * 1000000 + cron.tv_usec)));
+	return (g_clock - cron);
 }

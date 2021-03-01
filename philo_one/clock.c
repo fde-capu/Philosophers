@@ -14,8 +14,11 @@
 
 void	clock_init(void)
 {
-	pthread_t	th_clock;
+	pthread_t		th_clock;
 
+	if (gettimeofday(&g_init_time, 0))
+		exit(-1);
+	g_clock = 0;
 	if (pthread_create(&th_clock, 0, &fn_clock, 0) != 0)
 		exit(-1);
 	pthread_detach(th_clock);
@@ -24,12 +27,18 @@ void	clock_init(void)
 
 void	*fn_clock(void *arg)
 {
+//	struct timeval	era;
+
 	(void)arg;
 	while (!g_a_m_e_o_v_e_r)
 	{
-		if (gettimeofday(&g_clock, 0))
-			exit(-1);
-		usleep(TICK / (g_philo_limit * 2));
+//		if (gettimeofday(&era, 0))
+//			exit(-1);
+//		g_clock = micro_to_mili((era.tv_sec * 1000000 + era.tv_usec) - \
+//			(g_init_time.tv_sec * 1000000 + g_init_time.tv_usec));
+//		printf("gclock %d\n", g_clock);
+		usleep(1000);
+		g_clock++;
 	}
 	return (0);
 }

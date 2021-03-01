@@ -47,8 +47,9 @@ void	*radar(void *arg)
 	p = g_philo_one;
 	while (p->state != STATE_DEAD)
 	{
-		usleep(TICK / (g_philo_limit * 2));
+		usleep(TICK / g_philo_limit);
 		p = p->l;
+//		printf(".");
 	}
 	return (0);
 }

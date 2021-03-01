@@ -33,6 +33,9 @@ void		philo_log(int id)
 
 void		philo_log_direct(t_philo *p)
 {
+	int		age;
+
+	age = ms_age(p->birth);
 	pthread_mutex_lock(&g_lock_print);
 	if (g_a_m_e_o_v_e_r)
 	{
@@ -40,10 +43,10 @@ void		philo_log_direct(t_philo *p)
 		return ;
 	}
 	if (p->state != STATE_NAP)
-		printf("%010d %d %s\n", ms_age(p->birth), p->id, \
+		printf("%010d %d %s\n", age, p->id, \
 			state_string(p->state));
 	else
-		printf("%010d %d %s Meals: %d\n", ms_age(p->birth), p->id, \
+		printf("%010d %d %s Meals: %d\n", age, p->id, \
 			state_string(p->state), p->meals);
 	pthread_mutex_unlock(&g_lock_print);
 	return ;

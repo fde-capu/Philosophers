@@ -128,13 +128,12 @@ interrupted, there should be leaks from the abruption.
 
 - Since `kill` is used on `philo_three`, to properly `free` the
 allocated memory, `sigaction` was implemented to avoid leaks
-(`<signal.h>` is included).
+(`<signal.h>` was already included).
 
-- When inspecting with Valgrind, notice that due to the
-slowness caused by the memory inspection, some synchronous events
-appear asynchronous, and even people may die during the delay
-(when normally would not). For these cases, try testing wieh
-extra `time_to_die`.
+- Time is registered in machine time. This means that one
+milisecond is however long the CPU thinks it is.
+When running under virtual machine or inspecting with Valgrind,
+notice that due to the slowness, this can be mostly perceived.
 
 #### Usage:
 

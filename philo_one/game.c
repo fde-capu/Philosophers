@@ -30,10 +30,8 @@ int		philo_take_seat(t_philo *p)
 {
 	if (p->state == STATE_OUT)
 	{
-		if (gettimeofday(&p->birth, 0))
-			exit(-1);
-		if (gettimeofday(&p->last_meal, 0))
-			exit(-1);
+		p->birth = 0;
+		p->last_meal = 0;
 		printf("Philosofer %d has taken a sit.\n", p->id);
 		return (1);
 	}
