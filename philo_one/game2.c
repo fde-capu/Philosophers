@@ -12,20 +12,6 @@
 
 #include "header.h"
 
-int		enough_nap(t_philo *p)
-{
-	if (ms_age(p->last_change) < g_time_to_nap)
-		return (0);
-	return (1);
-}
-
-int		enough_eat(t_philo *p)
-{
-	if (ms_age(p->last_meal) < g_time_to_eat)
-		return (0);
-	return (1);
-}
-
 int		game_mode_death(void)
 {
 	return (!g_end_game);

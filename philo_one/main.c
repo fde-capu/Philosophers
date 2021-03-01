@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/01 09:57:55 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 10:04:09 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	game_start_thread(void)
 int		main(int argc, char **argv)
 {
 	char	buf[200 * 3 * 60];
+
 	setbuf(stdin, buf);
 //	setvbuf(stdout, 0, _IOFBF, 200 * 3 * 60);
 	g_a_m_e_o_v_e_r = 0;

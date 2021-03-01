@@ -34,7 +34,7 @@ void		philo_log(int id)
 void		philo_log_direct(t_philo *p)
 {
 	pthread_mutex_lock(&g_lock_print);
-	if (is_game_over())
+	if (g_a_m_e_o_v_e_r)
 	{
 		pthread_mutex_unlock(&g_lock_print);
 		return ;

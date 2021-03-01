@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/01 09:45:15 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 10:03:31 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@
 # include "fun.h"
 
 # define STRAT_DESC	"PHILO_ONE\nShared forks in between."
-# define EVEN_ODD_DELAY 50000
-# define EPSILON 5
-# define TICK	10000
+# define EVEN_ODD_DELAY 10000
+# define EPSILON 0
+# define TICK	1000
 
 # define TRIM_SET	" \t\n\r\v\f"
 
@@ -64,7 +64,6 @@ void			*raise_right_fork(void *arg);
 int				are_we_stuffed(void);
 int				game_mode_eat(void);
 int				game_mode_death(void);
-int				is_game_over(void);
 void			set_game_over(void);
 void			fork_log(const char *pfstr, t_philo *p);
 void			game_outro(void);
@@ -109,8 +108,6 @@ unsigned int	micro_to_mili(long int micro);
 void			raise_forks(t_philo *p);
 void			lower_forks(t_philo *p);
 unsigned int	ms_age(struct timeval cron);
-int				enough_nap(t_philo *p);
-int				enough_eat(t_philo *p);
 void			change_state(t_philo *p, int state);
 int				am_i_dead(t_philo *p);
 void			strategy_log(void);
