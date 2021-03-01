@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 19:50:58 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/25 18:49:50 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 13:46:50 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 int		eat_or_die(t_philo *p)
 {
-	while (!(is_game_over()) && !(am_i_dead(p)))
+	while ((!g_a_m_e_o_v_e_r) && !(am_i_dead(p)))
 	{
-		if (enough_eat(p))
+		if (ms_age(p->last_meal) >= g_time_to_eat)
 			return (0);
+		usleep(TICK);
 	}
 	lower_forks(p);
 	return (1);
@@ -25,10 +26,11 @@ int		eat_or_die(t_philo *p)
 
 int		nap_or_die(t_philo *p)
 {
-	while (!(is_game_over()) && !(am_i_dead(p)))
+	while ((!g_a_m_e_o_v_e_r) && !(am_i_dead(p)))
 	{
-		if (enough_nap(p))
+		if (ms_age(p->last_change) >= g_time_to_nap)
 			return (0);
+		usleep(TICK);
 	}
 	return (1);
 }
@@ -46,9 +48,9 @@ int		are_we_dead(void)
 
 int		am_i_dead(t_philo *p)
 {
-	if (is_game_over())
+	if (g_a_m_e_o_v_e_r)
 		return (2);
-	if (ms_age(p->last_meal) >= g_time_to_die)
+	if (ms_age(p->last_meal) > g_time_to_die + EPSILON)
 	{
 		lower_forks(p);
 		change_state(p, STATE_DEAD);

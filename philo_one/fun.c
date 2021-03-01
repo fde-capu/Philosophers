@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 11:10:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 09:34:16 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 11:39:53 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,5 @@ void	philosophers_intro(void)
 	if (COUNT_DOWN)
 		quotes(random_int(0, QUOTES_AMOUNT));
 	printf("\n");
-	usleep(TICK * 10);
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:51:45 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 11:53:10 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 13:11:10 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,12 @@ int		philo_take_seat(t_philo *p)
 {
 	if (p->state == STATE_OUT)
 	{
-		if (gettimeofday(&p->birth, 0))
-			exit(-1);
-		if (gettimeofday(&p->last_meal, 0))
-			exit(-1);
+		p->birth = 0;
+		p->last_meal = 0;
 		printf("Philosopher\t%d\thas taken a sit.\n", p->id);
 		return (1);
 	}
 	return (0);
-}
-
-int				is_game_over(void)
-{
-	int	ret;
-
-	ret = g_a_m_e_o_v_e_r;
-	return (ret);
 }
 
 void			set_game_over(void)

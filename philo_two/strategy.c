@@ -6,11 +6,23 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 09:11:46 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/24 16:08:39 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 13:20:04 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+void	change_state(t_philo *p, int state)
+{
+	if (state == p->state)
+		return ;
+	p->state = state;
+	p->last_change = g_clock;
+	if (state == STATE_EAT)
+		p->last_meal = g_clock;
+	philo_log_direct(p);
+	return ;
+}
 
 t_philo			*philo_init(int id)
 {

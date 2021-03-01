@@ -6,27 +6,21 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 09:11:46 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/25 18:49:37 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 13:34:23 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void			change_state(t_philo *p, int state)
+void	change_state(t_philo *p, int state)
 {
-	if ((state == p->state) || (g_a_m_e_o_v_e_r))
+	if (state == p->state)
 		return ;
 	p->state = state;
-	if (gettimeofday(&p->last_change, 0))
-		exit(-1);
+	p->last_change = g_clock;
 	if (state == STATE_EAT)
-		if (gettimeofday(&p->last_meal, 0))
-			exit(-1);
-	if (g_a_m_e_o_v_e_r)
-		return ;
+		p->last_meal = g_clock;
 	philo_log_direct(p);
-	if (state == STATE_DEAD)
-		sem_post(g_someone_is_dead);
 	return ;
 }
 

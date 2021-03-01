@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 09:27:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 14:58:01 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 13:44:10 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	raise_forks(t_philo *p)
 {
 	if (sem_wait(g_center_forks) != 0)
 		exit(-1);
-	if (is_game_over())
+	if (g_a_m_e_o_v_e_r)
 	{
 		sem_post(g_center_forks);
 		return ;
@@ -24,7 +24,7 @@ void	raise_forks(t_philo *p)
 	fork_log("%010d %d " FORK_STRING_A "\n", p);
 	if (sem_wait(g_center_forks) != 0)
 		exit(-1);
-	if (is_game_over())
+	if (g_a_m_e_o_v_e_r)
 	{
 		sem_post(g_center_forks);
 		return ;
@@ -44,7 +44,7 @@ void	lower_forks(t_philo *p)
 void	fork_log(const char *pfstr, t_philo *p)
 {
 	pthread_mutex_lock(&g_lock_print);
-	if (is_game_over())
+	if (g_a_m_e_o_v_e_r)
 	{
 		pthread_mutex_unlock(&g_lock_print);
 		return ;

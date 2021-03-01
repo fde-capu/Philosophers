@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 07:34:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/24 16:50:01 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 13:45:20 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,7 @@ const char		*state_string(int state_code)
 	return (0);
 }
 
-unsigned int	ms_age(struct timeval cron)
+unsigned int	ms_age(int cron)
 {
-	struct timeval	now;
-
-	if (gettimeofday(&now, 0))
-		exit(-1);
-	return (micro_to_mili((now.tv_sec * 1000000 + now.tv_usec) - \
-		(cron.tv_sec * 1000000 + cron.tv_usec)));
+	return (g_clock - cron);
 }

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 09:42:23 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 11:39:10 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int		main(int argc, char **argv)
 	if (validate_args(argc, argv))
 	{
 		philosophers_intro();
+		clock_init();
 		philo_init_all();
 		strategy_init();
 		printf("Initial state:\n");

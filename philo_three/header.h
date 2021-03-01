@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 13:51:53 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 13:10:22 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # include "fun.h"
 
 # define STRAT_DESC "PHILO_THREE\n, center forks, philosophers as processes."
+# define EPSILON 0
+# define TICK	1000
 
 # define TRIM_SET	" \t\n\r\v\f"
 
@@ -59,13 +61,14 @@
 # define QUOTES_AMOUNT			53
 # define COUNT_DOWN				0
 
+void			*fn_clock(void *arg);
+void			clock_init(void);
 void			game_over_event(int foo);
 int				stuff_me(t_philo *p);
 int				are_we_dead(void);
 int				game_mode_death(void);
 int				game_mode_eat(void);
 void			set_game_over(void);
-int				is_game_over(void);
 void			fork_log(const char *pfstr, t_philo *p);
 void			game_outro(void);
 void			quote_signature(const char *nm);
@@ -106,13 +109,10 @@ unsigned int	mili_to_micro(unsigned long mili);
 int				action_eat(t_philo *p);
 int				action_think(t_philo *p);
 int				action_nap(t_philo *p);
-const char		philo_get_age(t_philo *p);
 unsigned int	micro_to_mili(long int micro);
 void			raise_forks(t_philo *p);
 void			lower_forks(t_philo *p);
-unsigned int	ms_age(struct timeval cron);
-int				enough_nap(t_philo *p);
-int				enough_eat(t_philo *p);
+unsigned int	ms_age(int cron);
 void			change_state(t_philo *p, int state);
 int				am_i_dead(t_philo *p);
 void			strategy_log(void);

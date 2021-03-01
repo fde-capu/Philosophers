@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 08:11:08 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 15:01:49 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 13:17:00 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	philo_log(int id)
 void		philo_log_direct(t_philo *p)
 {
 	pthread_mutex_lock(&g_lock_print);
-	if (is_game_over())
+	if (g_a_m_e_o_v_e_r)
 	{
 		pthread_mutex_unlock(&g_lock_print);
 		return ;

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 09:42:34 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 13:46:23 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	game_start_process(void)
 	if (pid == 0)
 	{
 		p = get_philo(id);
+		clock_init();
 		action_think(p);
 		philo_destroy_all(g_philo_one);
 		id = 0;

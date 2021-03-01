@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 12:46:44 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/01 09:20:30 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 11:29:54 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ unsigned int		g_time_to_nap;
 int					g_end_game;
 t_philo				*g_philo_one;
 pthread_mutex_t		g_lock_print;
-pthread_mutex_t		g_lock_game_over;
 int					g_a_m_e_o_v_e_r;
 int					g_clock;
 struct timeval		g_init_time;
