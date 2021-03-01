@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 19:50:58 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/01 13:14:50 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 15:03:12 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,10 @@ int		are_we_stuffed(void)
 
 	id = 0;
 	while (++id <= g_philo_limit)
+	{
 		if (get_philo(id)->meals < g_end_game)
 			return (0);
+	}
 	set_game_over();
 	return (1);
 }
