@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 14:57:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 18:54:14 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 09:46:20 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,14 @@ int		action_nap(t_philo *p)
 
 void	*radar(void *arg)
 {
+	t_philo	*p;
+
 	(void)arg;
-	while (!(are_we_dead()))
+	p = g_philo_one;
+	while (p->state != STATE_DEAD)
 	{
-		usleep(TICK);
-		fflush(stdout);
+		usleep(TICK / (g_philo_limit * 2));
+		p = p->l;
 	}
-	return (0);
-}
-
-int		are_we_dead(void)
-{
-	int	id;
-
-	id = 0;
-	while (++id <= g_philo_limit)
-		if (am_i_dead(get_philo(id)))
-			return (1);
 	return (0);
 }

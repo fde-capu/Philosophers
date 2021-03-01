@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 18:53:27 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 09:57:55 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ void	game_start_thread(void)
 
 int		main(int argc, char **argv)
 {
-	setvbuf(stdout, 0, _IOFBF, 200 * 3 * 60);
+	char	buf[200 * 3 * 60];
+	setbuf(stdin, buf);
+//	setvbuf(stdout, 0, _IOFBF, 200 * 3 * 60);
 	g_a_m_e_o_v_e_r = 0;
 	if (validate_args(argc, argv))
 	{
@@ -64,6 +66,7 @@ int		main(int argc, char **argv)
 		philo_log_all();
 		game_countdown();
 		take_seat_all();
+		clock_init();
 		game_start_thread();
 		printf("%010d ", ms_age(g_philo_one->birth));
 		fflush(stdout);

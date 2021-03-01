@@ -141,6 +141,17 @@ extra `time_to_die`.
 `philo_one number_of_philosophers time_to_diea time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]`
 (same for `philo_two` and `philo_three`)
 
+Pergunta: é possível rodar corretamente na VM?
+Estou de saída e só vou ver sua resposta amanhã.
+Enxuguei todo meu código.
+Parece que o peso da assincronia está no `gettimeofday`  que fica incessantemente sendo chamado por N threads. Tive outras ideias de cronometragem, mas todas elas vão envolver chamados seguidos para essa função.
+Dá uma olhada aqui ("The Opengroup says - Applications should use the clock_gettime() function instead of the obsolescent gettimeofday() function."): https://stackoverflow.com/questions/5362577/c-gettimeofday-for-computing-time
+Rodei no Guacamole beleza.
+Vamos oficializar esse projeto sendo Guaca? Cf. post da sua amiga, isso já foi autorizado na França.
+Hoje cansei de dar murro em ponta de prego.
+Aika!
+
+
 ---
 
 Copyright (c) fde-capu

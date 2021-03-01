@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 15:53:12 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 09:45:15 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 
 # define STRAT_DESC	"PHILO_ONE\nShared forks in between."
 # define EVEN_ODD_DELAY 50000
-# define EPSILON 10
-# define TICK	20
+# define EPSILON 5
+# define TICK	10000
 
 # define TRIM_SET	" \t\n\r\v\f"
 
@@ -56,7 +56,8 @@
 # define QUOTES_AMOUNT			53
 # define COUNT_DOWN				0
 
-int				are_we_dead(void);
+void			*fn_clock(void *arg);
+void			clock_init(void);
 void			*radar(void *arg);
 void			*raise_left_fork(void *arg);
 void			*raise_right_fork(void *arg);

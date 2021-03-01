@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 19:50:58 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 17:29:41 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 09:52:28 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ int		nap_or_die(t_philo *p)
 
 int		am_i_dead(t_philo *p)
 {
-	unsigned int	age;
+	int	age;
 
 	if (is_game_over())
 		return (2);
 	age = ms_age(p->last_meal);
-	if (age >= g_time_to_die + EPSILON)
+	if (age > (int)g_time_to_die + EPSILON)
 	{
 		lower_forks(p);
 		change_state(p, STATE_DEAD);
