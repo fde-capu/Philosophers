@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 14:57:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/01 10:02:46 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 13:58:25 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void	*radar(void *arg)
 	{
 		usleep(TICK / g_philo_limit);
 		p = p->l;
-//		printf(".");
 	}
 	return (0);
 }

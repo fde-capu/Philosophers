@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/01 13:46:23 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 14:13:44 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,35 +32,10 @@ void	*wait_til_all_stuffed(void *arg)
 	return (0);
 }
 
-void	game_start_process(void)
+void	wait_game_end(void)
 {
-	int				id;
-	pid_t			pid;
-	t_philo			*p;
 	pthread_t		two_endings[2];
 
-	id = 0;
-	while (++id <= g_philo_limit)
-	{
-		pid = fork();
-		if (pid < 0)
-			exit(-1);
-		if (pid == 0)
-			break ;
-	}
-	if (pid == 0)
-	{
-		p = get_philo(id);
-		clock_init();
-		action_think(p);
-		philo_destroy_all(g_philo_one);
-		id = 0;
-		while (++id <= g_philo_limit)
-			sem_post(g_stuffed_guys);
-		sem_post(g_someone_is_dead);
-		strategy_destroy();
-		exit(0);
-	}
 	if (pthread_create(&(two_endings[0]), 0, &wait_til_someone_dies, 0))
 		exit(-1);
 	if (pthread_create(&(two_endings[1]), 0, &wait_til_all_stuffed, 0))
@@ -68,6 +43,34 @@ void	game_start_process(void)
 	pthread_join(two_endings[0], 0);
 	pthread_join(two_endings[1], 0);
 	kill(0, SIGINT);
+	return ;
+}
+
+void	game_start_process(void)
+{
+	int				id;
+	pid_t			pid;
+	t_philo			*p;
+
+	id = 0;
+	while (++id <= g_philo_limit)
+	{
+		pid = fork();
+		if (pid == 0)
+		{
+			p = get_philo(id);
+			clock_init();
+			action_think(p);
+			philo_destroy_all(g_philo_one);
+			id = 0;
+			while (++id <= g_philo_limit)
+				sem_post(g_stuffed_guys);
+			sem_post(g_someone_is_dead);
+			strategy_destroy();
+			exit(0);
+		}
+	}
+	wait_game_end();
 	return ;
 }
 
@@ -84,8 +87,6 @@ int		main(int argc, char **argv)
 		game_countdown();
 		take_seat_all();
 		game_start_process();
-		printf("%010d ", ms_age(g_philo_one->birth));
-		fflush(stdout);
 		philo_destroy_all(g_philo_one);
 		strategy_destroy();
 		game_outro();

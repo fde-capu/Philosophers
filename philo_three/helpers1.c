@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 07:34:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/01 13:45:20 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 14:07:45 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,15 @@ void			str_right(int len, const char *str)
 const char		*state_string(int state_code)
 {
 	if (state_code == STATE_NAP)
-		return (NAP_COL NAP_STRING NON_COL);
+		return (NAP_STRING);
 	if (state_code == STATE_THINK)
-		return (DIE_COL THINK_STRING NON_COL);
+		return (THINK_STRING);
 	if (state_code == STATE_EAT)
-		return (EAT_COL EAT_STRING NON_COL);
+		return (EAT_STRING);
 	if (state_code == STATE_OUT)
-		return (OUT_COL OUT_STRING NON_COL);
+		return (OUT_STRING);
 	if (state_code == STATE_DEAD)
-		return (OUT_COL DEAD_STRING NON_COL);
+		return (DEAD_STRING);
 	return (0);
 }
 

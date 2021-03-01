@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/01 13:06:58 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 13:57:32 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@
 # define TRIM_SET	" \t\n\r\v\f"
 
 # define OUT_STRING "is standing."
-# define NAP_STRING "is sleeping."
-# define THINK_STRING "is thinking."
-# define EAT_STRING "is eating."
-# define DEAD_STRING "died."
+# define NAP_STRING "is \x1B[36msleeping\x1B[0m."
+# define THINK_STRING "is \x1B[35mthinking\x1B[0m."
+# define EAT_STRING "is \x1B[32meating\x1B[0m."
+# define DEAD_STRING "\x1B[31mdied\x1B[0m."
 # define FORK_STRING_L "has taken the left fork."
 # define FORK_STRING_R "has taken the right fork."
 

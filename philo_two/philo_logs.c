@@ -6,13 +6,13 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 08:11:08 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/01 13:17:00 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 13:51:15 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	philo_log_all(void)
+void		philo_log_all(void)
 {
 	int	id;
 
@@ -22,7 +22,7 @@ void	philo_log_all(void)
 	return ;
 }
 
-void	philo_log(int id)
+void		philo_log(int id)
 {
 	t_philo	*p;
 
@@ -49,7 +49,7 @@ void		philo_log_direct(t_philo *p)
 	return ;
 }
 
-void	strategy_log(void)
+void		strategy_log(void)
 {
 	printf(STRAT_DESC);
 	printf("\n");

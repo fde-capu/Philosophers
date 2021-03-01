@@ -6,13 +6,13 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 09:11:46 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/01 09:38:59 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 13:49:41 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	change_state(t_philo *p, int state)
+void			change_state(t_philo *p, int state)
 {
 	if (state == p->state)
 		return ;

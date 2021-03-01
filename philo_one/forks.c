@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 09:27:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 18:26:41 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 13:58:00 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	*raise_left_fork(void *arg)
 	t_philo		*p;
 
 	p = (t_philo *)arg;
-	//fork_log("%010d %d " "wants left fork." "\n", p);
 	pthread_mutex_lock(p->fork_l);
 	if (g_a_m_e_o_v_e_r)
 	{
@@ -34,7 +33,6 @@ void	*raise_right_fork(void *arg)
 	t_philo		*p;
 
 	p = (t_philo *)arg;
-	//fork_log("%010d %d " "wants right fork." "\n", p);
 	pthread_mutex_lock(p->fork_r);
 	if (g_a_m_e_o_v_e_r)
 	{
@@ -63,7 +61,6 @@ void	lower_forks(t_philo *p)
 {
 	pthread_mutex_unlock(p->fork_l);
 	pthread_mutex_unlock(p->fork_r);
-	//fork_log("%010d %d " "dropped forks." "\n", p);
 	return ;
 }
 

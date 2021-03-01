@@ -6,13 +6,13 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:51:45 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/01 13:10:57 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/01 14:09:04 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	take_seat_all(void)
+void			take_seat_all(void)
 {
 	int			id;
 	t_philo		*p;
@@ -26,7 +26,7 @@ void	take_seat_all(void)
 	return ;
 }
 
-int		philo_take_seat(t_philo *p)
+int				philo_take_seat(t_philo *p)
 {
 	if (p->state == STATE_OUT)
 	{
