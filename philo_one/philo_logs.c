@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 08:11:08 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 15:38:40 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 16:06:29 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ void		philo_log_direct(t_philo *p)
 		return ;
 	}
 	if (game_mode_eat() && (p->state == STATE_NAP))
-		printf("%010d %d %s Meals: %d\n", age, p->id, \
+		printf("%06d %d %s Meals: %d\n", age, p->id, \
 			state_string(p->state), p->meals);
 	else
-		printf("%010d %d %s\n", age, p->id, \
+		printf("%06d %d %s\n", age, p->id, \
 			state_string(p->state));
 	pthread_mutex_unlock(&g_lock_print);
 	return ;
