@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 09:27:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 16:14:23 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 16:17:46 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,16 @@ void	*raise_left_fork(void *arg)
 
 	p = (t_philo *)arg;
 	pthread_mutex_lock(p->fork_l);
+	pthread_mutex_lock(&g_lock_print);
 	if (g_a_m_e_o_v_e_r)
 	{
 		pthread_mutex_unlock(p->fork_l);
 		pthread_mutex_destroy(p->fork_l);
+		pthread_mutex_unlock(&g_lock_print);
 		return (0);
 	}
 	fork_log("%06d %d " FORK_STRING_L "\n", p);
+	pthread_mutex_unlock(&g_lock_print);
 	return (0);
 }
 
@@ -34,13 +37,16 @@ void	*raise_right_fork(void *arg)
 
 	p = (t_philo *)arg;
 	pthread_mutex_lock(p->fork_r);
+	pthread_mutex_lock(&g_lock_print);
 	if (g_a_m_e_o_v_e_r)
 	{
 		pthread_mutex_unlock(p->fork_r);
 		pthread_mutex_destroy(p->fork_r);
+		pthread_mutex_unlock(&g_lock_print);
 		return (0);
 	}
 	fork_log("%06d %d " FORK_STRING_R "\n", p);
+	pthread_mutex_unlock(&g_lock_print);
 	return (0);
 }
 
@@ -68,7 +74,6 @@ void	fork_log(const char *pfstr, t_philo *p)
 {
 	int	age;
 
-	pthread_mutex_lock(&g_lock_print);
 	age = g_clock;
 	if (g_a_m_e_o_v_e_r)
 	{
@@ -76,6 +81,5 @@ void	fork_log(const char *pfstr, t_philo *p)
 		return ;
 	}
 	printf(pfstr, age, p->id);
-	pthread_mutex_unlock(&g_lock_print);
 	return ;
 }
