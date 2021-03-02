@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 15:26:49 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 15:49:01 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ void	*init_play(void *arg)
 	t_philo	*p;
 
 	p = (t_philo *)arg;
-	action_think(p);
+	if (p->id % 2)
+		action_eat(p);
+	else
+		action_think(p);
 	return (0);
 }
 
@@ -50,7 +53,7 @@ int		main(int argc, char **argv)
 		clock_init();
 		take_seat_all();
 		game_start_thread();
-		printf("%010d ", ms_age(g_init_time));
+		printf("%010d ", g_clock);
 		fflush(stdout);
 		philo_destroy_all(g_philo_one);
 		game_outro();

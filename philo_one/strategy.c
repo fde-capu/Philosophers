@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 09:11:46 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 15:05:59 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 15:45:35 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void			change_state(t_philo *p, int state)
 	if (state == p->state)
 		return ;
 	p->state = state;
-	memcpy(&(p->last_change), &now, sizeof(struct timeval));
+	p->last_change = g_clock;
 	if (state == STATE_EAT)
-		memcpy(&(p->last_meal), &now, sizeof(struct timeval));
+		p->last_meal = g_clock;
 	philo_log_direct(p);
 	return ;
 }

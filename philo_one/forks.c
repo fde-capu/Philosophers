@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 09:27:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 15:27:43 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 15:38:56 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,10 @@ void	raise_forks(t_philo *p)
 {
 	pthread_t	ambidestry[2];
 
-	if (p->id % 2)
-	{
-		if (pthread_create(&(ambidestry[0]), 0, &raise_left_fork, p) != 0)
-			exit(-1);
-		if (pthread_create(&(ambidestry[1]), 0, &raise_right_fork, p) != 0)
-			exit(-1);
-	}
-	else
-	{
-		if (pthread_create(&(ambidestry[1]), 0, &raise_right_fork, p) != 0)
-			exit(-1);
-		if (pthread_create(&(ambidestry[0]), 0, &raise_left_fork, p) != 0)
-			exit(-1);
-	}
+	if (pthread_create(&(ambidestry[0]), 0, &raise_left_fork, p) != 0)
+		exit(-1);
+	if (pthread_create(&(ambidestry[1]), 0, &raise_right_fork, p) != 0)
+		exit(-1);
 	pthread_join(ambidestry[0], 0);
 	pthread_join(ambidestry[1], 0);
 	return ;
@@ -78,7 +68,7 @@ void	fork_log(const char *pfstr, t_philo *p)
 {
 	int	age;
 
-	age = ms_age(p->birth);
+	age = g_clock;
 	pthread_mutex_lock(&g_lock_print);
 	if (g_a_m_e_o_v_e_r)
 	{

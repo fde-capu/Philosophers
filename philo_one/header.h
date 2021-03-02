@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 15:26:41 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 15:44:21 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@
 # define QUOTES_AMOUNT			53
 # define COUNT_DOWN				0
 
+void			*fn_clock(void *arg);
 void			clock_init(void);
 void			*radar(void *arg);
 void			*raise_left_fork(void *arg);
@@ -105,7 +106,7 @@ int				action_nap(t_philo *p);
 unsigned int	micro_to_mili(long int micro);
 void			raise_forks(t_philo *p);
 void			lower_forks(t_philo *p);
-unsigned int	ms_age(struct timeval cron);
+unsigned int	ms_age(int cron);
 void			change_state(t_philo *p, int state);
 int				am_i_dead(t_philo *p);
 void			strategy_log(void);

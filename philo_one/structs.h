@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 12:46:44 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 14:42:04 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 15:42:08 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ typedef struct		s_philo
 {
 	int				id;
 	int				state;
-	struct timeval	birth;
-	struct timeval	last_change;
-	struct timeval	last_meal;
+	int				birth;
+	int				last_change;
+	int				last_meal;
 	pthread_mutex_t	*fork_l;
 	pthread_mutex_t	*fork_r;
 	int				meals;
@@ -37,6 +37,7 @@ int					g_end_game;
 t_philo				*g_philo_one;
 pthread_mutex_t		g_lock_print;
 int					g_a_m_e_o_v_e_r;
+int					g_clock;
 struct timeval		g_init_time;
 
 #endif
