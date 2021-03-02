@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 16:06:08 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 16:10:08 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*init_play(void *arg)
 	if (p->id % 2)
 		action_eat(p);
 	else
-		action_think(p);
+		action_nap(p);
 	return (0);
 }
 
