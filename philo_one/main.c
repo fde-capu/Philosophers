@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 17:31:38 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 18:40:17 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	*init_play(void *arg)
 
 	p = (t_philo *)arg;
 	if (p->id % 2)
-		action_eat(p);
+		action_think(p);
 	else
 		action_nap(p);
 	return (0);
