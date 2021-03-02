@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 09:02:14 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 13:11:57 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 
 # define STRAT_DESC "PHILO_THREE\nCenter forks, philosophers as processes."
 # define EPSILON 0
-# define TICK	1000
+# define TICK	10
 
 # define TRIM_SET	" \t\n\r\v\f"
 

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/01 14:03:27 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 13:39:21 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,14 @@ int		main(int argc, char **argv)
 	if (validate_args(argc, argv))
 	{
 		philosophers_intro();
-		clock_init();
 		philo_init_all();
 		printf("Initial state:\n");
 		philo_log_all();
 		game_countdown();
+		clock_init();
 		take_seat_all();
 		game_start_thread();
-		printf("%010d ", ms_age(g_philo_one->birth));
+		printf("%010d ", ms_age(g_init_time));
 		fflush(stdout);
 		philo_destroy_all(g_philo_one);
 		game_outro();

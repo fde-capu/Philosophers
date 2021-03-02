@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 12:46:44 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/01 11:29:54 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 13:41:10 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ typedef struct		s_philo
 {
 	int				id;
 	int				state;
-	int				birth;
-	int				last_change;
-	int				last_meal;
+	struct timeval	birth;
+	struct timeval	last_change;
+	struct timeval	last_meal;
 	pthread_mutex_t	*fork_l;
 	pthread_mutex_t	*fork_r;
 	int				meals;

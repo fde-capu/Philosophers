@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/03/01 16:29:46 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/03/02 13:27:58 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ TIME_TO_EAT	=	200
 TIME_TO_NAP	=	200
 EAT_X_TIMES	=	0
 
-NAME		=	$(shell basename "$(PWD)")
+NAME		=	philo_one
 CC			=	clang
 CCFLAGS		=	-Wall -Werror -Wextra -g
 NMCCFLAGS	=	-pthread
@@ -35,12 +35,10 @@ VALGFLAGS	=	--leak-check=full \
 ARGS		=	$(NUMB_PHILOS) $(TIME_TO_DIE) $(TIME_TO_EAT) \
 				$(TIME_TO_NAP) $(EAT_X_TIMES)
 
-name:	all
-
-all:	$(NAME)
-	$(CC) $(CCFLAGS) $(NMCCFLAGS) $(OBJS) -o $(NAME)
+all:		$(NAME)
 
 $(NAME):	$(OBJS)
+	$(CC) $(CCFLAGS) $(NMCCFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJS):	%.o : %.c $(CCHEADS)
 	$(CC) $(CCFLAGS) -o $@ -c $<
