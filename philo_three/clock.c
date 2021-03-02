@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 09:13:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/01 14:08:40 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 17:22:40 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,16 @@ void	clock_init(void)
 
 void	*fn_clock(void *arg)
 {
+	struct timeval	now;
+
 	(void)arg;
 	while (!g_a_m_e_o_v_e_r)
 	{
-		usleep(1000);
-		g_clock++;
+		if (gettimeofday(&now, 0))
+			exit(-1);
+		g_clock = (((now.tv_sec * 1000) + now.tv_usec / 1000) - \
+			((g_init_time.tv_sec * 1000) + g_init_time.tv_usec / 1000));
+		usleep(TICK);
 	}
 	return (0);
 }
