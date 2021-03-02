@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/03/02 13:27:55 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/03/02 14:59:34 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ EAT_X_TIMES	=	0
 
 NAME		=	philo_two
 CC			=	clang
-CCFLAGS		=	-Wall -Werror -Wextra -g
+CCFLAGS		=	-Wall -Werror -Wextra
 NMCCFLAGS	=	-pthread
 SRCS		=	main.c argn.c ft_atoi.c ft_strtrim.c \
 	ft_isdigit.c ft_chrinset.c quotes.c quotes2.c \

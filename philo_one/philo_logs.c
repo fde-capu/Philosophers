@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 08:11:08 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/01 13:50:50 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 14:56:34 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,7 @@ void		philo_log_all(void)
 
 	id = 0;
 	while (++id <= g_philo_limit)
-		philo_log(id);
-	return ;
-}
-
-void		philo_log(int id)
-{
-	t_philo	*p;
-
-	p = get_philo(id);
-	philo_log_direct(p);
+		philo_log_direct(get_philo(id));
 	return ;
 }
 
@@ -42,12 +33,12 @@ void		philo_log_direct(t_philo *p)
 		pthread_mutex_unlock(&g_lock_print);
 		return ;
 	}
-	if (p->state != STATE_NAP)
-		printf("%010d %d %s\n", age, p->id, \
-			state_string(p->state));
-	else
+	if (game_mode_eat() && (p->state == STATE_NAP))
 		printf("%010d %d %s Meals: %d\n", age, p->id, \
 			state_string(p->state), p->meals);
+	else
+		printf("%010d %d %s\n", age, p->id, \
+			state_string(p->state));
 	pthread_mutex_unlock(&g_lock_print);
 	return ;
 }

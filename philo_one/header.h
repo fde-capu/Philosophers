@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 13:38:25 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 14:54:09 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include "fun.h"
 
 # define STRAT_DESC	"PHILO_ONE\nShared forks in between."
-# define EVEN_ODD_DELAY 1000
+# define EVEN_ODD_DELAY 50000
 # define EPSILON 0
 # define TICK	50
 
@@ -89,7 +89,6 @@ int				philo_take_seat(t_philo *p);
 void			philo_destroy_all(t_philo *p);
 void			philo_init_all(void);
 t_philo			*philo_init_chain(int id);
-void			philo_log(int id);
 void			philo_log_direct(t_philo *p);
 void			philo_log_all(void);
 const char		*state_string(int state_code);
