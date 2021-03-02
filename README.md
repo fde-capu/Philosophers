@@ -62,7 +62,7 @@ _(...) PN+1 N+1RF=NLF PN NRF=N-1LF PN-1 (...)_
 ## `philo_one`
 
 - `main.c`: one thread per philosopher.
-- `forks.c`: mutex locks. (Obs.: `bol` used only for print.)
+- `forks.c`: mutex locks.
 - `grep -rnC 5 g_lock_print`. Every time something logs.
 - I have set `time_to_die == 0` as invalid argument.
   `g_a_m_e_o_v_e_r` is a global that whenever set to `1`, the thread
