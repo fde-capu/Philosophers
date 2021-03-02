@@ -120,11 +120,10 @@ milisecond is however long the CPU thinks it is.
   measuring time precisely, avoiding excessive `write` syscalls (or none
   at all), reducing the use of `gettimeofday`,  and using independent
   clock tickers even if slower than real time. This former strategy was 
-  chosen to be final, since it will run very well independently of lagging CPUs_.
+  chosen to be final, since it will run well independently of lagging CPUs_.
   My research shows that `gettimeofday()` is obsolescent.
 
-- As for covid-19 pandemic, as this project does not run well on Linux Virtual Machine,
-there have been notice of authorization that it can be tested on Guacamole.
+- As for covid-19 pandemic, there have been notice of authorization that it can be tested on Guacamole.
 
 ---
 
