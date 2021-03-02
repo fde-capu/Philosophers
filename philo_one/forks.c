@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 09:27:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 16:06:39 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 16:14:23 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ void	fork_log(const char *pfstr, t_philo *p)
 {
 	int	age;
 
-	age = g_clock;
 	pthread_mutex_lock(&g_lock_print);
+	age = g_clock;
 	if (g_a_m_e_o_v_e_r)
 	{
 		pthread_mutex_unlock(&g_lock_print);
