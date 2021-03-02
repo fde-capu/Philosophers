@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 09:27:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 16:38:11 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 18:31:40 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void	lower_forks(t_philo *p)
 
 void	fork_log(const char *pfstr, t_philo *p)
 {
-	printf(pfstr, ms_age(p->birth), p->id);
+	printf(pfstr, g_clock, p->id);
 	return ;
 }
