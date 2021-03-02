@@ -6,23 +6,11 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 16:10:08 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 16:37:17 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
-void	*init_play(void *arg)
-{
-	t_philo	*p;
-
-	p = (t_philo *)arg;
-	if (p->id % 2)
-		action_eat(p);
-	else
-		action_nap(p);
-	return (0);
-}
 
 void	game_start_thread(void)
 {
@@ -65,4 +53,16 @@ int		main(int argc, char **argv)
 		printf("\n>>> Invalid arguments.\n");
 		return (-1);
 	}
+}
+
+void	*init_play(void *arg)
+{
+	t_philo	*p;
+
+	p = (t_philo *)arg;
+	if (p->id % 2)
+		action_eat(p);
+	else
+		action_nap(p);
+	return (0);
 }

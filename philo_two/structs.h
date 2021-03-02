@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 12:46:44 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 14:42:25 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 16:31:20 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_philo				*g_philo_one;
 pthread_mutex_t		g_lock_print;
 int					g_a_m_e_o_v_e_r;
 sem_t				*g_center_forks;
+int					g_clock;
 struct timeval		g_init_time;
 
 #endif
