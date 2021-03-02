@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 10:28:39 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/15 11:11:06 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/02 17:48:02 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ human heart like that felt by the inventor as he sees some \
 creation of the brain unfolding to success... Such emotions make a \
 man forget food, sleep, friends, love, everything.", "Nikola Tesla");
 	if (q == 3)
-		quote("It was about three o’clock at night when the final result of \
+		quote("It was about three o'clock at night when the final result of \
 the calculation [which gave birth to quantum mechanics] lay before \
 me ... At first I was deeply shaken ... I was so excited that I \
 could not think of sleep. So I left the house ... and awaited the \
@@ -64,7 +64,7 @@ boredom in Heaven.", "Isaac Asimov");
 sleep.", "Marguerite Yourcenar");
 	if (q == 7)
 		quote("What would life be without art? Science prolongs life. To \
-consist of what—eating, drinking, and sleeping? What is the good \
+consist of what-eating, drinking, and sleeping? What is the good \
 of living longer if it is only a matter of satisfying the \
 requirements that sustain life? All this is nothing without the \
 charm of art.", "Sarah Bernhardt");
