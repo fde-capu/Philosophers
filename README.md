@@ -51,6 +51,13 @@ of a philosopher.
 
 ---
 
+#### Usage:
+
+`philo_one number_of_philosophers time_to_diea time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]`
+(same for `philo_two` and `philo_three`)
+
+---
+
 #### Defense:
 
 Note:
@@ -78,40 +85,15 @@ _(...) PN+1 N+1RF=NLF PN NRF=N-1LF PN-1 (...)_
 - `philo_one 5 800 200 200 7` ok.
 - `philo_one 4 410 200 200`. To say "no one should die" is not possible, 
   since depending on CPU state luck, a philosopher may take two forks 
-  simultanously and the events below may happen.
-  To prevent this expections, all even id philosophers start 
+  simultaneously. See notes below.
+  To prevent exceptions, all `philo_one` even id philosophers start 
   `EVEN_ODD_DELAY` microseconds late.
-
-```
-	0000000000 1 is thinking.
-	0000000000 3 is thinking.
-	0000000000 2 is thinking.
-	0000000000 4 is thinking.
-	0000000000 1 has taken the left fork.
-	0000000000 3 has taken the left fork.
-	0000000000 1 has taken the right fork.
-	0000000000 1 is eating.
-	0000000000 2 has taken the left fork.
-	0000000200 1 is sleeping. Meals: 1.
-	0000000200 4 has taken the left fork.
-	0000000200 2 has taken the right fork.
-	0000000200 2 is eating.
-	0000000400 1 is thinking.
-	0000000400 2 is sleeping. Meals: 1.
-	0000000400 1 has taken the left fork.
-	0000000400 3 has taken the right fork.
-	0000000400 3 is eating.
-	0000000410 4 died.
-```
-
-
 
 ## `philo_two`
 
 - `main.c`: one thread per philosopher.
 - `strategy.c` and `forks.c`: semaphores.
 - `grep -rnC 5 g_lock_print`. No scrambled view.
-- `time_to_die` issue: same as `philo_one`.
 
 ## `philo_three`
 
@@ -132,24 +114,19 @@ allocated memory, `sigaction` was implemented to avoid leaks
 
 - Time is registered in machine time. This means that one
 milisecond is however long the CPU thinks it is.
-When running under virtual machine or inspecting with Valgrind,
-notice that due to the slowness, this can be mostly perceived.
 
-#### Usage:
+- Using Valgrind will interfere with timing speed, so false fails my happen.
 
-`philo_one number_of_philosophers time_to_diea time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]`
-(same for `philo_two` and `philo_three`)
+- _Many approaches were experimented, none of which solved the CPU clock
+  assinchrony betweet threads when running under virtual enrironment:
+  measuring time precisely, avoiding excessive `write` syscalls (or none
+  at all), reducing the use of `gettimeofday`,  and using independent
+  clock tickers even if slower than real time. This former strategy was 
+  chosen to be final, since it will run very well independently of lagging CPUs_.
+  My research shows that `gettimeofday()` is obsolescent.
 
-Pergunta: é possível rodar corretamente na VM?
-Estou de saída e só vou ver sua resposta amanhã.
-Enxuguei todo meu código.
-Parece que o peso da assincronia está no `gettimeofday`  que fica incessantemente sendo chamado por N threads. Tive outras ideias de cronometragem, mas todas elas vão envolver chamados seguidos para essa função.
-Dá uma olhada aqui ("The Opengroup says - Applications should use the clock_gettime() function instead of the obsolescent gettimeofday() function."): https://stackoverflow.com/questions/5362577/c-gettimeofday-for-computing-time
-Rodei no Guacamole beleza.
-Vamos oficializar esse projeto sendo Guaca? Cf. post da sua amiga, isso já foi autorizado na França.
-Hoje cansei de dar murro em ponta de prego.
-Aika!
-
+- As for covid-19 pandemic, as this project does not run well on Linux Virtual Machine,
+there have been notice of authorization that it can be tested on Guacamole.
 
 ---
 
