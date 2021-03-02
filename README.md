@@ -28,9 +28,14 @@ philosopher must eat with two forks, one for each hand.
 
 • The simulation stops when a philosopher dies.
 
+---
+
+#### Usage:
+
 Each program should have the same options:
 
-`number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]`
+```number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]```
+
 ◦ `number_of_philosophers`: is the number of philosophers and also the number
 of forks
 
@@ -48,13 +53,6 @@ sleeping.
 philosophers eat at least `number_of_times_each_philosopher_must_eat` the
 simulation will stop. If not specified, the simulation will stop only at the death
 of a philosopher.
-
----
-
-#### Usage:
-
-`philo_one number_of_philosophers time_to_diea time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]`
-(same for `philo_two` and `philo_three`)
 
 ---
 
