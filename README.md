@@ -110,10 +110,10 @@ interrupted, there should be leaks from the abruption.
 allocated memory, `sigaction` was implemented to avoid leaks
 (`<signal.h>` was already included).
 
+- Using Valgrind will interfere with timing speed, so false fails my happen.
+
 - Time is registered in machine time. This means that one
 milisecond is however long the CPU thinks it is.
-
-- Using Valgrind will interfere with timing speed, so false fails my happen.
 
 - _Many approaches were experimented, none of which solved the CPU clock
   assinchrony betweet threads when running under virtual enrironment:
