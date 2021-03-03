@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/03/03 11:03:59 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/03/03 15:54:20 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRCS		=	main.c argn.c ft_atoi.c ft_strtrim.c \
 	ft_isdigit.c ft_chrinset.c quotes.c quotes2.c \
 	helpers1.c philo.c philo2.c game.c action.c \
 	game2.c strategy.c forks.c philo_logs.c helpers2.c \
-	fun.c questions.c clock.c
+	fun.c questions.c clock.c ft_strcat.c ft_itoa.c
 CCHEADS		=	header.h structs.h fun.h
 OBJS		=	$(SRCS:.c=.o)
 VALGRIND	=	valgrind

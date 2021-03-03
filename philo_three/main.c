@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/03 11:34:00 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/03 15:29:02 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void	game_start_process(void)
 		if (pid == 0)
 		{
 			p = get_philo(id);
-			clock_init();
 			*radar_arg = id;
 			pthread_create(&(health_check), 0, &radar, radar_arg);
+			clock_sync_init(get_philo(id));
 			action_think(p);
 			id = 0;
 			while (++id <= g_philo_limit)
@@ -77,6 +77,7 @@ void	game_start_process(void)
 			exit(0);
 		}
 	}
+	clock_init();
 	wait_game_end();
 	free(radar_arg);
 	return ;

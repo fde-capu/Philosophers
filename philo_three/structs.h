@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 12:46:44 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 17:09:17 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/03 16:02:08 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ typedef struct		s_philo
 	int				last_meal;
 	int				meals;
 	int				stuffed;
+	sem_t			*my_clock;
+	const char		*sem_name;
 	struct s_philo	*l;
 	struct s_philo	*r;
 }					t_philo;

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 07:39:53 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/23 14:00:32 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/03 15:56:49 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ t_philo	*philo_init_chain(int id)
 
 void	philo_destroy(t_philo *p)
 {
+	sem_close(p->my_clock);
+	sem_unlink(p->sem_name);
+	free((void *)(p->sem_name));
 	free(p);
 	p = 0;
 	return ;

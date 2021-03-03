@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 09:11:46 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/03 11:19:22 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/03 16:01:08 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,17 @@ void			change_state(t_philo *p, int state)
 
 t_philo			*philo_init(int id)
 {
-	t_philo	*p;
+	t_philo		*p;
+	const char	*tmp;
 
 	p = calloc(1, sizeof(t_philo));
 	p->id = id;
 	p->state = STATE_OUT;
+	tmp = ft_itoa(p->id);
+	p->sem_name = ft_strcat("philo_clock_sem_", tmp);
+	free((void *)tmp);
+	if (!(p->my_clock = sem_open(p->sem_name, O_CREAT, 0777, 0)))
+		exit(-1);
 	return (p);
 }
 

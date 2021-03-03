@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/03 10:58:07 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/03 16:00:01 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,11 @@
 # define ANIM_MCS		35000
 # define QUOTES_AMOUNT			53
 
+char			*ft_strcat(const char *dst, const char *src);
+char			*ft_itoa(int n);
 void			*radar(void *arg);
+void			*clock_synchrony(void *arg);
+void			clock_sync_init(t_philo *p);
 void			*fn_clock(void *arg);
 void			clock_init(void);
 void			game_over_event(int foo);
