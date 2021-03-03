@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 09:11:46 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/03 17:45:56 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/03 17:56:57 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,18 @@ t_philo			*philo_init(int id)
 
 void			game_over_event(int foo)
 {
+	int		id;
+	t_philo	*p;
+
 	(void)foo;
 	g_a_m_e_o_v_e_r = 1;
+	p = g_philo_one;
+	id = 0;
+	while (++id <= g_philo_limit)
+	{
+		sem_post(p->my_clock);
+		p = p->l;
+	}
 	return ;
 }
 

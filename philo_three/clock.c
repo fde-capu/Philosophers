@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 09:13:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/03 16:04:46 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/03 17:55:09 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	*fn_clock(void *arg)
 	struct timeval	now;
 	int				sync;
 	t_philo			*p;
+	int				id;
 
 	(void)arg;
 	sync = g_clock;
@@ -42,12 +43,12 @@ void	*fn_clock(void *arg)
 		{
 			sync++;
 			p = g_philo_one;
-			while (p->id != g_philo_limit)
+			id = 0;
+			while (++id <= g_philo_limit)
 			{
 				sem_post(p->my_clock);
 				p = p->l;
 			}
-			sem_post(p->my_clock);
 		}
 		usleep(TICK);
 	}
