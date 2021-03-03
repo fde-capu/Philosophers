@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/03 15:29:02 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/03 16:10:12 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ void	game_start_process(void)
 			while (++id <= g_philo_limit)
 				sem_post(g_stuffed_guys);
 			philo_destroy_all(g_philo_one);
+			sem_post(g_someone_is_dead);
 			pthread_join(health_check, 0);
 			free(radar_arg);
-			sem_post(g_someone_is_dead);
 			strategy_destroy();
 			exit(0);
 		}
