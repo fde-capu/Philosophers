@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 19:50:58 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 16:21:18 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/03 09:46:37 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		eat_or_die(t_philo *p)
 {
-	while (!g_a_m_e_o_v_e_r && !(am_i_dead(p)))
+	while (!(am_i_dead(p)))
 	{
 		if (ms_age(p->last_meal) >= g_time_to_eat)
 			return (0);
@@ -26,7 +26,7 @@ int		eat_or_die(t_philo *p)
 
 int		nap_or_die(t_philo *p)
 {
-	while (!g_a_m_e_o_v_e_r && !(am_i_dead(p)))
+	while (!(am_i_dead(p)))
 	{
 		if (ms_age(p->last_change) >= g_time_to_nap)
 			return (0);

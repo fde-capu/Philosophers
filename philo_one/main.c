@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 18:40:17 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/03 09:51:38 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	game_start_thread(void)
 int		main(int argc, char **argv)
 {
 	g_a_m_e_o_v_e_r = 0;
+	g_polite_start = 0;
 	if (validate_args(argc, argv))
 	{
 		philosophers_intro();
@@ -58,9 +59,6 @@ void	*init_play(void *arg)
 	t_philo	*p;
 
 	p = (t_philo *)arg;
-	if (p->id % 2)
-		action_think(p);
-	else
-		action_nap(p);
+	action_think(p);
 	return (0);
 }

@@ -68,24 +68,20 @@ _(...) PN+1 N+1RF=NLF PN NRF=N-1LF PN-1 (...)_
 
 - `main.c`: one thread per philosopher.
 - `forks.c`: mutex locks.
-- `grep -rnC 5 g_lock_print`. Every time something logs.
+- ``strategy.c` and `forks.c`. Every time something changes, it quickly enter the
+  logging line.
 - I have set `time_to_die == 0` as invalid argument.
   `g_a_m_e_o_v_e_r` is a global that whenever set to `1`, the thread
   `free`s itself and exit gracefully. This variable will never
   be reset to zero. Therefore, there is no reason for mutexing it.
   Using `philo_one 2 300 100 200` will show that when a philosopher
   eats and dies at the same time, it will instead only die.
-  Side note: starving death may also occur while the philosopher
-  is eating (seen this happen occasionally with `philo_one 4 100 300 200`):
-  strict interpretation of `time_to_die`. I find this odd, starving 
-  should start counting only when someone finishes the meal.
 - `philo_one 5 800 200 200` ok with leaks (see notes below).
 - `philo_one 5 800 200 200 7` ok.
-- `philo_one 4 410 200 200`. To say "no one should die" is not possible, 
-  since depending on CPU state luck, a philosopher may take two forks 
-  simultaneously. See notes below.
-  To prevent exceptions, all `philo_one` even id philosophers start 
-  `EVEN_ODD_DELAY` microseconds late.
+- `philo_one 4 410 200 200` ok with leaks.
+- `philo_one 4 310 200 100`
+  To prevent exceptions, all `philo_one` odd id philosophers start thinking and
+  even ones start in deep sleeping state.
 
 ## `philo_two`
 
@@ -122,6 +118,11 @@ milisecond is however long the CPU thinks it is.
   clock tickers even if slower than real time. This former strategy was 
   chosen to be final, since it will run well independently of lagging CPUs_.
   My research shows that `gettimeofday()` is obsolescent.
+
+- Starving death may also occur while the philosopher
+  is eating (seen this happen occasionally with `philo_one 4 100 300 200`):
+  strict interpretation of `time_to_die`. I find this odd, starving 
+  should start counting only when someone finishes the meal.
 
 - As for covid-19 pandemic, there have been notice of authorization that it can be tested on Guacamole.
 

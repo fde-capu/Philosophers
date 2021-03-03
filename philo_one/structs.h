@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 12:46:44 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 15:42:08 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/03 09:00:18 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ pthread_mutex_t		g_lock_print;
 int					g_a_m_e_o_v_e_r;
 int					g_clock;
 struct timeval		g_init_time;
+int					g_polite_start;
 
 #endif
