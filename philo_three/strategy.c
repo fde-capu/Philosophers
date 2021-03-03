@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 09:11:46 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/03 16:01:08 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/03 17:45:56 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void			game_over_event(int foo)
 {
 	(void)foo;
 	g_a_m_e_o_v_e_r = 1;
-	pthread_mutex_unlock(&g_lock_print);
 	return ;
 }
 
@@ -76,6 +75,7 @@ void			strategy_init(void)
 
 void			strategy_destroy(void)
 {
+	pthread_mutex_unlock(&g_lock_print);
 	sem_close(g_center_forks);
 	sem_unlink("/forks");
 	sem_close(g_stuffed_guys);
