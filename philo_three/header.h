@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 17:27:44 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/03 10:58:07 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@
 # define EPSILON 0
 # define TICK	10
 
-# define TRIM_SET	" \t\n\r\v\f"
-
 # define OUT_STRING "is standing."
 # define NAP_STRING "is \x1B[36msleeping\x1B[0m."
 # define THINK_STRING "is \x1B[35mthinking\x1B[0m."
@@ -56,11 +54,13 @@
 # define STATE_THINK	1
 # define STATE_EAT		2
 
+# define COUNT_DOWN				0
+
+# define TRIM_SET	" \t\n\r\v\f"
 # define ANIM_MCS		35000
-
 # define QUOTES_AMOUNT			53
-# define COUNT_DOWN				1
 
+void			*radar(void *arg);
 void			*fn_clock(void *arg);
 void			clock_init(void);
 void			game_over_event(int foo);
@@ -68,7 +68,6 @@ int				stuff_me(t_philo *p);
 int				are_we_dead(void);
 int				game_mode_death(void);
 int				game_mode_eat(void);
-void			set_game_over(void);
 void			fork_log(const char *pfstr, t_philo *p);
 void			game_outro(void);
 void			quote_signature(const char *nm);

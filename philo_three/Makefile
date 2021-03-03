@@ -6,19 +6,19 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/03/02 17:25:10 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/03/03 11:03:59 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NUMB_PHILOS	=	4
 TIME_TO_DIE	=	310
 TIME_TO_EAT	=	200
-TIME_TO_NAP	=	200
+TIME_TO_NAP	=	100
 EAT_X_TIMES	=	0
 
 NAME		=	philo_three
 CC			=	clang
-CCFLAGS		=	-Wall -Werror -Wextra -O0
+CCFLAGS		=	-Wall -Werror -Wextra -O0 -g
 NMCCFLAGS	=	-pthread
 SRCS		=	main.c argn.c ft_atoi.c ft_strtrim.c \
 	ft_isdigit.c ft_chrinset.c quotes.c quotes2.c \

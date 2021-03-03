@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/03 10:01:38 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/03 10:03:59 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@
 
 # define ANIM_MCS		35000
 
-# define COUNT_DOWN				0
+# define COUNT_DOWN				1
 # define QUOTES_AMOUNT			53
 
 void			*fn_clock(void *arg);

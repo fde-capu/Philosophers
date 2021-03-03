@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:51:45 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/01 14:09:04 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/03 10:42:16 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,4 @@ int				philo_take_seat(t_philo *p)
 		return (1);
 	}
 	return (0);
-}
-
-void			set_game_over(void)
-{
-	g_a_m_e_o_v_e_r = 1;
-	return ;
 }

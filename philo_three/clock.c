@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 09:13:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 17:22:40 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/03 11:11:10 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	clock_init(void)
 	if (gettimeofday(&g_init_time, 0))
 		exit(-1);
 	g_clock = 0;
+	if (g_a_m_e_o_v_e_r)
+		return ;
 	if (pthread_create(&th_clock, 0, &fn_clock, 0) != 0)
 		exit(-1);
 	pthread_detach(th_clock);

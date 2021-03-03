@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 09:11:46 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 17:06:52 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/03 11:19:22 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void			game_over_event(int foo)
 {
 	(void)foo;
 	g_a_m_e_o_v_e_r = 1;
+	pthread_mutex_unlock(&g_lock_print);
 	return ;
 }
 
