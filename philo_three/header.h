@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/03 16:05:11 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/04 08:45:41 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@
 # define STATE_THINK	1
 # define STATE_EAT		2
 
-# define COUNT_DOWN				1
+# define COUNT_DOWN		1
 
 # define TRIM_SET	" \t\n\r\v\f"
 # define ANIM_MCS		35000

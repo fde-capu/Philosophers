@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 09:13:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/03 17:55:09 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/04 08:44:07 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ void	*fn_clock(void *arg)
 
 	(void)arg;
 	sync = g_clock;
-	if (gettimeofday(&g_init_time, 0))
-		exit(-1);
 	while (!g_a_m_e_o_v_e_r)
 	{
 		if (gettimeofday(&now, 0))
