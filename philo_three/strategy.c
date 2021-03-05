@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 09:11:46 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/04 22:35:34 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 11:01:36 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,20 @@ t_philo			*philo_init(int id)
 	free((void *)tmp);
 	if (!(p->my_clock = sem_open(p->sem_name, O_CREAT, 0777, 0)))
 		exit(-1);
+	free((char *)p->sem_name);
 	return (p);
 }
 
 void			game_over_event(int foo)
 {
+	int	id;
+
 	(void)foo;
 	g_a_m_e_o_v_e_r = 1;
 	sem_post(g_someone_is_dead);
+	id = 0;
+	while (++id <= g_philo_limit)
+		sem_post(g_stuffed_guys);
 	return ;
 }
 

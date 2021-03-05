@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 07:39:53 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/04 23:12:06 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 11:31:02 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,11 @@ t_philo	*philo_init_chain(int id)
 
 void	philo_destroy(t_philo *p)
 {
-	if(p->sem_name)
-	{
-		sem_post(p->my_clock);
-		sem_close(p->my_clock);
-		sem_unlink(p->sem_name);
-		free((char *)p->sem_name);
-		p->sem_name = 0;
-	}
+	sem_post(p->my_clock);
+	sem_close(p->my_clock);
+	//sem_unlink(p->sem_name);
+	//free((char *)p->sem_name);
+	//	p->sem_name = 0;
 	free(p);
 	p = 0;
 	return ;
@@ -56,22 +53,21 @@ void	philo_destroy(t_philo *p)
 
 void	philo_destroy_all_semaphores(void)
 {
-	t_philo	*p;
-	int		id;
+	int			id;
+	char		*tmp;
 
-	p = g_philo_one;
 	id = 0;
 	while (++id <= g_philo_limit)
 	{
-		if (p->sem_name)
-		{
-			sem_post(p->my_clock);
-			sem_close(p->my_clock);
-			sem_unlink(p->sem_name);
-			free((char *)p->sem_name);
-			p->sem_name = 0;
-		}
-		p = p->l;
+		tmp = ft_itoa(id);
+		tmp = ft_strcatxr("philo_clock_sem_", tmp);
+		sem_unlink(tmp);
+		free(tmp);
+		//sem_post(p->my_clock);
+		//	sem_close(p->my_clock);
+		//	sem_unlink(p->sem_name);
+		//	free((char *)p->sem_name);
+		//	p->sem_name = 0;
 	}
 	return ;
 }

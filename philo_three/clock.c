@@ -6,19 +6,42 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 09:13:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/04 22:42:55 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 11:30:06 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
+void	clock_destroy(int arg)
+{
+	return ;
+	int				id;
+	t_philo			*p;
+
+	(void)arg;
+	p = g_philo_one;
+	id = 0;
+	while (++id <= g_philo_limit)
+	{
+		sem_post(p->my_clock);
+		sem_close(p->my_clock);
+//		sem_unlink(p->sem_name);
+		p = p->l;
+	}
+	return ;
+}
+
 void	clock_init(void)
 {
-	pthread_t		th_clock;
+	pthread_t			th_clock;
+	struct sigaction	action;
 
 	if (pthread_create(&th_clock, 0, &fn_clock, 0) != 0)
 		exit(-1);
 	pthread_detach(th_clock);
+	memset(&action, 0, sizeof(struct sigaction));
+	action.sa_handler = clock_destroy;
+	sigaction(SIGINT, &action, NULL);
 	return ;
 }
 
@@ -60,7 +83,9 @@ void	*clock_synchrony(void *arg)
 	p = (t_philo *)arg;
 	while (!g_a_m_e_o_v_e_r)
 	{
-		sem_wait(p->my_clock);
+		if ((p->sem_name) && !g_a_m_e_o_v_e_r)
+			if (sem_wait(p->my_clock) != 0)
+				exit (0);
 		g_clock++;
 	}
 	return (0);
@@ -68,11 +93,15 @@ void	*clock_synchrony(void *arg)
 
 void	clock_sync_init(t_philo *p)
 {
-	pthread_t	sync;
+	struct sigaction	action;
+	pthread_t			sync;
 
 	g_clock = 0;
 	if (pthread_create(&sync, 0, &clock_synchrony, p) != 0)
 		exit(-1);
-	pthread_detach(sync);
+	pthread_join(sync, 0);
+	memset(&action, 0, sizeof(struct sigaction));
+	action.sa_handler = clock_destroy;
+	sigaction(SIGINT, &action, NULL);
 	return ;
 }

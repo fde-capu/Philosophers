@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/04 22:39:07 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 11:26:55 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,28 +58,30 @@ void	game_start_process(void)
 	id = 0;
 	while (++id <= g_philo_limit)
 	{
+		game_over_event(0);
+		break ;
 		pid = fork();
 		if (pid == 0)
 		{
 			p = get_philo(id);
 			*radar_arg = id;
 			pthread_create(&(health_check), 0, &radar, radar_arg);
-			clock_sync_init(get_philo(id));
-			action_think(p);
-			id = 0;
-			while (++id <= g_philo_limit)
-				sem_post(g_stuffed_guys);
-			philo_destroy_all(g_philo_one);
+			clock_sync_init(p);
+
+			game_over_event(0);
 			pthread_join(health_check, 0);
 			free(radar_arg);
+			exit(game_pid_over());
+
+			action_think(p);
 			strategy_destroy();
 			exit(0);
 		}
 	}
 	clock_init();
 	wait_game_end();
-	game_over_event(0);
-	free(radar_arg);
+	free(radar_arg); // 10
+	clock_destroy(0); // 20
 	return ;
 }
 
@@ -98,8 +100,8 @@ int		main(int argc, char **argv)
 		if (gettimeofday(&g_init_time, 0))
 			exit(-1);
 		game_start_process();
-		philo_destroy_all_semaphores();
 		philo_destroy_all(g_philo_one);
+		philo_destroy_all_semaphores();
 		strategy_destroy();
 		game_outro();
 		return (0);
