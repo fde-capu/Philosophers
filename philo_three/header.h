@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 11:41:45 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 13:32:11 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char			*ft_strcat(const char *dst, const char *src);
 char			*ft_itoa(int n);
 void			*radar(void *arg);
 void			*clock_synchrony(void *arg);
-void			clock_sync_init(t_philo *p);
+pthread_t		clock_sync_init(t_philo *p);
 void			*fn_clock(void *arg);
 void			clock_init(void);
 void			game_over_event(int foo);

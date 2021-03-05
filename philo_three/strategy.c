@@ -6,46 +6,17 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 09:11:46 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 11:01:36 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 13:38:44 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void			change_state(t_philo *p, int state)
+int				game_pid_over(void)
 {
-	if (state == p->state)
-		return ;
-	pthread_mutex_lock(&g_lock_print);
-	if (g_a_m_e_o_v_e_r)
-	{
-		pthread_mutex_unlock(&g_lock_print);
-		return ;
-	}
-	p->state = state;
-	p->last_change = g_clock;
-	if (state == STATE_EAT)
-		p->last_meal = g_clock;
-	philo_log_direct(p);
-	pthread_mutex_unlock(&g_lock_print);
-	return ;
-}
-
-t_philo			*philo_init(int id)
-{
-	t_philo		*p;
-	const char	*tmp;
-
-	p = calloc(1, sizeof(t_philo));
-	p->id = id;
-	p->state = STATE_OUT;
-	tmp = ft_itoa(p->id);
-	p->sem_name = ft_strcat("philo_clock_sem_", tmp);
-	free((void *)tmp);
-	if (!(p->my_clock = sem_open(p->sem_name, O_CREAT, 0777, 0)))
-		exit(-1);
-	free((char *)p->sem_name);
-	return (p);
+	g_a_m_e_o_v_e_r = 1;
+	usleep(1000);
+	return (0);
 }
 
 void			game_over_event(int foo)

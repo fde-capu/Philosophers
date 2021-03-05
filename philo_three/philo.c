@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 07:39:53 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 11:35:51 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 13:54:37 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	philo_destroy_all_semaphores(void)
 		tmp = ft_itoa(id);
 		tmp = ft_strcatxr("philo_clock_sem_", tmp);
 		sem_unlink(tmp);
-		free(tmp);
+		free((void *)tmp);
 		//sem_post(p->my_clock);
 		//	sem_close(p->my_clock);
 		//	sem_unlink(p->sem_name);

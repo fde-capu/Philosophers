@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 12:13:22 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 13:39:44 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,31 @@ void	*wait_til_all_stuffed(void *arg)
 	id = 0;
 	while (++id <= g_philo_limit)
 		sem_wait(g_stuffed_guys);
-	kill(0, SIGINT);
 	return (0);
 }
 
 void	*wait_til_someone_dies(void *arg)
 {
 	(void)arg;
-	pthread_mutex_unlock(&g_lock_ending);
 	sem_wait(g_someone_is_dead);
 	return (0);
 }
 
 void	wait_game_end(void)
 {
-	pthread_t		two_endings[2];
+	pthread_t		two_endings;
 
-	if (pthread_create(&(two_endings[0]), 0, &wait_til_someone_dies, 0))
-		exit(-1);
-	if (pthread_create(&(two_endings[1]), 0, &wait_til_all_stuffed, 0))
-		exit(-1);
-	pthread_join(two_endings[0], 0);
-	pthread_join(two_endings[1], 0);
+	if (game_mode_death())
+	{
+		if (pthread_create(&(two_endings), 0, &wait_til_someone_dies, 0))
+			exit(-1);
+	}
+	else
+	{
+		if (pthread_create(&(two_endings), 0, &wait_til_all_stuffed, 0))
+			exit(-1);
+	}
+	pthread_join(two_endings, 0);
 	kill(0, SIGINT);
 	return ;
 }
@@ -52,6 +55,7 @@ void	game_start_process(void)
 	pid_t			pid;
 	t_philo			*p;
 	pthread_t		health_check;
+	pthread_t		indivudal_clock;
 	int				*radar_arg;
 
 	radar_arg = malloc(sizeof(int));
@@ -65,14 +69,16 @@ void	game_start_process(void)
 			*radar_arg = id;
 			pthread_create(&(health_check), 0, &radar, radar_arg);
 
-			clock_sync_init(p);
+			indivudal_clock = clock_sync_init(p);
 			//action_think(p);
 
-			game_over_event(0);
 			pthread_join(health_check, 0);
+			game_pid_over();
+			pthread_join(indivudal_clock, 0);
+			game_over_event(0);
 			free(radar_arg);
-			exit(game_pid_over());
-
+			philo_pid_destroy_all();
+			strategy_destroy();
 			exit(0);
 		}
 	}

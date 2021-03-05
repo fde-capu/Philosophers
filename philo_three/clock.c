@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 09:13:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 12:03:20 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 13:31:58 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,12 @@ void	*clock_synchrony(void *arg)
 	return (0);
 }
 
-void	clock_sync_init(t_philo *p)
+pthread_t	clock_sync_init(t_philo *p)
 {
 	pthread_t			sync;
 
 	g_clock = 0;
 	if (pthread_create(&sync, 0, &clock_synchrony, p) != 0)
 		exit(-1);
-	pthread_detach(sync);
-	return ;
+	return (sync);
 }
