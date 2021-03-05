@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 14:57:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/03 14:05:23 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/04 22:03:18 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,7 @@ void	*radar(void *arg)
 
 	id = *(int *)arg;
 	p = get_philo(id);
-	while (!(am_i_dead(p)))
-	{
+	while ((!g_a_m_e_o_v_e_r) && (!(am_i_dead(p))))
 		usleep(TICK);
-		if (g_a_m_e_o_v_e_r)
-			break ;
-	}
 	return (0);
 }

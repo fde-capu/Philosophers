@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 07:39:53 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/03 15:56:49 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/04 23:12:06 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,37 @@ t_philo	*philo_init_chain(int id)
 
 void	philo_destroy(t_philo *p)
 {
-	sem_close(p->my_clock);
-	sem_unlink(p->sem_name);
-	free((void *)(p->sem_name));
+	if(p->sem_name)
+	{
+		sem_post(p->my_clock);
+		sem_close(p->my_clock);
+		sem_unlink(p->sem_name);
+		free((char *)p->sem_name);
+		p->sem_name = 0;
+	}
 	free(p);
 	p = 0;
+	return ;
+}
+
+void	philo_destroy_all_semaphores(void)
+{
+	t_philo	*p;
+	int		id;
+
+	p = g_philo_one;
+	id = 0;
+	while (++id <= g_philo_limit)
+	{
+		if (p->sem_name)
+		{
+			sem_post(p->my_clock);
+			sem_close(p->my_clock);
+			sem_unlink(p->sem_name);
+			free((char *)p->sem_name);
+			p->sem_name = 0;
+		}
+		p = p->l;
+	}
 	return ;
 }

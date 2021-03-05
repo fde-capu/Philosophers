@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/04 08:45:41 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/04 22:20:35 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,13 @@
 # define STATE_THINK	1
 # define STATE_EAT		2
 
-# define COUNT_DOWN		1
+# define COUNT_DOWN		0
 
 # define TRIM_SET	" \t\n\r\v\f"
 # define ANIM_MCS		35000
 # define QUOTES_AMOUNT			53
 
+void			philo_destroy_all_semaphores(void);
 char			*ft_strcat(const char *dst, const char *src);
 char			*ft_itoa(int n);
 void			*radar(void *arg);
