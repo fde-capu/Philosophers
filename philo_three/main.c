@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 11:26:55 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 11:42:11 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,37 +51,33 @@ void	game_start_process(void)
 	int				id;
 	pid_t			pid;
 	t_philo			*p;
-	pthread_t		health_check;
+	//pthread_t		health_check;
 	int				*radar_arg;
 
 	radar_arg = malloc(sizeof(int));
 	id = 0;
 	while (++id <= g_philo_limit)
 	{
-		game_over_event(0);
-		break ;
 		pid = fork();
 		if (pid == 0)
 		{
 			p = get_philo(id);
 			*radar_arg = id;
-			pthread_create(&(health_check), 0, &radar, radar_arg);
-			clock_sync_init(p);
+		//	pthread_create(&(health_check), 0, &radar, radar_arg);
+		//	clock_sync_init(p);
 
 			game_over_event(0);
-			pthread_join(health_check, 0);
+		//	pthread_join(health_check, 0);
 			free(radar_arg);
 			exit(game_pid_over());
 
 			action_think(p);
-			strategy_destroy();
 			exit(0);
 		}
 	}
 	clock_init();
 	wait_game_end();
-	free(radar_arg); // 10
-	clock_destroy(0); // 20
+	free(radar_arg);
 	return ;
 }
 

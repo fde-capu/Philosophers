@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 11:22:27 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 11:41:45 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@
 char			*ft_strcatxr(char *s1, char *s2);
 void			philo_pid_destroy_all(void);
 int				game_pid_over(void);
-void			clock_destroy(int arg);
 void			philo_destroy_all_semaphores(void);
 char			*ft_strcat(const char *dst, const char *src);
 char			*ft_itoa(int n);

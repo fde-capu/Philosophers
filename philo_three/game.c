@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:51:45 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 11:11:59 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 11:39:37 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,8 @@ int				philo_take_seat(t_philo *p)
 
 int				game_pid_over(void)
 {
-	clock_destroy(0);
 	philo_pid_destroy_all();
-//	strategy_destroy();
+	strategy_destroy();
 	return (0);
 }
 
@@ -57,11 +56,13 @@ void	philo_pid_destroy_all(void)
 	id = 0;
 	while (++id < g_philo_limit)
 	{
+		sem_close(p->my_clock);
 //		free((char *)p->sem_name);
 		//p->sem_name = 0;
 		p = p->l;
 		free(p->r);
 	}
+	sem_close(p->my_clock);
 	free(p);
 	return ;
 }
