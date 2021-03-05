@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/03/05 11:43:55 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/03/05 11:50:08 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NUMB_PHILOS	=	2
 TIME_TO_DIE	=	800
 TIME_TO_EAT	=	200
 TIME_TO_NAP	=	200
-EAT_X_TIMES	=	0
+EAT_X_TIMES	=	1
 
 NAME		=	philo_three
 CC			=	clang
