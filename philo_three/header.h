@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 13:32:11 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 14:51:26 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void			*radar(void *arg);
 void			*clock_synchrony(void *arg);
 pthread_t		clock_sync_init(t_philo *p);
 void			*fn_clock(void *arg);
-void			clock_init(void);
+pthread_t		clock_init(void);
 void			game_over_event(int foo);
 int				stuff_me(t_philo *p);
 int				are_we_dead(void);

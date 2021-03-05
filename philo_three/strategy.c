@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 09:11:46 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 13:38:44 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 14:43:35 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int				game_pid_over(void)
 {
 	g_a_m_e_o_v_e_r = 1;
-	usleep(1000);
 	return (0);
 }
 
@@ -61,4 +60,16 @@ void			strategy_destroy(void)
 	sem_close(g_someone_is_dead);
 	sem_unlink("/alive");
 	return ;
+}
+
+void	*radar(void *arg)
+{
+	int		id;
+	t_philo	*p;
+
+	id = *(int *)arg;
+	p = get_philo(id);
+	while ((!g_a_m_e_o_v_e_r) && (!(am_i_dead(p))))
+		usleep(TICK);
+	return (0);
 }

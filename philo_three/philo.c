@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 07:39:53 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 14:12:50 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 14:15:24 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	philo_destroy_all_semaphores(void)
 	return ;
 }
 
-void			philo_pid_destroy_all(void)
+void	philo_pid_destroy_all(void)
 {
 	int				id;
 	t_philo			*p;

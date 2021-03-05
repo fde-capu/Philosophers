@@ -6,20 +6,19 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 09:13:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 13:31:58 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 14:52:14 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	clock_init(void)
+pthread_t	clock_init(void)
 {
 	pthread_t			th_clock;
 
 	if (pthread_create(&th_clock, 0, &fn_clock, 0) != 0)
 		exit(-1);
-	pthread_detach(th_clock);
-	return ;
+	return (th_clock);
 }
 
 void	*fn_clock(void *arg)

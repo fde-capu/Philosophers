@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 14:12:33 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 14:53:06 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,21 +70,23 @@ void	game_start_process(void)
 			pthread_create(&(health_check), 0, &radar, radar_arg);
 
 			indivudal_clock = clock_sync_init(p);
-			//action_think(p);
+			action_think(p);
 
 			game_pid_over();
+//			usleep(1000000);
 			pthread_join(health_check, 0);
+			free((int *)radar_arg);
 			pthread_join(indivudal_clock, 0);
 			game_over_event(0);
-			free(radar_arg);
 			philo_pid_destroy_all();
 			strategy_destroy();
 			exit(0);
 		}
 	}
-	clock_init();
+	indivudal_clock = clock_init();
 	wait_game_end();
-	free(radar_arg);
+	pthread_join(indivudal_clock, 0);
+	free((int *)radar_arg);
 	return ;
 }
 
