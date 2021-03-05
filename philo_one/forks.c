@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 09:27:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 16:24:41 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 17:01:08 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,29 +53,23 @@ void	*raise_right_fork(void *arg)
 void	raise_forks(t_philo *p)
 {
 	pthread_t	ambidestry[2];
+	int			tick;
 
+	tick = g_philo_limit * 3;
 	if ((!g_polite_start) && (!(p->id % 2)))
 		while (!g_polite_start)
-			usleep(g_philo_limit * 3);
+			usleep(tick);
 	if (pthread_create(&(ambidestry[0]), 0, &raise_left_fork, p) != 0)
 		exit(-1);
 	if (pthread_create(&(ambidestry[1]), 0, &raise_right_fork, p) != 0)
 		exit(-1);
 	pthread_join(ambidestry[0], 0);
 	pthread_join(ambidestry[1], 0);
-	if (!g_polite_start)
-	{
-		if (g_philo_limit % 2)
-		{
-			if (p->id == g_philo_limit)
-				g_polite_start = 1;
-		}
-		else
-		{
-			if (p->id == g_philo_limit - 1)
-				g_polite_start = 1;
-		}
-	}
+	if ((!g_polite_start) && (g_philo_limit % 2) && (p->id == g_philo_limit))
+		g_polite_start = 1;
+	if ((!g_polite_start) && (!(g_philo_limit % 2)) \
+		&& (p->id == g_philo_limit - 1))
+		g_polite_start = 1;
 	return ;
 }
 

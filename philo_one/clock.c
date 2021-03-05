@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 09:13:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 16:25:14 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 16:55:55 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ void	clock_init(void)
 void	*fn_clock(void *arg)
 {
 	struct timeval	now;
+	int				tick;
 
+	tick = g_philo_limit * 3;
 	(void)arg;
 	g_clock = 0;
 	if (gettimeofday(&g_init_time, 0))
@@ -36,7 +38,7 @@ void	*fn_clock(void *arg)
 			exit(-1);
 		g_clock = (((now.tv_sec * 1000) + now.tv_usec / 1000) - \
 			((g_init_time.tv_sec * 1000) + g_init_time.tv_usec / 1000));
-		usleep(g_philo_limit * 3);
+		usleep(tick);
 	}
 	return (0);
 }
