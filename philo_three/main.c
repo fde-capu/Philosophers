@@ -6,13 +6,13 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:19 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 12:06:00 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 12:13:22 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	*wait_til_someone_dies(void *arg)
+void	*wait_til_all_stuffed(void *arg)
 {
 	int				id;
 
@@ -24,7 +24,7 @@ void	*wait_til_someone_dies(void *arg)
 	return (0);
 }
 
-void	*wait_til_all_stuffed(void *arg)
+void	*wait_til_someone_dies(void *arg)
 {
 	(void)arg;
 	pthread_mutex_unlock(&g_lock_ending);
