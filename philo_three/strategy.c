@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 09:11:46 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 14:43:35 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 16:27:22 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void			strategy_destroy(void)
 	return ;
 }
 
-void	*radar(void *arg)
+void			*radar(void *arg)
 {
 	int		id;
 	t_philo	*p;
@@ -70,6 +70,6 @@ void	*radar(void *arg)
 	id = *(int *)arg;
 	p = get_philo(id);
 	while ((!g_a_m_e_o_v_e_r) && (!(am_i_dead(p))))
-		usleep(TICK);
+		usleep(g_philo_limit * 3);
 	return (0);
 }

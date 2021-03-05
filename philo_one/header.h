@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 16:20:41 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 16:29:39 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@
 
 # define STRAT_DESC	"PHILO_ONE\nShared forks in between."
 # define EVEN_ODD_DELAY 500
-# define EPSILON (g_philo_limit / 5)
-# define TICK	(g_philo_limit * 3)
 
 # define TRIM_SET	" \t\n\r\v\f"
 

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 14:59:13 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 16:28:47 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@
 # include "fun.h"
 
 # define STRAT_DESC "PHILO_THREE\nCenter forks, philosophers as processes."
-# define EPSILON 0
 # define TICK	10
 
 # define OUT_STRING "is standing."
@@ -60,6 +59,7 @@
 # define ANIM_MCS		35000
 # define QUOTES_AMOUNT			53
 
+void			wait_game_end(void);
 char			*ft_strcatxr(char *s1, char *s2);
 void			philo_pid_destroy_all(void);
 int				game_pid_over(void);

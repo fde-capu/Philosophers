@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/03 10:03:59 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 16:29:29 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@
 # include "fun.h"
 
 # define STRAT_DESC "PHILO_TWO\nForks at center of table as semaphores."
-# define EPSILON 0
-# define TICK	10
 
 # define TRIM_SET	" \t\n\r\v\f"
 

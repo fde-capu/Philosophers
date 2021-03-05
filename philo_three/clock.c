@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 09:13:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 14:52:14 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 16:27:33 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,25 @@ pthread_t	clock_init(void)
 	return (th_clock);
 }
 
-void	*fn_clock(void *arg)
+void		post_all_clocks(void)
+{
+	t_philo			*p;
+	int				id;
+
+	p = g_philo_one;
+	id = 0;
+	while (++id <= g_philo_limit)
+	{
+		sem_post(p->my_clock);
+		p = p->l;
+	}
+	return ;
+}
+
+void		*fn_clock(void *arg)
 {
 	struct timeval	now;
 	int				sync;
-	t_philo			*p;
-	int				id;
 
 	(void)arg;
 	sync = g_clock;
@@ -39,20 +52,14 @@ void	*fn_clock(void *arg)
 		while (sync < g_clock)
 		{
 			sync++;
-			p = g_philo_one;
-			id = 0;
-			while (++id <= g_philo_limit)
-			{
-				sem_post(p->my_clock);
-				p = p->l;
-			}
+			post_all_clocks();
 		}
-		usleep(TICK);
+		usleep(g_philo_limit * 3);
 	}
 	return (0);
 }
 
-void	*clock_synchrony(void *arg)
+void		*clock_synchrony(void *arg)
 {
 	t_philo	*p;
 
@@ -60,7 +67,7 @@ void	*clock_synchrony(void *arg)
 	while (!g_a_m_e_o_v_e_r)
 	{
 		if (sem_wait(p->my_clock) != 0)
-			exit (0);
+			exit(0);
 		g_clock++;
 	}
 	return (0);

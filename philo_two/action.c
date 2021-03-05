@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 14:57:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/03 10:02:01 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 16:26:34 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	*radar(void *arg)
 	while ((p->state != STATE_DEAD) &&
 		(!(am_i_dead(p))))
 	{
-		usleep(TICK / g_philo_limit);
+		usleep(3 / g_philo_limit);
 		p = p->l;
 		if (g_a_m_e_o_v_e_r)
 			break ;

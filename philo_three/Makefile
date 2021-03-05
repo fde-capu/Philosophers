@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/11 12:58:03 by fde-capu          #+#    #+#              #
-#    Updated: 2021/03/05 14:59:27 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/03/05 16:05:50 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,14 @@ EAT_X_TIMES	=	0
 
 NAME		=	philo_three
 CC			=	clang
-CCFLAGS		=	-Wall -Werror -Wextra -O0 -g
+CCFLAGS		=	-Wall -Werror -Wextra -O3 -g
 NMCCFLAGS	=	-pthread
 SRCS		=	main.c argn.c ft_atoi.c ft_strtrim.c \
 	ft_isdigit.c ft_chrinset.c quotes.c quotes2.c \
 	helpers1.c philo.c philo2.c game.c action.c \
 	game2.c strategy.c forks.c philo_logs.c helpers2.c \
-	fun.c questions.c clock.c ft_strcat.c ft_itoa.c
+	fun.c questions.c clock.c ft_strcat.c ft_itoa.c \
+	wait.c
 CCHEADS		=	header.h structs.h fun.h
 OBJS		=	$(SRCS:.c=.o)
 VALGRIND	=	valgrind

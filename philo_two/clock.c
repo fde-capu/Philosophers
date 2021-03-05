@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 09:13:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 16:26:04 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 16:26:04 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	*fn_clock(void *arg)
 			exit(-1);
 		g_clock = (((now.tv_sec * 1000) + now.tv_usec / 1000) - \
 			((g_init_time.tv_sec * 1000) + g_init_time.tv_usec / 1000));
-		usleep(TICK);
+		usleep(g_philo_limit * 3);
 	}
 	return (0);
 }
