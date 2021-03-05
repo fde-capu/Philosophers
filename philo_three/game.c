@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 10:51:45 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 13:14:20 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 14:10:19 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,26 +72,4 @@ t_philo			*philo_init(int id)
 		exit(-1);
 	free((char *)p->sem_name);
 	return (p);
-}
-
-void			philo_pid_destroy_all(void)
-{
-	int				id;
-	t_philo			*p;
-
-	p = g_philo_one;
-	if (!p)
-		return ;
-	id = 0;
-	while (++id < g_philo_limit)
-	{
-		sem_close(p->my_clock);
-//		free((char *)p->sem_name);
-		//p->sem_name = 0;
-		p = p->l;
-		free(p->r);
-	}
-	sem_close(p->my_clock);
-	free(p);
-	return ;
 }

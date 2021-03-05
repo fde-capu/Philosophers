@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 19:50:58 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/03 17:40:43 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/05 14:02:48 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		am_i_dead(t_philo *p)
 	{
 		lower_forks(p);
 		change_state(p, STATE_DEAD);
-		game_over_event(0);
+		game_pid_over();
 		return (1);
 	}
 	return (0);
