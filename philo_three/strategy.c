@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 09:11:46 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 16:27:22 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/06 17:42:16 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ void			strategy_init(void)
 	sem_unlink("/alive");
 	if (!(g_someone_is_dead = sem_open("/alive", O_CREAT, 0777, 0)))
 		exit(-1);
+	sem_unlink("/body_block");
+	if (!(g_body_play = sem_open("/body_block", O_CREAT, 0777, 1)))
+		exit(-1);
 	memset(&action, 0, sizeof(struct sigaction));
 	action.sa_handler = game_over_event;
 	sigaction(SIGINT, &action, NULL);
@@ -59,6 +62,8 @@ void			strategy_destroy(void)
 	sem_unlink("/stuffed");
 	sem_close(g_someone_is_dead);
 	sem_unlink("/alive");
+	sem_close(g_body_play);
+	sem_unlink("/body_block");
 	return ;
 }
 

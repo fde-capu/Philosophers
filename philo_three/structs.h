@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 12:46:44 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/06 17:25:26 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/06 17:41:28 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ sem_t				*g_stuffed_guys;
 sem_t				*g_someone_is_dead;
 int					g_clock;
 struct timeval		g_init_time;
-pthread_mutex_t		g_body_play;
+sem_t				*g_body_play;
 
 #endif
