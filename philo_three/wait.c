@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:04:38 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 15:04:55 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/06 18:26:32 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ void	*wait_til_all_stuffed(void *arg)
 	id = 0;
 	while (++id <= g_philo_limit)
 		sem_wait(g_stuffed_guys);
+	g_a_m_e_o_v_e_r = 1;
+	pthread_mutex_lock(&g_lock_print);
+	printf(ALL_STUFFED, g_clock, g_end_game);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/06 17:52:35 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/06 18:28:54 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 # define DEAD_STRING "\x1B[31mdied\x1B[0m."
 # define FORK_STRING_L "has taken the left fork."
 # define FORK_STRING_R "has taken the right fork."
+# define STUFFED_STRING "\x1B[31mis the last who ate all\x1B[0m."
 
 # define DIE_COL "\x1B[031m"
 # define EAT_COL "\x1B[032m"
@@ -48,11 +49,11 @@
 # define STATE_NAP		0
 # define STATE_THINK	1
 # define STATE_EAT		2
+# define STATE_STUFFED	3
 
 # define ANIM_MCS		35000
-
+# define COUNT_DOWN				1
 # define QUOTES_AMOUNT			53
-# define COUNT_DOWN				0
 
 void			*fn_clock(void *arg);
 void			clock_init(void);

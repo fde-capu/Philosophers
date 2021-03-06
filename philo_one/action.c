@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 14:57:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/03 09:58:51 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/06 18:21:23 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,12 @@ int		action_eat(t_philo *p)
 	p->meals++;
 	lower_forks(p);
 	if ((game_mode_eat()) && (are_we_stuffed()))
+	{
+		p->state = STATE_STUFFED;
+		p->last_change = g_clock;
+		philo_log_direct(p);
 		return (-1);
+	}
 	return (action_nap(p));
 }
 

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 13:25:33 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/05 16:28:47 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/06 18:28:30 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@
 # include "fun.h"
 
 # define STRAT_DESC "PHILO_THREE\nCenter forks, philosophers as processes."
-# define TICK	10
 
 # define OUT_STRING "is standing."
 # define NAP_STRING "is \x1B[36msleeping\x1B[0m."
@@ -39,6 +38,7 @@
 # define DEAD_STRING "\x1B[31mdied\x1B[0m."
 # define FORK_STRING_A "has taken a fork."
 # define FORK_STRING_B "has taken another fork."
+# define ALL_STUFFED "%06d \x1B[31mAll have finished %d meals\x1B[0m.\n"
 
 # define DIE_COL "\x1B[031m"
 # define EAT_COL "\x1B[032m"
@@ -52,7 +52,6 @@
 # define STATE_NAP		0
 # define STATE_THINK	1
 # define STATE_EAT		2
-
 # define COUNT_DOWN		1
 
 # define TRIM_SET	" \t\n\r\v\f"

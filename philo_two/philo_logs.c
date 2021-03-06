@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 08:11:08 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/02 18:33:12 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/06 17:58:41 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void		philo_log_all(void)
 
 void		philo_log_direct(t_philo *p)
 {
-	if (game_mode_eat() && (p->state == STATE_NAP))
+	if (game_mode_eat() && (p->state == STATE_NAP || p->state == STATE_STUFFED))
 		printf("%06d %d %s Meals: %d\n", p->last_change, p->id, \
 			state_string(p->state), p->meals);
 	else
