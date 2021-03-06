@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 09:13:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/06 17:19:12 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/06 18:48:57 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void		*fn_clock(void *arg)
 			sync++;
 			post_all_clocks();
 		}
-		//usleep(g_philo_limit * 3);
+		usleep(g_philo_limit * 3);
 	}
 	return (0);
 }
