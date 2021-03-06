@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 12:45:10 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/02/26 12:47:27 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/06 17:48:54 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int		validate_args(int argc, char **argv)
 {
 	int	a;
 
+	if (argc >= 7)
+		return (0);
 	g_argc = argc;
 	g_argv = argv;
 	a = 0;
