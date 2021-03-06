@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 09:27:04 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/03/06 17:26:32 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/03/06 17:30:23 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,10 @@ void	raise_forks(t_philo *p)
 void	lower_forks(t_philo *p)
 {
 	(void)p;
+	pthread_mutex_lock(&g_body_play);
 	sem_post(g_center_forks);
 	sem_post(g_center_forks);
+	pthread_mutex_unlock(&g_body_play);
 	return ;
 }
 
