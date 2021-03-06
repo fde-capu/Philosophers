@@ -145,7 +145,7 @@ milisecond is however long the CPU thinks it is.
     This also happens when only one philosopher get two forks.
     - Solution: philosophers are only alowed to take two forks simultaneously.
 
-- As for covid-19 pandemic, there have been notice of authorization that it can be tested on Guacamole.
+- As for covid-19 pandemic, there have been notice of authorization that Philosophers can be tested on Guacamole.
 
 ---
 
